@@ -5,6 +5,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeExceptio
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -382,7 +383,38 @@ public class GameController {
 	 * @param property the property which is for auction
 	 */
 	public void auction(Property property) {
+		int count = 1;
+		List<Player> bidders = new ArrayList<Player>();
+		for (Player player : game.getPlayers()){
+			if (!player.isBroke()) {
+				bidders.add(player);
+			}
+		}
+		int highestBid = 0;
+		while (bidders.size() > 1) {
+			Player bidder = bidders.remove(0);
+			int bid = gui.getUserInteger(bidder.getName() + "What do you want to bid? Current bid: " + highestBid);
+			if (bid > highestBid && bid <= bidder.getBalance()) {
+				highestBid = bid;
+				bidders.add(bidder);
+			}
+		}
+		try {
+			paymentToBank(bidders.get(0), highestBid);
+		} catch (PlayerBrokeException e) {
+			//TODO erro
+		}
+		bidders.get(0).addOwnedProperty(property);
+		property.setOwner(bidders.get(0));
+
+		//Insert overship to bidder
+
+
+
+
+
 		// TODO auction needs to be implemented
+
 		gui.showMessage("Now, there would be an auction of " + property.getName() + ".");
 	}
 	

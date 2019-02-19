@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="30cf5f02-3c6c-4fee-a865-e00ccc75e2db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="-1785">
+              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Property.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="488">
-              <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+              <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -51,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="-34">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -60,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/designpatterns/Subject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            <state relative-caret-position="187">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -69,11 +70,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="115" column="32" lean-forward="true" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
+            <state relative-caret-position="182">
+              <caret line="395" column="26" lean-forward="true" selection-start-line="395" selection-start-column="26" selection-end-line="395" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#12899#12907#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-249">
+              <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
             </state>
           </provider>
         </entry>
@@ -121,9 +132,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="950" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -132,111 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="designpatterns" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="cards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pisd" type="462c0819:PsiDirectoryNode" />
-              <item name="mini" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="dk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="dk" type="462c0819:PsiDirectoryNode" />
-              <item name="dtu" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope">
           <expand>
@@ -409,12 +315,126 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="designpatterns" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="GameController" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="dk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="dk" type="462c0819:PsiDirectoryNode" />
+              <item name="dtu" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550586660981" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550592283428" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -484,12 +504,13 @@
       <option name="presentableId" value="Default" />
       <updated>1549456343340</updated>
       <workItem from="1550583199772" duration="2164000" />
-      <workItem from="1550585553552" duration="980000" />
+      <workItem from="1550585553552" duration="1321000" />
+      <workItem from="1550588108262" duration="4090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3144000" />
+    <option name="totallyTimeSpent" value="7575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -509,7 +530,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.23489933" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.23825504" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -614,16 +635,6 @@
     <entry file="file://$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/properties/RealEstate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -662,33 +673,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Property.java">
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/designpatterns/Subject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        <state relative-caret-position="187">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/designpatterns/Subject.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="-249">
+          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="-34">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1785">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="115" column="32" lean-forward="true" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
+        <state relative-caret-position="182">
+          <caret line="395" column="26" lean-forward="true" selection-start-line="395" selection-start-column="26" selection-end-line="395" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#12899#12907#0" expanded="true" />
           </folding>
         </state>
       </provider>

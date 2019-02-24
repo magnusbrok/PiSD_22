@@ -383,7 +383,7 @@ public class GameController {
 	 * @param property the property which is for auction
 	 */
 	public void auction(Property property) {
-		int count = 1;
+		int count = 0;	//Counter of total bids.
 		List<Player> bidders = new ArrayList<Player>();
 		for (Player player : game.getPlayers()){
 			if (!player.isBroke()) {
@@ -393,29 +393,21 @@ public class GameController {
 		int highestBid = 0;
 		while (bidders.size() > 1) {
 			Player bidder = bidders.remove(0);
-			int bid = gui.getUserInteger(bidder.getName() + "What do you want to bid? Current bid: " + highestBid);
+			int bid = gui.getUserInteger(bidder.getName() + ": What do you want to bid? Current bid: " + highestBid + ". \n Total number of viable bids: " + count);
 			if (bid > highestBid && bid <= bidder.getBalance()) {
 				highestBid = bid;
 				bidders.add(bidder);
+				count++;
 			}
 		}
 		try {
 			paymentToBank(bidders.get(0), highestBid);
 		} catch (PlayerBrokeException e) {
-			//TODO erro
+			//Insert reaction or message here?
 		}
 		bidders.get(0).addOwnedProperty(property);
 		property.setOwner(bidders.get(0));
-
-		//Insert overship to bidder
-
-
-
-
-
-		// TODO auction needs to be implemented
-
-		gui.showMessage("Now, there would be an auction of " + property.getName() + ".");
+		//Insert message "player x" won the auction and bought "property name"?
 	}
 	
 	/**

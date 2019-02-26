@@ -4,11 +4,13 @@ import dk.dtu.compute.se.pisd.designpatterns.Observer;
 import dk.dtu.compute.se.pisd.designpatterns.Subject;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Car.Pattern;
 import gui_fields.GUI_Car.Type;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
@@ -53,6 +55,7 @@ public class View implements Observer {
 		
 		int i = 0;
 		for (Space space: game.getSpaces()) {
+
 			// TODO, here we assume that the games fields fit to the GUI's fields;
 			// the GUI fields should actually be created according to the game's
 			// fields
@@ -61,6 +64,11 @@ public class View implements Observer {
 			// TODO we should also register with the properties as observer; but
 			// the current version does not update anything for the spaces, so we do not
 			// register the view as an observer for now
+			if (space instanceof Property ) {
+				space.attach(this);
+				updateProperty((Property) space);
+			}
+
 		}
 		
 		// create the players in the GUI
@@ -85,7 +93,9 @@ public class View implements Observer {
 			if (subject instanceof Player) {
 				updatePlayer((Player) subject);
 			}
-			
+			if (subject instanceof Property) {
+				updateProperty((Property) subject);
+			}
 			// TODO update other subjects in the GUI
 			//      in particular properties (sold, houses, ...)
 			
@@ -126,6 +136,26 @@ public class View implements Observer {
 			}
 		}
 	}
+
+	private void updateProperty (Property property) {
+		GUI_Field guiField = this.space2GuiField.get(property);
+		if (guiField instanceof GUI_Ownable) {
+			GUI_Ownable guiProperty = (GUI_Ownable) guiField;
+			Player owner = property.getOwner();
+			if (owner != null) {
+				guiProperty.setBorder(owner.getColor());
+				guiProperty.setOwnerName(owner.getName());
+
+				// TODO inplement house GUI.
+
+			}
+			else {
+				guiProperty.setBorder(null);
+				guiProperty.setOwnerName(null);
+			}
+		}
+
+	}
 	
 	public void dispose() {
 		if (!disposed) {
@@ -133,6 +163,9 @@ public class View implements Observer {
 			for (Player player: game.getPlayers()) {
 				// unregister from the player as observer
 				player.detach(this);
+			}
+			for (Space space: game.getSpaces()) {
+				space.detach(this);
 			}
 		}
 	}

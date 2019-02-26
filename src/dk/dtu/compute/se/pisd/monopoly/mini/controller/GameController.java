@@ -383,7 +383,8 @@ public class GameController {
 	 * @param property the property which is for auction
 	 */
 	public void auction(Property property) {
-		int count = 0;	//Counter of total viable bids.
+		// TODO gør det så at det er den næste spiller i rækken der byder først. exp player 2 afviser at købe en grund
+		// så bliver det spiller 3 der byder først så player 1 osv.
 		List<Player> bidders = new ArrayList<Player>();
 		for (Player player : game.getPlayers()){
 			if (!player.isBroke()) {
@@ -393,21 +394,22 @@ public class GameController {
 		int highestBid = 0;
 		while (bidders.size() > 1) {
 			Player bidder = bidders.remove(0);
-			int bid = gui.getUserInteger(bidder.getName() + ": What do you want to bid? Current bid: " + highestBid + ". \n Total number of viable bids: " + count);
+			int bid = gui.getUserInteger(bidder.getName() + "What do you want to bid? Current bid: " + highestBid);
 			if (bid > highestBid && bid <= bidder.getBalance()) {
 				highestBid = bid;
 				bidders.add(bidder);
-				count++;
 			}
 		}
 		try {
 			paymentToBank(bidders.get(0), highestBid);
 		} catch (PlayerBrokeException e) {
-			//Insert reaction or message here?
+			e.printStackTrace();
 		}
 		bidders.get(0).addOwnedProperty(property);
 		property.setOwner(bidders.get(0));
-		//Insert message "player x" won the auction and bought "property name"?
+
+
+		gui.showMessage(property.getName()+" was bought on auction by "+bidders.get(0).getName() +" for "+ highestBid);
 	}
 	
 	/**

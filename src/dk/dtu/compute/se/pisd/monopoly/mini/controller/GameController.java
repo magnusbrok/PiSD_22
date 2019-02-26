@@ -383,7 +383,7 @@ public class GameController {
 	 * @param property the property which is for auction
 	 */
 	public void auction(Property property) {
-		int count = 0;	//Counter of total bids.
+		int count = 0;	//Counter of total viable bids.
 		List<Player> bidders = new ArrayList<Player>();
 		for (Player player : game.getPlayers()){
 			if (!player.isBroke()) {

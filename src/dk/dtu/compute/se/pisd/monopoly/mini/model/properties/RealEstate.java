@@ -12,6 +12,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
  */
 public class RealEstate extends Property{
 	
-	// TODO to be implemented
+
 
 }

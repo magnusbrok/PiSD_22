@@ -402,20 +402,13 @@ public class GameController {
 		try {
 			paymentToBank(bidders.get(0), highestBid);
 		} catch (PlayerBrokeException e) {
-			//TODO erro
+			e.printStackTrace();
 		}
 		bidders.get(0).addOwnedProperty(property);
 		property.setOwner(bidders.get(0));
 
-		//Insert overship to bidder
 
-
-
-
-
-		// TODO auction needs to be implemented
-
-		gui.showMessage("Now, there would be an auction of " + property.getName() + ".");
+		gui.showMessage(property.getName()+" was bought on auction by "+bidders.get(0).getName() +" for "+ highestBid);
 	}
 	
 	/**

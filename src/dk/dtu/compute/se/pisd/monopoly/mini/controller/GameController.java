@@ -383,7 +383,8 @@ public class GameController {
 	 * @param property the property which is for auction
 	 */
 	public void auction(Property property) {
-		int count = 1;
+		// TODO gør det så at det er den næste spiller i rækken der byder først. exp player 2 afviser at købe en grund
+		// så bliver det spiller 3 der byder først så player 1 osv.
 		List<Player> bidders = new ArrayList<Player>();
 		for (Player player : game.getPlayers()){
 			if (!player.isBroke()) {

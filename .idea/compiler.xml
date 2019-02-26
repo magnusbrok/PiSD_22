@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dk.dtu.compute.se.pisd.matador2" />
+        <module name="dk.dtu.compute.se.pisd.monopoly.mini" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dk.dtu.compute.se.pisd.matador2" target="1.8" />
+      <module name="dk.dtu.compute.se.pisd.monopoly.mini" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

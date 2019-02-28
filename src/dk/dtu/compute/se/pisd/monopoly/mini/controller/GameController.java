@@ -122,6 +122,7 @@ public class GameController {
 
 			// TODO offer all players the options to trade etc.
 
+
 			current = (current + 1) % players.size();
 			game.setCurrentPlayer(players.get(current));
 			if (current == 0) {

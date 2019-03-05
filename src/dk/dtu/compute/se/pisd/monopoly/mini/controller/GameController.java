@@ -198,6 +198,7 @@ public class GameController {
 	}
 
 	public void buyQuestion(Player player) {
+
 		String selection = gui.getUserSelection(
 				"Do you want to build a house?",
 				"yes",
@@ -207,7 +208,7 @@ public class GameController {
 				if (property instanceof RealEstate) {
 					RealEstate realEstate = ((RealEstate) property);
 					selection = gui.getUserSelection(
-							"Do you want to buy houses for the following property? : " + property.getName(),
+							"Do you want to buy a house on " + property.getName(),
 							"yes",
 							"no");
 					if (selection.equals("yes")) {

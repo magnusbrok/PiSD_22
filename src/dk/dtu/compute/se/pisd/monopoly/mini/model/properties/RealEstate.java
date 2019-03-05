@@ -15,7 +15,7 @@ public class RealEstate extends Property{
 
         private int houses;
         private int housecost;
-        private int maxhouses;
+        private int maxhouses = 4;
 
         public void buildhouse (Player player, RealEstate realEstate) {
                 if (player.getBalance() >= housecost && houses < maxhouses) {

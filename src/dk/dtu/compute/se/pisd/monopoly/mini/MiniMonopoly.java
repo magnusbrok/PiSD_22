@@ -44,8 +44,9 @@ public class MiniMonopoly {
 		p.setName("Rødovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
-		p.setRent(50);
+		p.setBaseRent(50);
 		game.addSpace(p);
+
 		
 		Chance chance = new Chance();
 		chance.setName("Chance");
@@ -55,7 +56,7 @@ public class MiniMonopoly {
 		p.setName("Hvidovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
-		p.setRent(50);
+		p.setBaseRent(50);
 		game.addSpace(p);
 		
 		Tax t = new Tax();
@@ -72,7 +73,7 @@ public class MiniMonopoly {
 		p.setName("Roskildevej");
 		p.setCost(2000);
 		p.setHousecost(100);
-		p.setRent(100);
+		p.setBaseRent(100);
 		game.addSpace(p);
 		
 		chance = new Chance();
@@ -83,14 +84,14 @@ public class MiniMonopoly {
 		p.setName("Valby Langgade");
 		p.setCost(2000);
 		p.setHousecost(100);
-		p.setRent(100);
+		p.setBaseRent(100);
 		game.addSpace(p);
 		
 		p = new RealEstate();
 		p.setName("Allégade");
 		p.setCost(2400);
 		p.setHousecost(100);
-		p.setRent(150);
+		p.setBaseRent(150);
 		game.addSpace(p);
 		
 		Space prison = new Space();
@@ -101,7 +102,7 @@ public class MiniMonopoly {
 		p.setName("Frederiksberg Allé");
 		p.setCost(2800);
 		p.setHousecost(100);
-		p.setRent(200);
+		p.setBaseRent(200);
 		game.addSpace(p);
 
 		s = new Utility();
@@ -114,14 +115,14 @@ public class MiniMonopoly {
 		p.setName("Bülowsvej");
 		p.setCost(2800);
 		p.setHousecost(100);
-		p.setRent(200);
+		p.setBaseRent(200);
 		game.addSpace(p);
 		
 		p = new RealEstate();
 		p.setName("Gl. Kongevej");
 		p.setCost(3200);
 		p.setHousecost(100);
-		p.setRent(250);
+		p.setBaseRent(250);
 		game.addSpace(p);
 		
 		List<Card> cards = new ArrayList<Card>();

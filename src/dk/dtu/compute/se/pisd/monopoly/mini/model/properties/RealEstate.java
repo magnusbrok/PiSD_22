@@ -13,6 +13,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.properties;
  */
 public class RealEstate extends Property{
 
+
         private int houses;
         private int housecost;
         private int maxhouses = 4;
@@ -27,7 +28,7 @@ public class RealEstate extends Property{
 
         public void computeRent(RealEstate realEstate) {
                 int newRent = realEstate.getBaseRent();
-                newRent = newRent * 2 * houses;
+                newRent = newRent + (2 * houses * realEstate.getBaseRent());
                 realEstate.setRent(newRent);
                 notifyChange();
         }

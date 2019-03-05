@@ -122,6 +122,25 @@ public class GameController {
 
 			// TODO offer all players the options to trade etc.
 
+			for (int i = 0; i < players.size(); i++) {
+				// gui ting :)
+				String selection = gui.getUserSelection(
+						"A round is ALMOST finished but first... Do you want to build a house?",
+						"yes",
+						"no");
+				if (selection.equals("yes")) {
+					for (int j = 0; j < players.get(i).getOwnedProperties().size(); j++){
+						players.get(i).getOwnedProperties();
+					}
+				}
+			}
+
+
+
+
+
+
+
 
 			current = (current + 1) % players.size();
 			game.setCurrentPlayer(players.get(current));

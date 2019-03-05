@@ -197,27 +197,40 @@ public class GameController {
 		} while (castDouble);
 	}
 
+	/**
+	 * Used at the end of each turn to ask players if they want to buy a house for any of their realEstates
+	 * loops through all owned properties. Only asks if the player has any realEstate
+	 * @author Everyone
+	 * @param player the player currently playing
+	 */
 	public void buyQuestion(Player player) {
-
-		String selection = gui.getUserSelection(
-				"Do you want to build a house?",
-				"yes",
-				"no");
-		if (selection.equals("yes")) {
-			for (Property property : player.getOwnedProperties()) {
-				if (property instanceof RealEstate) {
-					RealEstate realEstate = ((RealEstate) property);
-					selection = gui.getUserSelection(
-							"Do you want to buy a house on " + property.getName(),
-							"yes",
-							"no");
-					if (selection.equals("yes")) {
-						realEstate.buildhouse(player,realEstate);
-						gui.showMessage("You purchased a house!");
+		boolean hasRealEstate = false;
+		for (Property property : player.getOwnedProperties()) {
+			if (property instanceof RealEstate)
+				hasRealEstate = true;
+		}
+		if (hasRealEstate) {
+			String selection = gui.getUserSelection(
+					"Do you want to build any houses?",
+					"yes",
+					"no");
+			if (selection.equals("yes")) {
+				for (Property property : player.getOwnedProperties()) {
+					if (property instanceof RealEstate) {
+						RealEstate realEstate = ((RealEstate) property);
+						selection = gui.getUserSelection(
+								"Do you want to buy a house on " + property.getName(),
+								"yes",
+								"no");
+						if (selection.equals("yes")) {
+							realEstate.buildhouse(player,realEstate);
+							gui.showMessage("You purchased a house!");
+						}
 					}
 				}
 			}
 		}
+
 	}
 
 

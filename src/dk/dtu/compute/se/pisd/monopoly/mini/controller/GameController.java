@@ -2,6 +2,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.controller;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
 
@@ -35,55 +36,55 @@ import java.util.List;
  *
  */
 public class GameController {
-	
+
 	private Game game;
-	
+
 	private GUI gui;
-	
+
 	private View view;
-	
-    private boolean disposed = false;
-	
+
+	private boolean disposed = false;
+
 	/**
 	 * Constructor for a controller of a game.
-	 * 
+	 *
 	 * @param game the game
 	 */
 	public GameController(Game game) {
 		super();
 		this.game = game;
-		
+
 		gui = new GUI();
 	}
-	
+
 	/**
 	 * This method will initialize the GUI. It should be called after
 	 * the players of the game are created. As of now, the initialization
 	 * assumes that the spaces of the game fit to the fields of the GUI;
-	 * this could eventually be changed, by creating the GUI fields 
+	 * this could eventually be changed, by creating the GUI fields
 	 * based on the underlying game's spaces (fields).
 	 */
-	public void initializeGUI() {		
-		this. view = new View(game, gui);
+	public void initializeGUI() {
+		this.view = new View(game, gui);
 	}
-	
+
 	/**
 	 * The main method to start the game. The game is started with the
 	 * current player of the game; this makes it possible to resume a
 	 * game at any point.
 	 */
 	public void play() {
-		List<Player> players =  game.getPlayers();
+		List<Player> players = game.getPlayers();
 		Player c = game.getCurrentPlayer();
-		
+
 		int current = 0;
-		for (int i=0; i<players.size(); i++) {
+		for (int i = 0; i < players.size(); i++) {
 			Player p = players.get(i);
 			if (c.equals(p)) {
 				current = i;
 			}
 		}
-		
+
 		boolean terminated = false;
 		while (!terminated) {
 			Player player = players.get(current);
@@ -94,11 +95,11 @@ public class GameController {
 					// We could react to the player having gone broke
 				}
 			}
-			
+
 			// Check whether we have a winner
 			Player winner = null;
 			int countActive = 0;
-			for (Player p: players) {
+			for (Player p : players) {
 				if (!p.isBroke()) {
 					countActive++;
 					winner = p;
@@ -107,7 +108,7 @@ public class GameController {
 			if (countActive == 1) {
 				gui.showMessage(
 						"Player " + winner.getName() +
-						" has won with " + winner.getBalance() +"$.");
+								" has won with " + winner.getBalance() + "$.");
 				break;
 			} else if (countActive < 1) {
 				// This can actually happen in very rare conditions and only
@@ -117,44 +118,25 @@ public class GameController {
 				gui.showMessage(
 						"All players are broke.");
 				break;
-				
+
 			}
 
 			// TODO offer all players the options to trade etc.
 
-			for (int i = 0; i < players.size(); i++) {
-				// gui ting :)
-				String selection = gui.getUserSelection(
-						"A round is ALMOST finished but first... Do you want to build a house?",
-						"yes",
-						"no");
-				if (selection.equals("yes")) {
-					for (int j = 0; j < players.get(i).getOwnedProperties().size(); j++){
-						players.get(i).getOwnedProperties();
-					}
-				}
-			}
 
-
-
-
-
-
-
-
-			current = (current + 1) % players.size();
-			game.setCurrentPlayer(players.get(current));
-			if (current == 0) {
-				String selection = gui.getUserSelection(
-						"A round is finished. Do you want to continue the game?",
-						"yes",
-						"no");
-				if (selection.equals("no")) {
-					terminated = true;
-				}
+		current = (current + 1) % players.size();
+		game.setCurrentPlayer(players.get(current));
+		if (current == 0) {
+			String selection = gui.getUserSelection(
+					"A round is finished. Do you want to continue the game?",
+					"yes",
+					"no");
+			if (selection.equals("no")) {
+				terminated = true;
 			}
 		}
-		
+	}
+
 		dispose();
 	}
 
@@ -210,8 +192,35 @@ public class GameController {
 					gui.showMessage("Player " + player.getName() + " cast a double and makes another move.");
 				}
 			}
+			buyQuestion(player);
+
 		} while (castDouble);
 	}
+
+	public void buyQuestion(Player player) {
+		String selection = gui.getUserSelection(
+				"Do you want to build a house?",
+				"yes",
+				"no");
+		if (selection.equals("yes")) {
+			for (Property property : player.getOwnedProperties()) {
+				if (property instanceof RealEstate) {
+					RealEstate realEstate = ((RealEstate) property);
+					selection = gui.getUserSelection(
+							"Do you want to buy houses for the following property? : " + property.getName(),
+							"yes",
+							"no");
+					if (selection.equals("yes")) {
+						realEstate.buildhouse(player,realEstate);
+						gui.showMessage("You purchased a house!");
+					}
+				}
+			}
+		}
+	}
+
+
+
 	
 	/**
 	 * This method implements the activity of moving the player to the new position,

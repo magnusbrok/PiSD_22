@@ -6,12 +6,10 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
-import gui_fields.GUI_Car;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
+import gui_fields.*;
 import gui_fields.GUI_Car.Pattern;
 import gui_fields.GUI_Car.Type;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Ownable;
-import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -146,7 +144,15 @@ public class View implements Observer {
 				guiProperty.setBorder(owner.getColor());
 				guiProperty.setOwnerName(owner.getName());
 
-				// TODO inplement house GUI.
+				if (property instanceof RealEstate) {
+					RealEstate realEstate = ((RealEstate) property);
+
+					if (guiProperty instanceof GUI_Street) {
+						((GUI_Street) guiProperty).setHouses(realEstate.getHouses());
+					}
+				}
+
+				// TODO inplement house GUI... WIP
 
 			}
 			else {

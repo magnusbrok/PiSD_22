@@ -95,6 +95,7 @@ public class GameController {
 					// We could react to the player having gone broke
 				}
 			}
+			//TODO INSERT "buyQuestion" method here instead. (Asks everyone instead of just one player). /TMJ
 
 			// Check whether we have a winner
 			Player winner = null;

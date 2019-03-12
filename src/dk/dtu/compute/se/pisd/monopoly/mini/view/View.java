@@ -152,7 +152,7 @@ public class View implements Observer {
 					}
 				}
 
-				// TODO inplement house GUI... WIP
+				// TODO implement house GUI... WIP
 
 			}
 			else {

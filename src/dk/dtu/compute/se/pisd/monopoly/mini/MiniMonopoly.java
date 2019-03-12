@@ -35,7 +35,7 @@ public class MiniMonopoly {
 		// of creating it programmatically. This will be discussed
 		// later in this course.
 		Game game = new Game();
-		
+		//Hej fra mads
 		Space go = new Space();
 		go.setName("Go");
 		game.addSpace(go);
@@ -106,10 +106,10 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		s = new Utility();
-		p.setName("Coca-Cola Tapperi");
-		p.setCost(3000);
-		p.setRent(300);
-		game.addSpace(p);
+		s.setName("Coca-Cola Tapperi");
+		s.setCost(3000);
+		s.setRent(300);
+		game.addSpace(s);
 		
 		p = new RealEstate();
 		p.setName("Bülowsvej");

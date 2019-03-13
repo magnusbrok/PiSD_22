@@ -9,6 +9,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -195,5 +196,4 @@ public class MiniMonopoly {
 
 		}
 	}
-
 }

@@ -132,7 +132,13 @@ public class GameController {
 					"yes",
 					"no");
 			if (selection.equals("no")) {
-				terminated = true;
+				try {
+					terminated = true;
+					throw new GameEndedException(game);
+				} catch (GameEndedException e) {
+					gui.showMessage(e.getMessage());
+				}
+
 			}
 		}
 	}

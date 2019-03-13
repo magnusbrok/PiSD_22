@@ -1,6 +1,7 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.controller;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
@@ -73,7 +74,7 @@ public class GameController {
 	 * current player of the game; this makes it possible to resume a
 	 * game at any point.
 	 */
-	public void play() {
+	public void play() throws GameEndedException{
 		List<Player> players = game.getPlayers();
 		Player c = game.getCurrentPlayer();
 
@@ -119,9 +120,7 @@ public class GameController {
 				gui.showMessage(
 						"All players are broke.");
 				break;
-
 			}
-
 			// TODO offer all players the options to trade etc.
 
 

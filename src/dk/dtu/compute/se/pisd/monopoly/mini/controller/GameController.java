@@ -74,7 +74,7 @@ public class GameController {
 	 * current player of the game; this makes it possible to resume a
 	 * game at any point.
 	 */
-	public void play() throws GameEndedException{
+	public void play() {
 		List<Player> players = game.getPlayers();
 		Player c = game.getCurrentPlayer();
 
@@ -94,6 +94,9 @@ public class GameController {
 					this.makeMove(player);
 				} catch (PlayerBrokeException e) {
 					// We could react to the player having gone broke
+				} catch (GameEndedException e){
+					gui.showMessage(e.getMessage());
+					terminated = true;
 				}
 			}
 			//TODO INSERT "buyQuestion" method here instead. (Asks everyone instead of just one player). /TMJ
@@ -132,16 +135,11 @@ public class GameController {
 					"yes",
 					"no");
 			if (selection.equals("no")) {
-				try {
 					terminated = true;
-					throw new GameEndedException(game);
-				} catch (GameEndedException e) {
-					gui.showMessage(e.getMessage());
 				}
 
 			}
 		}
-	}
 
 		dispose();
 	}
@@ -156,7 +154,7 @@ public class GameController {
 	 * @param player the player making the move
 	 * @throws PlayerBrokeException if the player goes broke during the move
 	 */
-	public void makeMove(Player player) throws PlayerBrokeException {
+	public void makeMove(Player player) throws PlayerBrokeException, GameEndedException {
 
 		boolean castDouble;
 		int doublesCount = 0;
@@ -250,7 +248,7 @@ public class GameController {
 	 * @param space the space to which the player moves
 	 * @throws PlayerBrokeException when the player goes broke doing the action on that space
 	 */
-	public void moveToSpace(Player player, Space space) throws PlayerBrokeException {
+	public void moveToSpace(Player player, Space space) throws PlayerBrokeException, GameEndedException {
 		int posOld = player.getCurrentPosition().getIndex();
 		player.setCurrentPosition(space);
 
@@ -266,6 +264,10 @@ public class GameController {
 		// Execute the action associated with the respective space. Note
 		// that this is delegated to the field, which implements this action
 		space.doAction(this, player);
+
+		if (player.getBalance() < 0) {
+			throw new GameEndedException(game);
+		}
 	}	
 
 	/**
@@ -287,7 +289,7 @@ public class GameController {
 	 * @param player the player taking a chance card
 	 * @throws PlayerBrokeException if the player goes broke by this activity
 	 */
-	public  void takeChanceCard(Player player) throws PlayerBrokeException{
+	public  void takeChanceCard(Player player) throws PlayerBrokeException, GameEndedException{
 		Card card = game.drawCardFromDeck();
 		gui.displayChanceCard(card.getText());
 		gui.showMessage("Player " + player.getName() + " draws a chance card.");
@@ -335,7 +337,7 @@ public class GameController {
 	 * @param player the player the property is offered to
 	 * @throws PlayerBrokeException when the player chooses to buy but could not afford it
 	 */
-	public void offerToBuy(Property property, Player player) throws PlayerBrokeException {
+	public void offerToBuy(Property property, Player player) throws PlayerBrokeException, GameEndedException {
 		// TODO We might also allow the player to obtainCash before
 		// the actual offer, to see whether he can free enough cash
 		// for the sale.
@@ -419,6 +421,7 @@ public class GameController {
 			if (amount > player.getBalance()) {
 				playerBrokeToBank(player);
 				throw new PlayerBrokeException(player);
+
 			}
 			
 		}

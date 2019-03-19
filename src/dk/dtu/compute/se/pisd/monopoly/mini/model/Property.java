@@ -1,6 +1,7 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.model;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
@@ -79,7 +80,7 @@ public class Property extends Space {
 	}
 
 	@Override
-	public void doAction(GameController controller, Player player) throws PlayerBrokeException {
+	public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
 		if (owner == null) {
 			controller.offerToBuy(this, player);
 		} else if (!owner.equals(player)) {

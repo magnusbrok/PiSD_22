@@ -188,12 +188,7 @@ public class MiniMonopoly {
 
 		GameController controller = new GameController(game);
 		controller.initializeGUI();
-
-		try{
-			controller.play();
-		}catch (GameEndedException e){
-			e.getMessage();
+		controller.play();
 
 		}
 	}
-}

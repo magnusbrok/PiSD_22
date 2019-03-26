@@ -44,10 +44,10 @@ public class PlayerPanel extends JFrame {
 
 
         //Insetting labels
-        JLabel label = new JLabel("Balance: " + this.player.getBalance());
+        JLabel label = new JLabel(" Balance:      " + this.player.getBalance());
         playerPanel.add(label);
 
-        label = new JLabel("Navn:"+ player.getName());
+        label = new JLabel(" Navn:"+ player.getName());
         playerPanel.add(label);
 
         frame.add(playerPanel);

@@ -34,7 +34,7 @@ public class View implements Observer {
 	private Map<Player,GUI_Player> player2GuiPlayer = new HashMap<Player,GUI_Player>();
 	private Map<Player,Integer> player2position = new HashMap<Player,Integer>();
 	private Map<Space,GUI_Field> space2GuiField = new HashMap<Space,GUI_Field>();
-	private ArrayList<PlayerPanel> panels = new ArrayList<PlayerPanel>();
+	private Map<Player,PlayerPanel> player2Playerpanel = new HashMap<>();
 
 	
 	private boolean disposed = false;
@@ -76,7 +76,9 @@ public class View implements Observer {
 			player2GuiPlayer.put(player, guiPlayer);
 			gui.addPlayer(guiPlayer);
 
-			panels.add(new PlayerPanel(game, player));
+			player2Playerpanel.put(player, new PlayerPanel(game, player));
+
+
 
 			// player2position.put(player, 0);
 			
@@ -93,6 +95,8 @@ public class View implements Observer {
 		if (!disposed) {
 			if (subject instanceof Player) {
 				updatePlayer((Player) subject);
+
+
 			}
 			if (subject instanceof Property) {
 				updateProperty((Property) subject);
@@ -136,9 +140,8 @@ public class View implements Observer {
 			if (!name.equals(guiPlayer.getName())) {
 				guiPlayer.setName(name);
 			}
-			for (int i = 0 ; i < panels.size() ; i++) {
-				panels.get(i).update();
-			}
+			player2Playerpanel.get(player).update();
+			// TODO add update
 
 
 		}

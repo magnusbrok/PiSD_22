@@ -2,10 +2,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.view;
 
 import dk.dtu.compute.se.pisd.designpatterns.Observer;
 import dk.dtu.compute.se.pisd.designpatterns.Subject;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import gui_fields.*;
 import gui_fields.GUI_Car.Pattern;
@@ -13,6 +10,7 @@ import gui_fields.GUI_Car.Type;
 import gui_main.GUI;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +34,8 @@ public class View implements Observer {
 	private Map<Player,GUI_Player> player2GuiPlayer = new HashMap<Player,GUI_Player>();
 	private Map<Player,Integer> player2position = new HashMap<Player,Integer>();
 	private Map<Space,GUI_Field> space2GuiField = new HashMap<Space,GUI_Field>();
+	private ArrayList<PlayerPanel> panels = new ArrayList<PlayerPanel>();
+
 	
 	private boolean disposed = false;
 	
@@ -75,6 +75,9 @@ public class View implements Observer {
 			GUI_Player guiPlayer = new GUI_Player(player.getName(), player.getBalance(), car);
 			player2GuiPlayer.put(player, guiPlayer);
 			gui.addPlayer(guiPlayer);
+
+			panels.add(new PlayerPanel(game, player));
+
 			// player2position.put(player, 0);
 			
 			// register this view with the player as an observer, in order to update the
@@ -110,6 +113,7 @@ public class View implements Observer {
 	 */
 	private void updatePlayer(Player player) {
 		GUI_Player guiPlayer = this.player2GuiPlayer.get(player);
+
 		if (guiPlayer != null) {
 			guiPlayer.setBalance(player.getBalance());
 
@@ -132,6 +136,11 @@ public class View implements Observer {
 			if (!name.equals(guiPlayer.getName())) {
 				guiPlayer.setName(name);
 			}
+			for (int i = 0 ; i < panels.size() ; i++) {
+				panels.get(i).update();
+			}
+
+
 		}
 	}
 

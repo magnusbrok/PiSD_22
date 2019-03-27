@@ -37,20 +37,49 @@ public class PlayerPanel extends JFrame {
         panel.removeAll();
 
         JPanel playerPanel = new JPanel();
+        playerPanel.setPreferredSize(new Dimension(80 , 90));
         playerPanel.setPreferredSize(new Dimension(90, 100));
+        playerPanel.setMaximumSize(new Dimension(120, 110));
         playerPanel.setLayout(new BoxLayout(playerPanel,BoxLayout.Y_AXIS));
         playerPanel.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         playerPanel.setBackground(player.getColor());
 
 
-        //Insetting labels
-        JLabel label = new JLabel(" Balance:      " + this.player.getBalance());
+        //Insetting labels into the Playerpanel
+        JLabel label = new JLabel(" Balance:   " + this.player.getBalance());
         playerPanel.add(label);
 
-        label = new JLabel(" Navn:"+ player.getName());
+        label = new JLabel(" Navn:   "+ player.getName());
         playerPanel.add(label);
+
+        if (player.isInPrison()) {
+            label = new JLabel(" Status:   In Jail");
+            playerPanel.add(label);
+        }
+        if (player.isBroke()){
+        label = new JLabel(" Status:   Broke");
+        playerPanel.add(label);
+        }
+
+        //Draw owned properties
+        //TODO fix below code
+        JPanel propertyPanel = new JPanel();
+        for (int i = 0 ; i < player.getOwnedProperties().size() ; i++)
+
+            propertyPanel = new JPanel();
+            propertyPanel.setPreferredSize(new Dimension(80 , 90));
+            propertyPanel.setPreferredSize(new Dimension(90, 100));
+            propertyPanel.setMaximumSize(new Dimension(120, 110));
+            propertyPanel.setLayout(new BoxLayout(propertyPanel,BoxLayout.X_AXIS));
+            propertyPanel.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+            propertyPanel.setBackground(player.getColor());
+            label = new JLabel(""+ player.getOwnedProperties());
+            propertyPanel.add(label);
+
+
 
         frame.add(playerPanel);
+        //frame.add(propertyPanel);
         frame.revalidate();
 
     }

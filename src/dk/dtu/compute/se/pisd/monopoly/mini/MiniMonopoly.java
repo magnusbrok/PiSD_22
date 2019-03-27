@@ -67,7 +67,7 @@ public class MiniMonopoly {
 
 		Utility s = new Utility();
 		s.setName("Øresund");
-		s.setCost(4000);
+		s.setCost(2000);
 		s.setRent(500);
 		game.addSpace(s);
 

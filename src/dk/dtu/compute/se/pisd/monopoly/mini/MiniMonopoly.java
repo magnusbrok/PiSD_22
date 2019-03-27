@@ -126,7 +126,34 @@ public class MiniMonopoly {
 		p.setHousecost(100);
 		p.setBaseRent(250);
 		game.addSpace(p);
-		
+
+		p = new RealEstate();
+		p.setName("Bernstorffsvej");
+		p.setCost(180);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+		chance = new Chance();
+		chance.setName("Chance");
+		game.addSpace(chance);
+
+		p = new RealEstate();
+		p.setName("Hellerupvej");
+		p.setCost(180);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+		p = new RealEstate();
+		p.setName("Strand");
+		p.setCost(180);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+
+
 		List<Card> cards = new ArrayList<Card>();
 		
 		CardMove move = new CardMove();

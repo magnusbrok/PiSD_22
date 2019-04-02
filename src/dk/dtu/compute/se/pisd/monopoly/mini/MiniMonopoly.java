@@ -42,7 +42,7 @@ public class MiniMonopoly {
 		game.addSpace(go);
 		
 		RealEstate p = new RealEstate();
-		p.setColor(Color.CYAN);
+		p.setColor(new Color(102,153,255));
 		p.setName("Rødovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
@@ -55,7 +55,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
-		p.setColor(Color.CYAN);
+		p.setColor(new Color(102,153,255));
 		p.setName("Hvidovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
@@ -74,7 +74,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Roskildevej");
-		p.setColor(Color.ORANGE);
+		p.setColor(new Color(255,153,153));
 		p.setCost(2000);
 		p.setHousecost(100);
 		p.setBaseRent(100);
@@ -85,7 +85,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
-		p.setColor(Color.ORANGE);
+		p.setColor(new Color(255,153,153));
 		p.setName("Valby Langgade");
 		p.setCost(2000);
 		p.setHousecost(100);
@@ -94,7 +94,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Allégade");
-		p.setColor(Color.ORANGE);
+		p.setColor(new Color(255,153,153));
 		p.setCost(2400);
 		p.setHousecost(100);
 		p.setBaseRent(150);

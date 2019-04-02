@@ -11,6 +11,14 @@ import java.util.List;
 
 public class GameDAO implements IGameDAO {
 
+    private Connection createConnection() throws DALException {
+        try {
+            return DriverManager.getConnection("jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com/s185037?"
+                    + "user=s185037&password=7KZWv1fdgUsV6uSlvhLVb");
+        } catch (SQLException e)    {
+            throw new DALException(e.getMessage());
+        }
+    }
 
     @Override
     public void createGame(Game game) throws DALException {
@@ -51,12 +59,4 @@ public class GameDAO implements IGameDAO {
     }
 
 
-    private Connection createConnection() throws DALException {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com/s185037?"
-                    + "user=s185037&password=7KZWv1fdgUsV6uSlvhLVb");
-        } catch (SQLException e)    {
-            throw new DALException(e.getMessage());
-        }
-    }
 }

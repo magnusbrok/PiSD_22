@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f678af5-2ffc-42d2-b12a-d2279887e05f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/exceptions/DALException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,6 +11,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/dk_dtu_compute_se_pisd_matador2$DAO_Tester.ic" NAME="DAO_Tester Coverage Results" MODIFIED="1554221461861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>dk.dtu.compute.se.pisd.monopoly.mini.DAL.*</FILTER>
+    </SUITE>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -46,11 +46,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="160">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#1579#1580#0" expanded="true" />
+                <element signature="e#1607#1608#0" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#510#511#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            <state relative-caret-position="90">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,8 +187,8 @@
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/exceptions/DALException.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" />
-        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" />
+        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" />
       </list>
     </option>
   </component>
@@ -430,12 +439,12 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554221136616" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554221731974" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../DTU_indledende databaser/JBCD_aflevering" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -525,7 +534,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76125000" />
+    <option name="totallyTimeSpent" value="76602000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -538,7 +547,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.16040269" />
       <window_info id="Structure" order="1" sideWeight="0.5008881" side_tool="true" weight="0.21052632" />
@@ -549,8 +557,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.32152975" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5495751" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.32152975" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5495751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -560,6 +568,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.32740214" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4986577" weight="0.32719547" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -604,6 +613,24 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -910,20 +937,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        <state relative-caret-position="160">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

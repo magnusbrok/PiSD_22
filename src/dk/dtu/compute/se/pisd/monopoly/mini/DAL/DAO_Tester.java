@@ -6,15 +6,12 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class DAO_Tester {
 
 
 
     public static void main(String[] args) {
+        GameDAO DAO = new GameDAO();
         MiniMonopoly monopoly = new MiniMonopoly();
             Game game = monopoly.createGame();
             monopoly.createPlayers(game);
@@ -50,13 +47,13 @@ public class DAO_Tester {
 
         }
 
-        GameDAO DAO = new GameDAO();
         try {
+            System.out.println("making game");
         DAO.createGame(game);
             System.out.println("made save");
 
         }catch (DALException e){
-            e.getMessage();
+            e.printStackTrace();
         }
 
     }

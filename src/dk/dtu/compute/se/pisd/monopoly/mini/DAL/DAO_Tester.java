@@ -48,7 +48,6 @@ public class DAO_Tester {
         }
 
         try {
-            System.out.println("making game");
         DAO.createGame(game);
             System.out.println("made save");
 

@@ -102,7 +102,7 @@ public class Property extends Space {
 		return baseRent;
 	}
 
-	public void setBaseRent(int baserent) {
-		this.baseRent = baserent;
+	public void setBaseRent(int baseRent) {
+		this.baseRent = baseRent;
 	}
 }

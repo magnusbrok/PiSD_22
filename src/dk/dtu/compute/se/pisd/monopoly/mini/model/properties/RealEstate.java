@@ -3,6 +3,8 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.properties;
         import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
         import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 
+        import java.awt.*;
+
 /**
  * A specific property, which represents real estate on which houses
  * and hotels can be built. Note that this class does not have details
@@ -17,6 +19,10 @@ public class RealEstate extends Property{
         private int houses;
         private int housecost;
         private int maxhouses = 4;
+
+
+        private Color color;
+
 
         public void buildhouse (Player player, RealEstate realEstate) {
                 if (player.getBalance() >= housecost && houses < maxhouses) {
@@ -58,5 +64,12 @@ public class RealEstate extends Property{
         public void setHousecost(int housecost) {
                 this.housecost = housecost;
                 notifyChange();
+        }
+
+        public Color getColor() {
+                return color;
+        }
+        public void setColor(Color color) {
+                this.color = color;
         }
 }

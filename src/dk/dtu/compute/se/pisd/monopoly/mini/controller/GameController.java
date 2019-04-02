@@ -349,7 +349,7 @@ public class GameController {
 				"yes",
 				"no");
 
-        if (choice.equals("yes")) {
+        if (choice.equals("yes") && player.getBalance() >= property.getCost()) {
     		try {
     			paymentToBank(player, property.getCost());
     		} catch (PlayerBrokeException e) {

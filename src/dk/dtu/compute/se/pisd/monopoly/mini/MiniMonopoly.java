@@ -37,12 +37,12 @@ public class MiniMonopoly {
 		// of creating it programmatically. This will be discussed
 		// later in this course.
 		Game game = new Game();
-		//Hej fra mads
 		Space go = new Space();
 		go.setName("Go");
 		game.addSpace(go);
 		
 		RealEstate p = new RealEstate();
+		p.setColor(Color.CYAN);
 		p.setName("Rødovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
@@ -55,6 +55,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
+		p.setColor(Color.CYAN);
 		p.setName("Hvidovrevej");
 		p.setCost(1200);
 		p.setHousecost(100);
@@ -73,6 +74,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Roskildevej");
+		p.setColor(Color.ORANGE);
 		p.setCost(2000);
 		p.setHousecost(100);
 		p.setBaseRent(100);
@@ -83,6 +85,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
+		p.setColor(Color.ORANGE);
 		p.setName("Valby Langgade");
 		p.setCost(2000);
 		p.setHousecost(100);
@@ -91,6 +94,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Allégade");
+		p.setColor(Color.ORANGE);
 		p.setCost(2400);
 		p.setHousecost(100);
 		p.setBaseRent(150);
@@ -102,18 +106,20 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Frederiksberg Allé");
+		p.setColor(Color.GREEN);
 		p.setCost(2800);
 		p.setHousecost(100);
 		p.setBaseRent(200);
 		game.addSpace(p);
 
 		s = new Utility();
-		s.setName("Coca-Cola Tapperi");
-		s.setCost(3000);
+		s.setName("Tuborg tapperi");
+		s.setCost(2000);
 		s.setRent(300);
 		game.addSpace(s);
 		
 		p = new RealEstate();
+		p.setColor(Color.GREEN);
 		p.setName("Bülowsvej");
 		p.setCost(2800);
 		p.setHousecost(100);
@@ -122,13 +128,21 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Gl. Kongevej");
+		p.setColor(Color.GREEN);
 		p.setCost(3200);
 		p.setHousecost(100);
 		p.setBaseRent(250);
 		game.addSpace(p);
 
+		s = new Utility();
+		s.setName("D.F.D.S.");
+		s.setCost(2000);
+		s.setRent(500);
+		game.addSpace(s);
+
 		p = new RealEstate();
 		p.setName("Bernstorffsvej");
+		p.setColor(Color.GRAY);
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -140,13 +154,15 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Hellerupvej");
+		p.setColor(Color.GRAY);
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);
 		game.addSpace(p);
 
 		p = new RealEstate();
-		p.setName("Strand");
+		p.setName("Strandvejen");
+		p.setColor(Color.GRAY);
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);

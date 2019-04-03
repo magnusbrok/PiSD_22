@@ -21,6 +21,7 @@ public class RealEstate extends Property{
         private int maxhouses = 4;
 
 
+
         private Color color;
 
 

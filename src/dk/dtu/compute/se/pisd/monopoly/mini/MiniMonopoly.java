@@ -5,10 +5,8 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardMove;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardReceiveMoneyFromBank;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.PayTax;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
-
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -198,18 +196,21 @@ public class MiniMonopoly {
 		// TODO the players should eventually be created interactively or
 		// be loaded from a database
 		Player p = new Player();
+		p.setPlayerID(1);
 		p.setName("Player 1");
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(Color.RED);
 		game.addPlayer(p);
 
 		p = new Player();
+		p.setPlayerID(2);
 		p.setName("Player 2");
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(Color.YELLOW);
 		game.addPlayer(p);
 
 		p = new Player();
+		p.setPlayerID(3);
 		p.setName("Player 3");
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(Color.GREEN);

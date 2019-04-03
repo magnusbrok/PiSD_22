@@ -7,18 +7,16 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
 import java.awt.*;
 
 public class PlayerPanel extends JFrame {
     private Player player;
-    private Game game;
     private JFrame frame;
     JPanel panel = new JPanel();
 
     public PlayerPanel(Game game, Player player){
         this.player = player;
-        this.game = game;
+        //this.game = game;
 
         frame = new JFrame((player.getName()));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,10 +64,10 @@ public class PlayerPanel extends JFrame {
 
         //TODO Maybe compine properties of same color plus add the right colour
         this.getContentPane().setLayout(null);
+        frame.add(panel);
 
         JPanel propertyPanel = new JPanel();
 
-        frame.add(panel);
         for (Property property : player.getOwnedProperties()){
 
 
@@ -82,7 +80,6 @@ public class PlayerPanel extends JFrame {
 
             label = new JLabel(" " + property.getName());
             propertyPanel.add(label);
-
 
 
             if (property instanceof RealEstate) {

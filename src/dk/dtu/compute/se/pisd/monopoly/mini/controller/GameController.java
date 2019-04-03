@@ -1,6 +1,8 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.controller;
 
+import dk.dtu.compute.se.pisd.monopoly.mini.DAL.GameDAO;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
@@ -135,7 +137,18 @@ public class GameController {
 					"yes",
 					"no");
 			if (selection.equals("no")) {
+				selection = gui.getUserSelection("Do you want to save the game?", "yes", "no");
+				if (selection.equals("yes")) {
+					GameDAO gameDAO = new GameDAO();
+					try {
+						game.setGameID(gui.getUserInteger("Hvilket ID skal dit save gemmes under?"));
+						gameDAO.createGame(game);
+					} catch (DALException e) {
+						e.printStackTrace();
+					}
 					terminated = true;
+				}
+				else terminated = true;
 				}
 
 			}

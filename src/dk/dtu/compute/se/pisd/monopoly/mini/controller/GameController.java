@@ -176,8 +176,8 @@ public class GameController {
 			// for making the game faster. Eventually, this should be set
 			// to 1 - 6 again (to this end, the constants 3.0 below should
 			// be set to 6.0 again.
-			int die1 = (int) (1 + 3.0*Math.random());
-			int die2 = (int) (1 + 3.0*Math.random());
+			int die1 = (int) (1 + 6.0*Math.random());
+			int die2 = (int) (1 + 6.0*Math.random());
 			castDouble = (die1 == die2);
 			gui.setDice(die1, die2);
 			

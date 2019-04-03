@@ -11,7 +11,7 @@ public interface IGameDAO {
 
     boolean updateGame(Game game);
 
-    boolean loadGame (Game game);
+    boolean loadGame (Game game) throws DALException;
 
     List<Integer> getGameIds();
 }

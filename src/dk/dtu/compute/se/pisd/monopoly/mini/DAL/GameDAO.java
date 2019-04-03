@@ -4,11 +4,9 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -52,14 +50,14 @@ public class GameDAO implements IGameDAO {
 
             statement.executeUpdate();
 
-            }
+           }
 
             //TODO insert properties into properties
 
             for (int i = 0 ; i < game.getSpaces().size() ; i++) {
+
                 if (game.getSpaces().get(i) instanceof RealEstate) {
                     RealEstate realEstate = (RealEstate) game.getSpaces().get(i);
-
                     if (realEstate.getOwner() != null) {
                     statement = c.prepareStatement("INSERT INTO Property VALUES (?, ?, ?, ?)");
                     statement.setInt(1 , i);
@@ -69,12 +67,18 @@ public class GameDAO implements IGameDAO {
                     statement.executeUpdate();
                     }
                 }
+                if (game.getSpaces().get(i) instanceof Utility) {
+                    Utility utility = (Utility) game.getSpaces().get(i);
+                    if (utility.getOwner() != null) {
+                        statement = c.prepareStatement("INSERT INTO Property VALUES (?, ?, ?, ?)");
+                        statement.setInt(1 , i);
+                        statement.setInt(2, utility.getOwner().getPlayerID());
+                        statement.setInt(3, 0);
+                        statement.setInt(4, game.getGameID());
+                        statement.executeUpdate();
+                    }
+                }
             }
-
-
-
-
-
         } catch (SQLException e) {
             throw new DALException(e.getMessage());
         }
@@ -86,8 +90,55 @@ public class GameDAO implements IGameDAO {
     }
 
     @Override
-    public boolean loadGame(Game game) {
-        return false;
+    public boolean loadGame(Game game) throws DALException{
+        try (Connection c = createConnection()){
+
+            // sets currentplayer
+            PreparedStatement statement = c.prepareStatement("SELECT * FROM Game WHERE g_ID = ?");
+            statement.setInt(1, game.getGameID());
+            ResultSet resultSet = statement.executeQuery();
+            int playerID = resultSet.getInt("curremtPlayer");
+            Player player = game.getPlayers().get(playerID-1);
+            game.setCurrentPlayer(player);
+
+            //TODO make players now only works with 3 players
+            statement = c.prepareStatement("SELECT * FROM Player WHERE g_ID = ?");
+            statement.setInt(1, game.getGameID());
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                playerID = resultSet.getInt("pl_ID");
+                player = game.getPlayers().get(playerID-1);
+                player.setName(resultSet.getString("name"));
+                player.setCurrentPosition(game.getSpaces().get(resultSet.getInt("position")));
+                player.setBalance(resultSet.getInt("balance"));
+                if (resultSet.getInt("inprison") == 1) {
+                    player.setInPrison(true);
+                }
+                if (resultSet.getInt("broke") == 1) {
+                    player.setBroke(true);
+                }
+
+            }
+
+            //TODO change property attributes
+            statement = c.prepareStatement("SELECT * FROM Property WHERE g_ID = ?");
+            statement.setInt(1, game.getGameID());
+            resultSet = statement.executeQuery();
+            if (game.getSpaces().get(resultSet.getInt("pr_ID")) instanceof RealEstate) {
+                RealEstate realEstate = (RealEstate) game.getSpaces().get(resultSet.getInt("pr_ID"));
+
+            }
+
+
+
+
+
+
+
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage());
+        }
+        return true;
     }
 
     @Override

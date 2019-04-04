@@ -190,14 +190,18 @@ public class GameDAO implements IGameDAO {
     private void makePropertyFromResultSet(ResultSet resultSet, Game game){
         try{
             Property property = (Property) game.getSpaces().get(resultSet.getInt("pr_ID"));
+            Player player = game.getPlayers().get(resultSet.getInt("pl_ID")-1);
+
             if (property instanceof RealEstate) {
                 RealEstate realEstate = (RealEstate) property;
-                realEstate.setOwner(game.getPlayers().get(resultSet.getInt("pl_ID")-1));
+                realEstate.setOwner(player);
+                player.addOwnedProperty(realEstate);
                 realEstate.setHouses(resultSet.getInt("houses"));
             }
             if (property instanceof Utility) {
                 Utility utility = (Utility) property;
-                utility.setOwner(game.getPlayers().get((resultSet.getInt("pl_ID")-1)));
+                utility.setOwner(player);
+                player.addOwnedProperty(utility);
             }
 
 

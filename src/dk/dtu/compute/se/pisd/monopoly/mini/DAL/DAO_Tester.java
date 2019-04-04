@@ -6,10 +6,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-
 public class DAO_Tester {
 
 
@@ -23,22 +19,14 @@ public class DAO_Tester {
             game.getCurrentPlayer().setInPrison(true);
             game.getCurrentPlayer().setCurrentPosition(game.getSpaces().get(5));
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDate date = LocalDate.now();
-        String dato = date.toString();
 
-        System.out.println(dato);
         System.out.println("Test af DAO");
-        //System.out.println(game.getPlayers().size());
 
-        game.getSpaces().get(1).setName("Pølsevej");
-        RealEstate test = (RealEstate) game.getSpaces().get(3);
-        test.setHouses(3);
-        test.setOwner(game.getCurrentPlayer());
-        test = (RealEstate) game.getSpaces().get(1);
-        test.setOwner(game.getPlayers().get(2));
+        RealEstate testRealEstate = (RealEstate) game.getSpaces().get(3);
 
 
+
+/** Prints all players
         for (int i = 0 ; i < game.getPlayers().size()  ; i++) {
 
 
@@ -48,7 +36,9 @@ public class DAO_Tester {
 
 
         }
+ **/
 
+/** prints all RealEstates
         for (int i = 0 ; i < game.getSpaces().size() ; i++ ){
 
             if (game.getSpaces().get(i) instanceof RealEstate){
@@ -59,10 +49,27 @@ public class DAO_Tester {
 
 
         }
+ **/
 
         try {
-        DAO.createGame(game);
-            System.out.println("made save");
+            game.setGameID(1);
+            DAO.loadGame(game);
+            System.out.println("got save");
+            for (int i = 0 ; i < game.getPlayers().size() ; i++) {
+
+                Player testPlayer = game.getPlayers().get(i);
+                System.out.println(testPlayer.getName() + " " + testPlayer.getPlayerID());
+                System.out.println(testPlayer.getBalance());
+                System.out.println(testPlayer.isBroke());
+                System.out.println(testPlayer.getCurrentPosition().getIndex());
+
+            }
+
+            RealEstate testProperty = (RealEstate) game.getSpaces().get(3);
+            System.out.println(testProperty.getOwner().getName());
+            System.out.println(testProperty.getHouses());
+
+
 
         }catch (DALException e){
             e.printStackTrace();

@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f678af5-2ffc-42d2-b12a-d2279887e05f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_15.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dk.dtu.compute.se.pisd.monopoly.mini.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dk.dtu.compute.se.pisd.monopoly.mini.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +36,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
+            <state relative-caret-position="476">
               <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/PlayerPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,44 +57,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
+            <state relative-caret-position="-1026">
+              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3756#3757#0" expanded="true" />
-                <element signature="e#3784#3785#0" expanded="true" />
-                <element signature="e#5860#5861#0" expanded="true" />
+                <element signature="e#6595#6604#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Player.java">
+        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/properties/RealEstate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4199">
-              <caret line="267" selection-start-line="267" selection-end-line="267" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+            <state relative-caret-position="255">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,8 +82,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3978">
-              <caret line="234" column="21" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
+            <state relative-caret-position="-1309">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="67" column="73" selection-start-line="67" selection-start-column="73" selection-end-line="67" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,40 +101,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java">
+        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3281">
-              <caret line="193" column="39" selection-start-line="193" selection-start-column="39" selection-end-line="193" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2378#2379#0" expanded="true" />
-                <element signature="e#2416#2417#0" expanded="true" />
-                <element signature="e#10539#10540#0" expanded="true" />
-                <element signature="e#10573#10574#0" expanded="true" />
-                <element signature="e#14002#14003#0" expanded="true" />
-                <element signature="e#14036#14037#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/PlayerPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/properties/RealEstate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="255">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,6 +127,7 @@
       <find>PlayerBrokeException</find>
       <find>PlayerBrok</find>
       <find>JFrame</find>
+      <find>load</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,16 +153,16 @@
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/cards/PayTax.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/PlayerPanel.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/exceptions/DALException.java" />
-        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/View.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/properties/RealEstate.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Property.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Player.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/PlayerPanel.java" />
-        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" />
+        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java" />
+        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" />
       </list>
     </option>
@@ -218,9 +190,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -270,6 +242,15 @@
               <item name="pisd" type="462c0819:PsiDirectoryNode" />
               <item name="mini" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dk.dtu.compute.se.pisd.matador2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dk.dtu.compute.se.pisd.monopoly.mini" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pisd" type="462c0819:PsiDirectoryNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dk.dtu.compute.se.pisd.matador2" type="b2602c69:ProjectViewProjectNode" />
@@ -470,12 +451,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554307026805" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554382087940" />
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/mysql/mysql-connector-java" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20114942" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -498,7 +479,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MiniMonopoly">
+  <component name="RunManager" selected="Application.DAO_Tester">
     <configuration name="DAO_Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dk.dtu.compute.se.pisd.monopoly.mini.DAL.DAO_Tester" />
       <module name="dk.dtu.compute.se.pisd.monopoly.mini" />
@@ -527,8 +508,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MiniMonopoly" />
         <item itemvalue="Application.DAO_Tester" />
+        <item itemvalue="Application.MiniMonopoly" />
         <item itemvalue="Application.MiniMonopoly" />
         <item itemvalue="Application.MiniMonopoly" />
         <item itemvalue="Application.MiniMonopoly" />
@@ -566,12 +547,12 @@
       <workItem from="1554225041985" duration="5732000" />
       <workItem from="1554275793624" duration="1472000" />
       <workItem from="1554280899449" duration="15353000" />
-      <workItem from="1554304745436" duration="1621000" />
+      <workItem from="1554304745436" duration="12463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102087000" />
+    <option name="totallyTimeSpent" value="112929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +567,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49822906" visible="true" weight="0.2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49822906" visible="true" weight="0.2" />
       <window_info id="Structure" order="1" sideWeight="0.501771" side_tool="true" weight="0.1600158" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -595,7 +576,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49754098" visible="true" weight="0.3186969" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49754098" weight="0.3186969" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5495751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -703,9 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dk.dtu.compute.se.pisd.monopoly.mini.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -808,16 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -842,24 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/exceptions/DALException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Property.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -870,30 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2414">
           <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3978">
-          <caret line="234" column="21" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -916,9 +850,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/exceptions/DALException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dk.dtu.compute.se.pisd.monopoly.mini.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/PlayerPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="17">
           <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -928,8 +879,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/properties/RealEstate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="255">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/DAO_Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="67" column="73" selection-start-line="67" selection-start-column="73" selection-end-line="67" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1309">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/IGameDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -938,13 +916,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
+        <state relative-caret-position="-1026">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3756#3757#0" expanded="true" />
-            <element signature="e#3784#3785#0" expanded="true" />
-            <element signature="e#5860#5861#0" expanded="true" />
+            <element signature="e#6595#6604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1026,7 +1002,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: diplomitdtu:matadorgui:3.1.3</last-edited>
+          <last-edited>Maven: mysql:mysql-connector-java:8.0.15</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

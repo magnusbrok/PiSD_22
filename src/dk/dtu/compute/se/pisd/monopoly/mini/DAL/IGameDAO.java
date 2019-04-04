@@ -9,9 +9,11 @@ public interface IGameDAO {
 
     void createGame(Game game) throws DALException;
 
-    boolean updateGame(Game game);
+    boolean updateGame(Game game) throws DALException;
 
     boolean loadGame (Game game) throws DALException;
 
-    List<Integer> getGameIds();
+    void deleteGame (Game game) throws DALException;
+
+    List<Integer> getGameIds() throws DALException;
 }

@@ -2,12 +2,14 @@ package dk.dtu.compute.se.pisd.monopoly.mini.DAL;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameDAO implements IGameDAO {
@@ -32,25 +34,24 @@ public class GameDAO implements IGameDAO {
             PreparedStatement statement = c.prepareStatement("INSERT INTO Game VALUES (?, ?, ?)");
             statement.setInt(1 , game.getGameID());
             statement.setString(2, date.toString());
-            statement.setInt(2, 3);
             statement.setInt(3, game.getCurrentPlayer().getPlayerID()); //index starts at 0
             statement.executeUpdate();
             //TODO Insert Players into PlayerTable
 
            for (int i = 0 ; i < game.getPlayers().size() ; i++) {
                 Player player = game.getPlayers().get(i);
-            statement = c.prepareStatement("INSERT INTO Player VALUES (?, ?, ?, ?, ?, ?, ?)");
-            statement.setInt(1 , player.getPlayerID());
-            statement.setString(2, player.getName());
-            statement.setInt(3, player.getCurrentPosition().getIndex()); //index starts
-            statement.setInt(4, player.getBalance());
-            statement.setBoolean(5, player.isInPrison());
-            statement.setBoolean(6, player.isBroke());
-            statement.setInt(7, game.getGameID());
+                statement = c.prepareStatement("INSERT INTO Player VALUES (?, ?, ?, ?, ?, ?, ?)");
+                statement.setInt(1 , player.getPlayerID());
+                statement.setString(2, player.getName());
+                statement.setInt(3, player.getCurrentPosition().getIndex()); //index starts
+                statement.setInt(4, player.getBalance());
+                statement.setBoolean(5, player.isInPrison());
+                statement.setBoolean(6, player.isBroke());
+                statement.setInt(7, game.getGameID());
 
-            statement.executeUpdate();
+                statement.executeUpdate();
 
-           }
+            }
 
             //TODO insert properties into properties
 
@@ -85,7 +86,14 @@ public class GameDAO implements IGameDAO {
     }
 
     @Override
-    public boolean updateGame(Game game) {
+    public boolean updateGame(Game game) throws DALException {
+        try{
+        deleteGame(game);
+        createGame(game);
+        }catch (DALException e){
+            throw new DALException(e.getMessage());
+        }
+
         return false;
     }
 
@@ -97,36 +105,27 @@ public class GameDAO implements IGameDAO {
             PreparedStatement statement = c.prepareStatement("SELECT * FROM Game WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());
             ResultSet resultSet = statement.executeQuery();
-            int playerID = resultSet.getInt("curremtPlayer");
+            resultSet.next();
+            int playerID = resultSet.getInt("currentPlayer");
             Player player = game.getPlayers().get(playerID-1);
             game.setCurrentPlayer(player);
 
-            //TODO make players now only works with 3 players
+            //TODO make players now only works with 3 players corruntly works could use some trimming.
             statement = c.prepareStatement("SELECT * FROM Player WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());
             resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                playerID = resultSet.getInt("pl_ID");
-                player = game.getPlayers().get(playerID-1);
-                player.setName(resultSet.getString("name"));
-                player.setCurrentPosition(game.getSpaces().get(resultSet.getInt("position")));
-                player.setBalance(resultSet.getInt("balance"));
-                if (resultSet.getInt("inprison") == 1) {
-                    player.setInPrison(true);
-                }
-                if (resultSet.getInt("broke") == 1) {
-                    player.setBroke(true);
-                }
 
+
+            while(resultSet.next()){
+                makePlayerFromResultSet(resultSet, game);
             }
 
             //TODO change property attributes
             statement = c.prepareStatement("SELECT * FROM Property WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());
             resultSet = statement.executeQuery();
-            if (game.getSpaces().get(resultSet.getInt("pr_ID")) instanceof RealEstate) {
-                RealEstate realEstate = (RealEstate) game.getSpaces().get(resultSet.getInt("pr_ID"));
-
+            while(resultSet.next()){
+                makePropertyFromResultSet(resultSet, game);
             }
 
 
@@ -142,9 +141,79 @@ public class GameDAO implements IGameDAO {
     }
 
     @Override
-    public List<Integer> getGameIds() {
-        return null;
+    public void deleteGame(Game game) throws DALException {
+        try(Connection c = createConnection()){
+            PreparedStatement statement = c.prepareStatement("DELETE FROM Game WHERE g_ID = ?");
+            statement.setInt(1,game.getGameID());
+            statement.executeUpdate();
+
+            statement = c.prepareStatement("DELETE FROM Player WHERE g_ID = ?");
+            statement.setInt(1,game.getGameID());
+            statement.executeUpdate();
+
+            statement = c.prepareStatement("DELETE FROM Property WHERE g_ID = ?");
+            statement.setInt(1,game.getGameID());
+            statement.executeUpdate();
+
+        }catch(SQLException e){
+            throw new DALException(e.getMessage());
+        }
     }
 
+    @Override
+    public List<Integer> getGameIds() throws DALException {
+        try(Connection c = createConnection()){
+            Statement statement = c.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT g_ID FROM Game");
 
+            List<Integer> gameList = new ArrayList<Integer>();
+            while(resultset.next()){
+                gameList.add(resultset.getInt("g_ID"));
+            }
+
+            return gameList;
+
+        }catch (SQLException e){
+            throw new DALException(e.getMessage());
+        }
+    }
+
+    private void makePlayerFromResultSet(ResultSet resultSet, Game game){
+        try {
+
+            int playerID = resultSet.getInt("pl_ID");
+            Player player = game.getPlayers().get(playerID - 1);
+            player.setPlayerID(playerID);
+            player.setName(resultSet.getString("name"));
+            player.setCurrentPosition(game.getSpaces().get(resultSet.getInt("position")));
+            player.setBalance(resultSet.getInt("balance"));
+            if (resultSet.getInt("inprison") == 1) {
+                player.setInPrison(true);
+            }
+            if (resultSet.getInt("broke") == 1) {
+                player.setBroke(true);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void makePropertyFromResultSet(ResultSet resultSet, Game game){
+        try{
+            Property property = (Property) game.getSpaces().get(resultSet.getInt("pr_ID"));
+            if (property instanceof RealEstate) {
+                RealEstate realEstate = (RealEstate) property;
+                realEstate.setOwner(game.getPlayers().get(resultSet.getInt("pl_ID")-1));
+                realEstate.setHouses(resultSet.getInt("houses"));
+            }
+            if (property instanceof Utility) {
+                Utility utility = (Utility) property;
+                utility.setOwner(game.getPlayers().get((resultSet.getInt("pl:ID")-1)));
+            }
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

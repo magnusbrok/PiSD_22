@@ -2,7 +2,10 @@ package dk.dtu.compute.se.pisd.monopoly.mini.view;
 
 import dk.dtu.compute.se.pisd.designpatterns.Observer;
 import dk.dtu.compute.se.pisd.designpatterns.Subject;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import gui_fields.*;
 import gui_fields.GUI_Car.Pattern;
@@ -10,7 +13,6 @@ import gui_fields.GUI_Car.Type;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,6 +103,9 @@ public class View implements Observer {
 			if (subject instanceof Property) {
 				updateProperty((Property) subject);
 			}
+			if (subject instanceof RealEstate) {
+				updateProperty((RealEstate) subject);
+			}
 			// TODO update other subjects in the GUI
 			//      in particular properties (sold, houses, ...)
 			
@@ -141,7 +146,7 @@ public class View implements Observer {
 				guiPlayer.setName(name);
 			}
 			player2Playerpanel.get(player).update();
-			// TODO add update
+
 
 
 		}
@@ -171,6 +176,7 @@ public class View implements Observer {
 				guiProperty.setBorder(null);
 				guiProperty.setOwnerName(null);
 			}
+
 		}
 
 	}

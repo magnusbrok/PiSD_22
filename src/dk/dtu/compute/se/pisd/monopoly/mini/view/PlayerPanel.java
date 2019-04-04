@@ -62,14 +62,13 @@ public class PlayerPanel extends JFrame {
         panel.add(label);
         }
 
-        //TODO Maybe compine properties of same color plus add the right colour
+        //TODO Maybe compine properties of same color
         this.getContentPane().setLayout(null);
         frame.add(panel);
 
         JPanel propertyPanel = new JPanel();
 
         for (Property property : player.getOwnedProperties()){
-
 
             propertyPanel = new JPanel();
             propertyPanel.setMinimumSize(new Dimension(80 , 100));
@@ -81,7 +80,6 @@ public class PlayerPanel extends JFrame {
             label = new JLabel(" " + property.getName());
             propertyPanel.add(label);
 
-
             if (property instanceof RealEstate) {
                 RealEstate realEstate = (RealEstate) property;
                 propertyPanel.setBackground(realEstate.getColor());
@@ -92,19 +90,9 @@ public class PlayerPanel extends JFrame {
                 label = new JLabel(" Rent:   "+ realEstate.getBaseRent());
                 propertyPanel.add(label);
             }
-
-
             frame.add(propertyPanel);
-
         }
-
-
-
-
-
         frame.revalidate();
         frame.repaint();
-
     }
-
 }

@@ -46,6 +46,8 @@ public class GameController {
 
 	private View view;
 
+	private GameDAO gameDAO = new GameDAO();
+
 	private boolean disposed = false;
 
 	/**
@@ -87,6 +89,29 @@ public class GameController {
 				current = i;
 			}
 		}
+		//TODO mulighed for at hente spil eller starte nyt spil
+		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
+				"Start new game", "Load game");
+		if (selection == "Load game"){
+			try{
+				List<Integer> gameIDs = gameDAO.getGameIds();
+				gui.showMessage("Følgende spil er gemte \n " + gameIDs.toString());
+				int gameID = gui.getUserInteger("Please enter game ID");
+				game.setGameID(gameID);
+				gameDAO.loadGame(game);
+				for (Space space : game.getSpaces()){
+					view.update(space);
+				}
+			}catch (DALException e){
+				e.printStackTrace();
+			}
+
+
+
+
+		}
+
+
 
 		boolean terminated = false;
 		while (!terminated) {
@@ -132,7 +157,7 @@ public class GameController {
 		current = (current + 1) % players.size();
 		game.setCurrentPlayer(players.get(current));
 		if (current == 0) {
-			String selection = gui.getUserSelection(
+			selection = gui.getUserSelection(
 					"A round is finished. Do you want to continue the game?",
 					"yes",
 					"no");
@@ -141,8 +166,13 @@ public class GameController {
 				if (selection.equals("yes")) {
 					GameDAO gameDAO = new GameDAO();
 					try {
+						List<Integer> gameIDs = gameDAO.getGameIds();
+						gui.showMessage("Følgende spil er allerede gemte: \n " + gameIDs.toString() +
+								"\n Ved at vælge et id der allerede er gemt overskrives gemmet");
 						game.setGameID(gui.getUserInteger("Hvilket ID skal dit save gemmes under?"));
-						gameDAO.createGame(game);
+						if (gameIDs.contains(game.getGameID())) {
+							gameDAO.updateGame(game);
+						} else gameDAO.createGame(game);
 					} catch (DALException e) {
 						e.printStackTrace();
 					}

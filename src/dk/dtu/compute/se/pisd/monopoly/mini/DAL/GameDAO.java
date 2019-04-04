@@ -29,14 +29,11 @@ public class GameDAO implements IGameDAO {
 
         LocalDate date = LocalDate.now();
         try (Connection c = createConnection()) {
-
-            //TODO Insert Game into GameTable
             PreparedStatement statement = c.prepareStatement("INSERT INTO Game VALUES (?, ?, ?)");
             statement.setInt(1 , game.getGameID());
             statement.setString(2, date.toString());
             statement.setInt(3, game.getCurrentPlayer().getPlayerID()); //index starts at 0
             statement.executeUpdate();
-            //TODO Insert Players into PlayerTable
 
            for (int i = 0 ; i < game.getPlayers().size() ; i++) {
                 Player player = game.getPlayers().get(i);
@@ -52,8 +49,6 @@ public class GameDAO implements IGameDAO {
                 statement.executeUpdate();
 
             }
-
-            //TODO insert properties into properties
 
             for (int i = 0 ; i < game.getSpaces().size() ; i++) {
 
@@ -120,18 +115,12 @@ public class GameDAO implements IGameDAO {
                 makePlayerFromResultSet(resultSet, game);
             }
 
-            //TODO change property attributes
             statement = c.prepareStatement("SELECT * FROM Property WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());
             resultSet = statement.executeQuery();
             while(resultSet.next()){
                 makePropertyFromResultSet(resultSet, game);
             }
-
-
-
-
-
 
 
         } catch (SQLException e) {
@@ -208,7 +197,7 @@ public class GameDAO implements IGameDAO {
             }
             if (property instanceof Utility) {
                 Utility utility = (Utility) property;
-                utility.setOwner(game.getPlayers().get((resultSet.getInt("pl:ID")-1)));
+                utility.setOwner(game.getPlayers().get((resultSet.getInt("pl_ID")-1)));
             }
 
 

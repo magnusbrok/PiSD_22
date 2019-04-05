@@ -95,13 +95,16 @@ public class GameController {
 		if (selection == "Load game"){
 			try{
 				List<Integer> gameIDs = gameDAO.getGameIds();
-				gui.showMessage("Følgende spil er gemte \n " + gameIDs.toString());
-				int gameID = gui.getUserInteger("Please enter game ID");
+				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
+						"\n Please enter game ID" +
+						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
+				if (gameDAO.getGameIds().contains(gameID)) {
 				game.setGameID(gameID);
 				gameDAO.loadGame(game);
-				for (Space space : game.getSpaces()){
-					view.update(space);
+				} else {
+
 				}
+
 			}catch (DALException e){
 				e.printStackTrace();
 			}
@@ -167,9 +170,9 @@ public class GameController {
 					GameDAO gameDAO = new GameDAO();
 					try {
 						List<Integer> gameIDs = gameDAO.getGameIds();
-						gui.showMessage("Følgende spil er allerede gemte: \n " + gameIDs.toString() +
-								"\n Ved at vælge et id der allerede er gemt overskrives gemmet");
-						game.setGameID(gui.getUserInteger("Hvilket ID skal dit save gemmes under?"));
+						game.setGameID(gui.getUserInteger("Følgende spil er allerede gemte \n" +
+								gameIDs.toString() + "\n Hvilket ID skal dit save gemmes under?" +
+								"\n Ved at vælge et id der allerede er gemt overskrives gemmet"));
 						if (gameIDs.contains(game.getGameID())) {
 							gameDAO.updateGame(game);
 						} else gameDAO.createGame(game);

@@ -42,7 +42,7 @@ public class MiniMonopoly {
 		RealEstate p = new RealEstate();
 		p.setColor(new Color(102,153,255));
 		p.setName("Rødovrevej");
-		p.setCost(1200);
+		p.setCost(60);
 		p.setHousecost(100);
 		p.setBaseRent(50);
 		game.addSpace(p);
@@ -55,7 +55,7 @@ public class MiniMonopoly {
 		p = new RealEstate();
 		p.setColor(new Color(102,153,255));
 		p.setName("Hvidovrevej");
-		p.setCost(1200);
+		p.setCost(60);
 		p.setHousecost(100);
 		p.setBaseRent(50);
 		game.addSpace(p);
@@ -66,16 +66,16 @@ public class MiniMonopoly {
 
 		Utility s = new Utility();
 		s.setName("Øresund");
-		s.setCost(2000);
+		s.setCost(200);
 		s.setRent(500);
 		game.addSpace(s);
 
 		p = new RealEstate();
 		p.setName("Roskildevej");
 		p.setColor(new Color(255,153,153));
-		p.setCost(2000);
+		p.setCost(100);
 		p.setHousecost(100);
-		p.setBaseRent(100);
+		p.setBaseRent(70);
 		game.addSpace(p);
 		
 		chance = new Chance();
@@ -85,15 +85,15 @@ public class MiniMonopoly {
 		p = new RealEstate();
 		p.setColor(new Color(255,153,153));
 		p.setName("Valby Langgade");
-		p.setCost(2000);
+		p.setCost(100);
 		p.setHousecost(100);
-		p.setBaseRent(100);
+		p.setBaseRent(70);
 		game.addSpace(p);
 		
 		p = new RealEstate();
 		p.setName("Allégade");
 		p.setColor(new Color(255,153,153));
-		p.setCost(2400);
+		p.setCost(120);
 		p.setHousecost(100);
 		p.setBaseRent(150);
 		game.addSpace(p);
@@ -105,21 +105,21 @@ public class MiniMonopoly {
 		p = new RealEstate();
 		p.setName("Frederiksberg Allé");
 		p.setColor(Color.GREEN);
-		p.setCost(2800);
+		p.setCost(140);
 		p.setHousecost(100);
 		p.setBaseRent(200);
 		game.addSpace(p);
 
 		s = new Utility();
 		s.setName("Tuborg tapperi");
-		s.setCost(2000);
+		s.setCost(200);
 		s.setRent(300);
 		game.addSpace(s);
 		
 		p = new RealEstate();
 		p.setColor(Color.GREEN);
 		p.setName("Bülowsvej");
-		p.setCost(2800);
+		p.setCost(140);
 		p.setHousecost(100);
 		p.setBaseRent(200);
 		game.addSpace(p);
@@ -127,14 +127,14 @@ public class MiniMonopoly {
 		p = new RealEstate();
 		p.setName("Gl. Kongevej");
 		p.setColor(Color.GREEN);
-		p.setCost(3200);
+		p.setCost(140);
 		p.setHousecost(100);
 		p.setBaseRent(250);
 		game.addSpace(p);
 
 		s = new Utility();
 		s.setName("D.F.D.S.");
-		s.setCost(2000);
+		s.setCost(200);
 		s.setRent(500);
 		game.addSpace(s);
 
@@ -166,6 +166,136 @@ public class MiniMonopoly {
 		p.setBaseRent(250);
 		game.addSpace(p);
 
+		/** Not sure about the houseCost and baseRent -IC */
+
+ 		Space h = new Utility(); //Is this right?
+		h.setName("Helle");
+		game.addSpace(h);
+
+		p = new RealEstate();
+		p.setName("Trianglen");
+		p.setColor(Color.RED);
+		p.setCost(220);
+		p.setHousecost(100);
+		p.setBaseRent(200);
+		game.addSpace(p);
+
+		chance = new Chance();
+		chance.setName("Chance");
+		game.addSpace(chance);
+
+		p = new RealEstate();
+		p.setName("Østerbrogade");
+		p.setColor(Color.RED);
+		p.setCost(220);
+		p.setHousecost(100);
+		p.setBaseRent(200);
+		game.addSpace(p);
+
+		p = new RealEstate();
+		p.setName("Grønningen");
+		p.setColor(Color.RED);
+		p.setCost(220);
+		p.setHousecost(100);
+		p.setBaseRent(200);
+		game.addSpace(p);
+
+		s = new Utility();
+		s.setName("Å. S.");
+		s.setCost(2000);
+		s.setRent(500);
+		game.addSpace(s);
+
+		p = new RealEstate();
+		p.setName("Bredgade");
+		p.setColor(new Color(255,255,255));
+		p.setCost(260);
+		p.setHousecost(100);
+		p.setBaseRent(150);
+		game.addSpace(p);
+
+		p = new RealEstate();
+		p.setName("Kgs. Nytorv");
+		p.setColor(new Color(255,255,255));
+		p.setCost(260);
+		p.setHousecost(100);
+		p.setBaseRent(150);
+		game.addSpace(p);
+
+		s = new Utility();
+		s.setName("Calsberg");
+		s.setCost(150);
+		s.setRent(200);
+		game.addSpace(s);
+
+		p = new RealEstate();
+		p.setName("Østergade");
+		p.setColor(new Color(255,255,255));
+		p.setCost(260);
+		p.setHousecost(100);
+		p.setBaseRent(150);
+		game.addSpace(p);
+
+		// Space GoToPrison
+
+		p = new RealEstate();
+		p.setName("Amagertorv");
+		p.setColor(new Color(241, 235,55));
+		p.setCost(300);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+		p = new RealEstate();
+		p.setName("Vimmelstaftet");
+		p.setColor(new Color(241, 235,55));
+		p.setCost(300);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+		chance = new Chance();
+		chance.setName("Chance");
+		game.addSpace(chance);
+
+		p = new RealEstate();
+		p.setName("Nygade");
+		p.setColor(new Color(241, 235,55));
+		p.setCost(320);
+		p.setHousecost(100);
+		p.setBaseRent(250);
+		game.addSpace(p);
+
+		s = new Utility();
+		s.setName("Bornholm");
+		s.setCost(200);
+		s.setRent(500);
+		game.addSpace(s);
+
+		chance = new Chance();
+		chance.setName("Chance");
+		game.addSpace(chance);
+
+		p = new RealEstate();
+		p.setName("Frederiksberggade");
+		p.setColor(new Color(138, 39, 170));
+		p.setCost(350);
+		p.setHousecost(200);
+		p.setBaseRent(150);
+		game.addSpace(p);
+
+		/*Tax t = new Tax();
+		t.setName("Ekstraordinær statsskat");
+		game.addSpace(t);
+		*/
+
+		p = new RealEstate();
+		p.setName("Rådhuspladsen");
+		p.setColor(new Color(138,39,170));
+		p.setCost(400);
+		p.setHousecost(200);
+		p.setBaseRent(150);
+		game.addSpace(p);
 
 
 		List<Card> cards = new ArrayList<Card>();
@@ -199,21 +329,21 @@ public class MiniMonopoly {
 		p.setPlayerID(1);
 		p.setName("Player 1");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(Color.RED);
+		p.setColor(new Color(255, 80, 55));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(2);
 		p.setName("Player 2");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(Color.YELLOW);
+		p.setColor(new Color(255, 184, 12));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(3);
 		p.setName("Player 3");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(Color.GREEN);
+		p.setColor(new Color(38, 135, 30));
 		game.addPlayer(p);
 	}
 

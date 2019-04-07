@@ -168,7 +168,7 @@ public class MiniMonopoly {
 
 		/** Not sure about the houseCost and baseRent -IC */
 
- 		Space h = new Space(); //Is this right?
+ 		Space h = new Space();
 		h.setName("Helle");
 		game.addSpace(h);
 
@@ -236,7 +236,7 @@ public class MiniMonopoly {
 		p.setBaseRent(150);
 		game.addSpace(p);
 
-		Space g = new Space();
+		GoToJail g = new GoToJail();
 		g.setName("Go To Prison");
 		game.addSpace(g);
 

@@ -72,7 +72,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Roskildevej");
-		p.setColor(new Color(255,153,153));
+		p.setColor(new Color(255,139,135));
 		p.setCost(100);
 		p.setHousecost(100);
 		p.setBaseRent(70);
@@ -83,7 +83,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
-		p.setColor(new Color(255,153,153));
+		p.setColor(new Color(255, 139, 135));
 		p.setName("Valby Langgade");
 		p.setCost(100);
 		p.setHousecost(100);
@@ -92,7 +92,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Allégade");
-		p.setColor(new Color(255,153,153));
+		p.setColor(new Color(255,139,135));
 		p.setCost(120);
 		p.setHousecost(100);
 		p.setBaseRent(150);
@@ -104,7 +104,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Frederiksberg Allé");
-		p.setColor(Color.GREEN);
+		p.setColor(new Color(102, 204, 31));
 		p.setCost(140);
 		p.setHousecost(100);
 		p.setBaseRent(200);
@@ -117,7 +117,7 @@ public class MiniMonopoly {
 		game.addSpace(s);
 		
 		p = new RealEstate();
-		p.setColor(Color.GREEN);
+		p.setColor(new Color(102, 204, 31));
 		p.setName("Bülowsvej");
 		p.setCost(140);
 		p.setHousecost(100);
@@ -126,7 +126,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Gl. Kongevej");
-		p.setColor(Color.GREEN);
+		p.setColor(new Color(102, 204, 31));
 		p.setCost(140);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -140,7 +140,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Bernstorffsvej");
-		p.setColor(Color.GRAY);
+		p.setColor(new Color(155, 155, 155));
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -152,7 +152,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Hellerupvej");
-		p.setColor(Color.GRAY);
+		p.setColor(new Color(155,155,155));
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -160,7 +160,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Strandvejen");
-		p.setColor(Color.GRAY);
+		p.setColor(new Color(155,155,155));
 		p.setCost(180);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -168,7 +168,7 @@ public class MiniMonopoly {
 
 		/** Not sure about the houseCost and baseRent -IC */
 
- 		Space h = new Utility(); //Is this right?
+ 		Space h = new Space(); //Is this right?
 		h.setName("Helle");
 		game.addSpace(h);
 
@@ -240,7 +240,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Amagertorv");
-		p.setColor(new Color(241, 235,55));
+		p.setColor(new Color(250, 241, 11));
 		p.setCost(300);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -248,7 +248,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Vimmelstaftet");
-		p.setColor(new Color(241, 235,55));
+		p.setColor(new Color(250, 241, 11));
 		p.setCost(300);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -260,7 +260,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Nygade");
-		p.setColor(new Color(241, 235,55));
+		p.setColor(new Color(250, 241,11));
 		p.setCost(320);
 		p.setHousecost(100);
 		p.setBaseRent(250);
@@ -278,7 +278,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Frederiksberggade");
-		p.setColor(new Color(138, 39, 170));
+		p.setColor(new Color(186, 46, 203));
 		p.setCost(350);
 		p.setHousecost(200);
 		p.setBaseRent(150);
@@ -291,7 +291,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Rådhuspladsen");
-		p.setColor(new Color(138,39,170));
+		p.setColor(new Color(171,39,203));
 		p.setCost(400);
 		p.setHousecost(200);
 		p.setBaseRent(150);
@@ -329,21 +329,21 @@ public class MiniMonopoly {
 		p.setPlayerID(1);
 		p.setName("Player 1");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(255, 80, 55));
+		p.setColor(new Color(255, 82, 62));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(2);
 		p.setName("Player 2");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(255, 184, 12));
+		p.setColor(new Color(255, 211, 27));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(3);
 		p.setName("Player 3");
 		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(38, 135, 30));
+		p.setColor(new Color(40, 147, 30));
 		game.addPlayer(p);
 	}
 

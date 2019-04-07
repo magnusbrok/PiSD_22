@@ -236,7 +236,9 @@ public class MiniMonopoly {
 		p.setBaseRent(150);
 		game.addSpace(p);
 
-		// Space GoToPrison
+		Space g = new Space();
+		g.setName("Go To Prison");
+		game.addSpace(g);
 
 		p = new RealEstate();
 		p.setName("Amagertorv");
@@ -284,10 +286,10 @@ public class MiniMonopoly {
 		p.setBaseRent(150);
 		game.addSpace(p);
 
-		/*Tax t = new Tax();
-		t.setName("Ekstraordinær statsskat");
-		game.addSpace(t);
-		*/
+		StateTax st = new StateTax();
+		st.setName("Pay 100$ to the bank");
+		game.addSpace(st);
+
 
 		p = new RealEstate();
 		p.setName("Rådhuspladsen");

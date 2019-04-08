@@ -29,13 +29,22 @@ public class MiniMonopoly {
 	 * @return the initial game board and (not shuffled) deck of chance cards 
 	 */
 	public static Game createGame() {
-
 		// Create the initial Game set up (note that, in this simple
 		// setup, we use only 11 spaces). Note also that this setup
 		// could actually be loaded from a file or database instead
 		// of creating it programmatically. This will be discussed
 		// later in this course.
 		Game game = new Game();
+
+		List<Color> pColor = new ArrayList<>();
+		pColor.add(new Color(255,0,0));
+		pColor.add(new Color(0,255,0));
+		pColor.add(new Color(0,0,255));
+		pColor.add(new Color(255,255,0));
+		pColor.add(new Color(0,255,255));
+		pColor.add(new Color(255,0,255));
+		game.setColors(pColor);
+
 		Space go = new Space();
 		go.setName("Go");
 		game.addSpace(go);
@@ -322,10 +331,10 @@ public class MiniMonopoly {
 	}
 
 	/**
-	 * This method will be called before the game is started to create
-	 * the participating players.
+	 * This method is only used in the DAO_tester. Player creation is now handled in GameController or GAMEDAO if game is loaded from DB.
 	 */
 	public static void createPlayers(Game game) {
+
 		// TODO the players should eventually be created interactively or
 		// be loaded from a database
 		Scanner sc = new Scanner(System.in);
@@ -338,13 +347,7 @@ public class MiniMonopoly {
 			totalPlayers = sc.nextInt();
 		}
 
-		List<Color> pColor = new ArrayList<>();
-		pColor.add(new Color(255,0,0));
-		pColor.add(new Color(0,255,0));
-		pColor.add(new Color(0,0,255));
-		pColor.add(new Color(255,255,0));
-		pColor.add(new Color(0,255,255));
-		pColor.add(new Color(255,0,255));
+		List<Color> pColor = game.getColors();
 
 		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
 		//TODO 2) In GameController play() ask players to chose names IN THE GUI

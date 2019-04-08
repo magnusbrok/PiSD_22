@@ -2,6 +2,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model;
 
 import dk.dtu.compute.se.pisd.designpatterns.Subject;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +23,10 @@ public class Game extends Subject {
 	private List<Card> cardDeck = new ArrayList<Card>();
 	
 	private List<Player> players = new ArrayList<Player>();
-	
+
+
+	private List<Color> colors = new ArrayList<>();
+
 	private Player current;
 
 	private int gameID = 1;
@@ -179,6 +183,13 @@ public class Game extends Subject {
 			throw new IllegalArgumentException("Player is not in the game!");
 		}
 		notifyChange();
+	}
+	public List<Color> getColors() {
+		return colors;
+	}
+
+	public void setColors(List<Color> colors) {
+		this.colors = colors;
 	}
 
 }

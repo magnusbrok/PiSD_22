@@ -170,14 +170,7 @@ public class GameDAO implements IGameDAO {
 
     private void makePlayerFromResultSet(ResultSet resultSet, Game game){
 
-        List<Color> pColor = new ArrayList<>();
-        pColor.add(new Color(255,0,0));
-        pColor.add(new Color(0,255,0));
-        pColor.add(new Color(0,0,255));
-        pColor.add(new Color(255,255,0));
-        pColor.add(new Color(0,255,255));
-        pColor.add(new Color(255,0,255));
-
+        List<Color> pColor = game.getColors();
         try {
             Player player = new Player();
             player.setPlayerID(resultSet.getInt("pl_ID"));

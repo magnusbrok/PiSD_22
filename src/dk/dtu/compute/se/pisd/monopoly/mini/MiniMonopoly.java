@@ -11,6 +11,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Main class for setting up and running a (Mini-)Monoploy game.
@@ -327,23 +328,53 @@ public class MiniMonopoly {
 	public static void createPlayers(Game game) {
 		// TODO the players should eventually be created interactively or
 		// be loaded from a database
+		Scanner sc = new Scanner(System.in);
+
+		//ATTEMPT TO CHOSE NUMBER OF PLAYERS : Functions, but with bugs (player 1 no name, player.colors not loaded corretly, JFrames not acting correctly...)
+		/**
+		System.out.println("How many are playing? Please enter a number between 2 and 5: ");
+		int totalPlayers = sc.nextInt();
+		while (totalPlayers < 2 || totalPlayers > 5) {
+			System.out.println("You entered a number of players outside the accepted interval. Please... Try again");
+			totalPlayers = sc.nextInt();
+		}
+
+		for (int i = 1; i <= totalPlayers; i++) {
+			Player p = new Player();
+			p.setPlayerID(i);
+			System.out.println("Player " + i + ": Please enter your username");
+			String userName = sc.nextLine();
+			p.setName(userName);
+			p.setCurrentPosition(game.getSpaces().get(0));
+			p.setColor(new Color(255, 82, 62));
+			game.addPlayer(p);
+		}
+
+		 */
+
 		Player p = new Player();
 		p.setPlayerID(1);
-		p.setName("Player 1");
+		System.out.println("Player 1: Please enter your username:");
+		String userName1 = sc.nextLine();
+		p.setName(userName1);
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(new Color(255, 82, 62));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(2);
-		p.setName("Player 2");
+		System.out.println("Player 2: Please enter your username:");
+		String userName2 = sc.nextLine();
+		p.setName(userName2);
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(new Color(255, 211, 27));
 		game.addPlayer(p);
 
 		p = new Player();
 		p.setPlayerID(3);
-		p.setName("Player 3");
+		System.out.println("Player 3: Please enter your username:");
+		String userName3 = sc.nextLine();
+		p.setName(userName3);
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(new Color(40, 147, 30));
 		game.addPlayer(p);

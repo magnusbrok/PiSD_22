@@ -346,16 +346,13 @@ public class MiniMonopoly {
 		pColor.add(new Color(0,255,255));
 		pColor.add(new Color(255,0,255));
 
-		//TODO 1) For some reason the scanner in the for-loop below SKIPS PLAYER ONE, so player 1 has no name...
-		//TODO 2) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
-		//TODO 3) Name all below players: |"Player " + i| AND in GameController play() ask players to chose names IN THE GUI
+		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
+		//TODO 2) In GameController play() ask players to chose names IN THE GUI
 
-		for (int i = 1; i <= totalPlayers; i++) {	
+		for (int i = 1; i <= totalPlayers; i++) {
 			Player p = new Player();
 			p.setPlayerID(i);
-			System.out.println("Player " + i + ": Please enter your username");
-			String userName = sc.nextLine();
-			p.setName(userName);
+			p.setName("Player " + i);
 			p.setCurrentPosition(game.getSpaces().get(0));
 			p.setColor(pColor.get(i - 1));
 			game.addPlayer(p);

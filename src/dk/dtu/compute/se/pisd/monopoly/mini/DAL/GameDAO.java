@@ -104,7 +104,7 @@ public class GameDAO implements IGameDAO {
             int playerID = resultSet.getInt("currentPlayer");
             Player player = game.getPlayers().get(playerID-1);
             game.setCurrentPlayer(player);
-
+    
             //TODO make players now only works with 3 players corruntly works could use some trimming.
             statement = c.prepareStatement("SELECT * FROM Player WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());

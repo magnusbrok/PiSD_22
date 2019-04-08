@@ -393,9 +393,10 @@ public class MiniMonopoly {
 		Game game = createGame();
 		game.shuffleCardDeck();
 
-		createPlayers(game);
+		//createPlayers(game);
 
 		GameController controller = new GameController(game);
+		controller.makePlayers();
 		controller.initializeGUI();
 		controller.play();
 

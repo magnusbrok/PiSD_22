@@ -9,6 +9,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +72,34 @@ public class GameController {
 	 */
 	public void initializeGUI() {
 		this.view = new View(game, gui);
+	}
+	public void makePlayers() {
+		int minPlayers = 2;
+		int maxPlayers = 6;
+		int totalPlayers = gui.getUserInteger("How many are playing? Please enter a number between " + minPlayers + " and " + maxPlayers);
+		while (totalPlayers < minPlayers || totalPlayers > maxPlayers) {
+			totalPlayers = gui.getUserInteger("You entered a number of players outside the accepted interval. Please... Try again");
+		}
+		List<Color> pColor = new ArrayList<>();
+		pColor.add(new Color(255,0,0));
+		pColor.add(new Color(0,255,0));
+		pColor.add(new Color(0,0,255));
+		pColor.add(new Color(255,255,0));
+		pColor.add(new Color(0,255,255));
+		pColor.add(new Color(255,0,255));
+
+		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
+		//TODO 2) In GameController play() ask players to chose names IN THE GUI
+
+		for (int i = 1; i <= totalPlayers; i++) {
+			Player p = new Player();
+			p.setPlayerID(i);
+			String playerName = gui.getUserString("Hvilket navn skal player "+ i + "have?");
+			p.setName(playerName);
+			p.setCurrentPosition(game.getSpaces().get(0));
+			p.setColor(pColor.get(i - 1));
+			game.addPlayer(p);
+		}
 	}
 
 	/**

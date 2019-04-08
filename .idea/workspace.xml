@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f678af5-2ffc-42d2-b12a-d2279887e05f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" afterDir="false" />
     </list>
@@ -17,6 +17,9 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/dk_dtu_compute_se_pisd_matador2$MiniMonopoly.ic" NAME="MiniMonopoly Coverage Results" MODIFIED="1554733021370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>dk.dtu.compute.se.pisd.monopoly.mini.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/dk_dtu_compute_se_pisd_matador2$DAO_Tester.ic" NAME="DAO_Tester Coverage Results" MODIFIED="1554221461861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>dk.dtu.compute.se.pisd.monopoly.mini.DAL.*</FILTER>
     </SUITE>
@@ -30,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-26">
-              <caret line="83" column="39" lean-forward="true" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            <state relative-caret-position="180">
+              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2421#2422#0" expanded="true" />
@@ -95,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="398" column="33" selection-start-line="398" selection-start-column="33" selection-end-line="398" selection-end-column="33" />
+            <state relative-caret-position="248">
+              <caret line="399" column="22" selection-start-line="399" selection-start-column="22" selection-end-line="399" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#createGame#0;class#MiniMonopoly#0" />
@@ -108,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+            <state relative-caret-position="298">
+              <caret line="155" selection-start-line="155" selection-end-line="155" />
             </state>
           </provider>
         </entry>
@@ -117,8 +120,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+            <state relative-caret-position="315">
+              <caret line="186" column="59" selection-start-line="186" selection-start-column="59" selection-end-line="186" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,8 +181,8 @@
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Tax.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/StateTax.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/GoToJail.java" />
-        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java" />
+        <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java" />
         <option value="$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java" />
       </list>
     </option>
@@ -456,7 +459,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554732194834" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554733602207" />
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/mysql/mysql-connector-java" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -562,7 +565,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146251000" />
+    <option name="totallyTimeSpent" value="147201000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +589,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49754098" visible="true" weight="0.31728044" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49754098" visible="true" weight="0.31586403" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5495751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -660,9 +663,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -933,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -947,10 +940,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="644" column="9" lean-forward="true" selection-start-line="644" selection-start-column="9" selection-end-line="644" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="399" column="22" selection-start-line="399" selection-start-column="22" selection-end-line="399" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#createGame#0;class#MiniMonopoly#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="83" column="39" lean-forward="true" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+        <state relative-caret-position="180">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2421#2422#0" expanded="true" />
@@ -959,21 +977,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/MiniMonopoly.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="398" column="33" selection-start-line="398" selection-start-column="33" selection-end-line="398" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#createGame#0;class#MiniMonopoly#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/dtu/compute/se/pisd/monopoly/mini/DAL/GameDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+        <state relative-caret-position="315">
+          <caret line="186" column="59" selection-start-line="186" selection-start-column="59" selection-end-line="186" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

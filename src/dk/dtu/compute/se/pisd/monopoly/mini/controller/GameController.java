@@ -51,6 +51,8 @@ public class GameController {
 
 	private boolean disposed = false;
 
+
+
 	/**
 	 * Constructor for a controller of a game.
 	 *
@@ -72,6 +74,26 @@ public class GameController {
 	 */
 	public void initializeGUI() {
 		this.view = new View(game, gui);
+	}
+	public void makeGame () {
+		//TODO mulighed for at hente spil eller starte nyt spil
+		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
+				"Start new game", "Load game");
+		if (selection == "Load game"){
+			try{
+				List<Integer> gameIDs = gameDAO.getGameIds();
+				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
+						"\n Please enter game ID" +
+						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
+				if (gameDAO.getGameIds().contains(gameID)) {
+					game.setGameID(gameID);
+					gameDAO.loadGame(game);
+				}
+			}catch (DALException e){
+				e.printStackTrace();
+			}
+		}
+		else makePlayers();
 	}
 	public void makePlayers() {
 		int minPlayers = 2;
@@ -118,30 +140,7 @@ public class GameController {
 				current = i;
 			}
 		}
-		//TODO mulighed for at hente spil eller starte nyt spil
-		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
-				"Start new game", "Load game");
-		if (selection == "Load game"){
-			try{
-				List<Integer> gameIDs = gameDAO.getGameIds();
-				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
-						"\n Please enter game ID" +
-						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
-				if (gameDAO.getGameIds().contains(gameID)) {
-				game.setGameID(gameID);
-				gameDAO.loadGame(game);
-				} else {
 
-				}
-
-			}catch (DALException e){
-				e.printStackTrace();
-			}
-
-
-
-
-		}
 
 
 
@@ -189,7 +188,7 @@ public class GameController {
 		current = (current + 1) % players.size();
 		game.setCurrentPlayer(players.get(current));
 		if (current == 0) {
-			selection = gui.getUserSelection(
+			String selection = gui.getUserSelection(
 					"A round is finished. Do you want to continue the game?",
 					"yes",
 					"no");

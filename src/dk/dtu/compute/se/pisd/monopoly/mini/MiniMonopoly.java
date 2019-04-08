@@ -37,12 +37,13 @@ public class MiniMonopoly {
 		Game game = new Game();
 
 		List<Color> pColor = new ArrayList<>();
-		pColor.add(new Color(255,0,0));
-		pColor.add(new Color(0,255,0));
-		pColor.add(new Color(0,0,255));
-		pColor.add(new Color(255,255,0));
-		pColor.add(new Color(0,255,255));
+		pColor.add(new Color(255,80,55));
+		pColor.add(new Color(220, 165, 11));
+		pColor.add(new Color(38,135,30));
+		pColor.add(new Color(86, 112, 227));
 		pColor.add(new Color(255,0,255));
+		pColor.add(new Color(0,255,255));
+
 		game.setColors(pColor);
 
 		Space go = new Space();
@@ -82,7 +83,7 @@ public class MiniMonopoly {
 
 		p = new RealEstate();
 		p.setName("Roskildevej");
-		p.setColor(new Color(255,139,135));
+		p.setColor(new Color(255, 156, 149));
 		p.setCost(100);
 		p.setHousecost(100);
 		p.setBaseRent(70);
@@ -93,7 +94,7 @@ public class MiniMonopoly {
 		game.addSpace(chance);
 		
 		p = new RealEstate();
-		p.setColor(new Color(255, 139, 135));
+		p.setColor(new Color(255, 156, 149));
 		p.setName("Valby Langgade");
 		p.setCost(100);
 		p.setHousecost(100);
@@ -102,7 +103,7 @@ public class MiniMonopoly {
 		
 		p = new RealEstate();
 		p.setName("Allégade");
-		p.setColor(new Color(255,139,135));
+		p.setColor(new Color(255,156,149));
 		p.setCost(120);
 		p.setHousecost(100);
 		p.setBaseRent(150);

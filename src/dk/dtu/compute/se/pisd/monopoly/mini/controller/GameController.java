@@ -96,19 +96,13 @@ public class GameController {
 		else makePlayers();
 	}
 	public void makePlayers() {
-		int minPlayers = 2;
+		int minPlayers = 3;
 		int maxPlayers = 6;
 		int totalPlayers = gui.getUserInteger("How many are playing? Please enter a number between " + minPlayers + " and " + maxPlayers);
 		while (totalPlayers < minPlayers || totalPlayers > maxPlayers) {
 			totalPlayers = gui.getUserInteger("You entered a number of players outside the accepted interval. Please... Try again");
 		}
-		List<Color> pColor = new ArrayList<>();
-		pColor.add(new Color(255,0,0));
-		pColor.add(new Color(0,255,0));
-		pColor.add(new Color(0,0,255));
-		pColor.add(new Color(255,255,0));
-		pColor.add(new Color(0,255,255));
-		pColor.add(new Color(255,0,255));
+		List<Color> pColor = game.getColors();
 
 		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
 		//TODO 2) In GameController play() ask players to chose names IN THE GUI

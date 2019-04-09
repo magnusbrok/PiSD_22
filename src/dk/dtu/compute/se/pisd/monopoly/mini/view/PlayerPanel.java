@@ -99,7 +99,12 @@ public class PlayerPanel extends JFrame {
                 propertyPanel.add(label);
                 label = new JLabel(" Houses:   "+ realEstate.getHouses());
                 propertyPanel.add(label);
+                if (realEstate.getRent() != 0) {
                 label = new JLabel(" Rent:   "+ realEstate.getRent());
+                }
+                if (realEstate.getRent() == 0) {
+                    label = new JLabel("Rent:   "+ realEstate.getBaseRent());
+                }
                 propertyPanel.add(label);
             }
             frame.add(propertyPanel);

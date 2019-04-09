@@ -11,7 +11,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Main class for setting up and running a (Mini-)Monoploy game.
@@ -272,30 +271,7 @@ public class MiniMonopoly {
 	 */
 	public static void createPlayers(Game game) {
 
-		// TODO the players should eventually be created interactively or
-		// be loaded from a database
-		Scanner sc = new Scanner(System.in);
-		int minPlayers = 2;
-		int maxPlayers = 6;
-		System.out.println("How many are playing? Please enter a number between " + minPlayers + " and " + maxPlayers);
-		int totalPlayers = sc.nextInt();
-		while (totalPlayers < minPlayers || totalPlayers > maxPlayers) {
-			System.out.println("You entered a number of players outside the accepted interval. Please... Try again");
-			totalPlayers = sc.nextInt();
-		}
 
-		List<Color> pColor = game.getColors();
-
-		for (int i = 1; i <= totalPlayers; i++) {
-			Player p = new Player();
-			p.setPlayerID(i);
-			p.setName("Player " + i);
-			p.setCurrentPosition(game.getSpaces().get(0));
-			p.setColor(pColor.get(i - 1));
-			game.addPlayer(p);
-		}
-
-/** OLD CODE OF JUST 3 PLAYERS
 		Player p = new Player();
 		p.setPlayerID(1);
 		p.setName("Player 1");
@@ -316,7 +292,7 @@ public class MiniMonopoly {
 		p.setCurrentPosition(game.getSpaces().get(0));
 		p.setColor(new Color(40, 147, 30));
 		game.addPlayer(p);
- */
+
 	}
 
 	/**
@@ -332,7 +308,8 @@ public class MiniMonopoly {
 		//createPlayers(game);
 
 		GameController controller = new GameController(game);
-		controller.makeGame();
+		// call this if you want load functions controller.makeGame();
+		createPlayers(game);
 		controller.initializeGUI();
 		controller.play();
 

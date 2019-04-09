@@ -31,6 +31,9 @@ public class Player extends Subject {
 
 	private int balance = 4000;
 
+
+	private int turnsInJail = 0;
+
 	private boolean inPrison = false;
 
 	private boolean broke = false;
@@ -281,5 +284,13 @@ public class Player extends Subject {
 
 	public void setSumOfDies(int sumOfDies) {
 		this.sumOfDies = sumOfDies;
+	}
+
+	public int getTurnsInJail() {
+		return turnsInJail;
+	}
+
+	public void setTurnsInJail(int turnsInJail) {
+		this.turnsInJail = turnsInJail;
 	}
 }

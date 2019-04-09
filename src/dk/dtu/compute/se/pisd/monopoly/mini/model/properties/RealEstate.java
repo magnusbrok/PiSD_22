@@ -27,8 +27,9 @@ public class RealEstate extends Property{
 
         public void buildhouse (Player player, RealEstate realEstate) {
                 if (player.getBalance() >= housecost && houses < maxhouses) {
-                        player.payMoney(housecost);
                         houses++;
+                        computeRent(realEstate);
+                        player.payMoney(housecost);
                         notifyChange();
                 }
         }

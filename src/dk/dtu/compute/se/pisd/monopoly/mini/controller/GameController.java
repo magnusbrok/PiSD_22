@@ -117,6 +117,9 @@ public class GameController {
 		}
 		List<Color> pColor = game.getColors();
 
+		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
+		//TODO 2) In GameController play() ask players to chose names IN THE GUI
+
 		for (int i = 1; i <= totalPlayers; i++) {
 			Player p = new Player();
 			p.setPlayerID(i);
@@ -234,6 +237,10 @@ public class GameController {
 		boolean castDouble;
 		int doublesCount = 0;
 		do {
+			// TODO right now the dice are limited to the numbers 1, 2 and 3
+			// for making the game faster. Eventually, this should be set
+			// to 1 - 6 again (to this end, the constants 3.0 below should
+			// be set to 6.0 again.
 			int die1 = (int) (1 + 6.0*Math.random());
 			int die2 = (int) (1 + 6.0*Math.random());
 			castDouble = (die1 == die2);

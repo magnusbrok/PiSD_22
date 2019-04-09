@@ -76,15 +76,13 @@ public class PlayerPanel extends JFrame {
         panel.add(label);
         }
 
+        frame.add(panel);
         //TODO Maybe compine properties of same color
         this.getContentPane().setLayout(null);
-        frame.add(panel);
-
-        JPanel propertyPanel = new JPanel();
 
         for (Property property : player.getOwnedProperties()){
 
-            propertyPanel = new JPanel();
+            JPanel propertyPanel = new JPanel();
             propertyPanel.setMinimumSize(new Dimension(80 , 100));
             propertyPanel.setPreferredSize(new Dimension(100, 100));
             propertyPanel.setMaximumSize(new Dimension(110, 100));
@@ -101,7 +99,7 @@ public class PlayerPanel extends JFrame {
                 propertyPanel.add(label);
                 label = new JLabel(" Houses:   "+ realEstate.getHouses());
                 propertyPanel.add(label);
-                label = new JLabel(" Rent:   "+ realEstate.getBaseRent());
+                label = new JLabel(" Rent:   "+ realEstate.getRent());
                 propertyPanel.add(label);
             }
             frame.add(propertyPanel);

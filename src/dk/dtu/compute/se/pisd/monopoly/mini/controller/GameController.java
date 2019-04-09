@@ -235,8 +235,8 @@ public class GameController {
         boolean castDouble;
         int doublesCount = 0;
         do {
-            int die1 = 2;//(int) (1 + 6.0*Math.random());
-            int die2 = 3;//(int) (1 + 6.0*Math.random());
+            int die1 = (int) (1 + 6.0*Math.random());
+            int die2 = (int) (1 + 6.0*Math.random());
             castDouble = (die1 == die2);
             gui.setDice(die1, die2);
             player.setSumOfDies(die1+die2);

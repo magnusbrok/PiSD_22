@@ -295,7 +295,8 @@ public class MiniMonopoly {
 
 		GameController controller = new GameController(game);
 		// call this if you want load functions controller.makeGame();
-		createPlayers(game);
+		controller.makeGame();
+		//createPlayers(game);
 		controller.initializeGUI();
 		controller.play();
 

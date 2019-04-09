@@ -5,8 +5,9 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardMove;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardReceiveMoneyFromBank;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.PayTax;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -69,10 +70,7 @@ public class MiniMonopoly {
 		t.setName("Pay tax (10% on Cash)");
 		game.addSpace(t);
 
-		Utility s = new Utility();
-		s.setName("Øresund");
-		s.setCost(200);
-		s.setRent(500);
+		Ferry s = new Ferry("Øresund", 500, 200);
 		game.addSpace(s);
 
 		p = new RealEstate(70,100,100);
@@ -103,11 +101,11 @@ public class MiniMonopoly {
 		p.setColor(new Color(102, 204, 31));
 		game.addSpace(p);
 
-		s = new Utility();
-		s.setName("Tuborg tapperi");
-		s.setCost(200);
-		s.setRent(300);
-		game.addSpace(s);
+		Brewery b = new Brewery("Tuborg tapperi", 300, 200);
+		b.setName("Tuborg tapperi");
+		b.setCost(200);
+		b.setRent(300);
+		game.addSpace(b);
 		
 		p = new RealEstate(200,140,100);
 		p.setColor(new Color(102, 204, 31));
@@ -119,10 +117,7 @@ public class MiniMonopoly {
 		p.setColor(new Color(102, 204, 31));
 		game.addSpace(p);
 
-		s = new Utility();
-		s.setName("D.F.D.S.");
-		s.setCost(200);
-		s.setRent(500);
+		s = new Ferry("D.F.D.S", 500, 200);
 		game.addSpace(s);
 
 		p = new RealEstate(250,180,100);
@@ -169,10 +164,7 @@ public class MiniMonopoly {
 		p.setColor(Color.RED);
 		game.addSpace(p);
 
-		s = new Utility();
-		s.setName("Å. S.");
-		s.setCost(2000);
-		s.setRent(500);
+		s = new Ferry("Å. S.", 500, 2000);
 		game.addSpace(s);
 
 		p = new RealEstate(150,260,100);
@@ -185,11 +177,8 @@ public class MiniMonopoly {
 		p.setColor(new Color(255,255,255));
 		game.addSpace(p);
 
-		s = new Utility();
-		s.setName("Calsberg");
-		s.setCost(150);
-		s.setRent(200);
-		game.addSpace(s);
+		b = new Brewery("Carlsberg", 200, 150);
+		game.addSpace(b);
 
 		p = new RealEstate(150,260,100);
 		p.setName("Østergade");
@@ -219,10 +208,7 @@ public class MiniMonopoly {
 		p.setColor(new Color(250, 241,11));
 		game.addSpace(p);
 
-		s = new Utility();
-		s.setName("Bornholm");
-		s.setCost(200);
-		s.setRent(500);
+		s = new Ferry("Bornholm", 500, 200);
 		game.addSpace(s);
 
 		chance = new Chance();
@@ -256,10 +242,10 @@ public class MiniMonopoly {
 		tax.setText("Pay 10% income tax!");
 		cards.add(tax);
 		
-		CardReceiveMoneyFromBank b = new CardReceiveMoneyFromBank();
-		b.setText("You receive 100$ from the bank.");
-		b.setAmount(100);
-		cards.add(b);
+		CardReceiveMoneyFromBank ba = new CardReceiveMoneyFromBank();
+		ba.setText("You receive 100$ from the bank.");
+		ba.setAmount(100);
+		cards.add(ba);
 		game.setCardDeck(cards);
 
 		return game;

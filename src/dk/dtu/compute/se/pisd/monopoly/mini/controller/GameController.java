@@ -238,7 +238,7 @@ public class GameController {
 			int die2 = (int) (1 + 6.0*Math.random());
 			castDouble = (die1 == die2);
 			gui.setDice(die1, die2);
-			
+			/**
 			if (player.isInPrison() && castDouble) {
 				player.setInPrison(false);
 				gui.showMessage("Player " + player.getName() + " leaves prison now since he cast a double!");
@@ -246,7 +246,8 @@ public class GameController {
 				gui.showMessage("Player " + player.getName() + " stays in prison since he did not cast a double!");
 			}
 			// TODO note that the player could also pay to get out of prison,
-			//      which is not yet implemented 
+			//      which is not yet implemented
+			 **/
 			if (castDouble) {
 				doublesCount++;
 				if (doublesCount > 2) {
@@ -254,6 +255,9 @@ public class GameController {
 					gotoJail(player);
 					return;
 				}
+			}
+			if (player.isInPrison()) {
+				getOutOfJail(player);
 			}
 			if (!player.isInPrison()) {
 				// make the actual move by computing the new position and then
@@ -305,7 +309,6 @@ public class GameController {
 				}
 			}
 		}
-
 	}
 
 
@@ -330,7 +333,7 @@ public class GameController {
 			gui.showMessage("Player " + player.getName() + " receives 2000$ for passing Go!");
 			this.paymentFromBank(player, 2000);
 		}		
-		gui.showMessage("Player " + player.getName() + " arrives at " + space.getIndex() + ": " +  space.getName() + ".");
+		gui.showMessage(player.getName() + " arrives at " + space.getIndex() + ": " +  space.getName() + ".");
 		
 		// Execute the action associated with the respective space. Note
 		// that this is delegated to the field, which implements this action
@@ -346,12 +349,51 @@ public class GameController {
 	 * 
 	 * @param player the player going to jail
 	 */
-	public void gotoJail(Player player) {
+	public void gotoJail(Player player)  {
 		// Field #10 is in the default game board of Monopoly the field
 		// representing the prison.
 		// TODO the 10 should not be hard coded
 		player.setCurrentPosition(game.getSpaces().get(10));
 		player.setInPrison(true);
+	}
+
+	/**
+	 * Mthod used for getting a player out of jail either by payment or by die roll
+	 * @param player the player currently in prison
+	 * @throws PlayerBrokeException if the player gets forced to buy out of prison and goes broke
+	 * @Author Magnus og Ida.
+	 */
+	public void getOutOfJail (Player player) throws PlayerBrokeException{
+		int bail = 500;
+
+		if (player.isInPrison()) {
+			String selection = gui.getUserSelection(player.getName() + " er i fængsel vil du købe dig ud eller slå efter dobbelt" +
+					"", "Ja", "Nej");
+
+			if (selection == "Ja") {
+				paymentToBank(player, bail);
+				player.setInPrison(false);
+			}
+			if (selection == "Nej") {
+				int die1 = (int) (1 + 6.0 * Math.random());
+				int die2 = (int) (1 + 6.0 * Math.random());
+				boolean castDouble = (die1 == die2);
+				gui.setDice(die1, die2);
+				if (castDouble) {
+					gui.showMessage("Du slog dobbelt og kommer ud af fængsel");
+					player.setInPrison(false);
+				} else  {
+					gui.showMessage("Du slog ikke dobbelt og må side en runde over");
+					player.setTurnsInJail(player.getTurnsInJail()+1);
+				}
+			}
+			if (player.getTurnsInJail() == 3) {
+				gui.showMessage("Du har ikke kunne slå dig ud efter 3 forsøg, og skal derfor betale for at komme ud");
+				paymentToBank(player, 500);
+				player.setInPrison(false);
+				player.setTurnsInJail(0);
+			}
+		}
 	}
 	
 	/**

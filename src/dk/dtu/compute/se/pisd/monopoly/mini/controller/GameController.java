@@ -5,6 +5,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
@@ -467,6 +468,14 @@ public class GameController {
     		}
     		player.addOwnedProperty(property);
     		property.setOwner(player);
+    		if (property instanceof Ferry) {
+    			for (Property property1 : player.getOwnedProperties()) {
+    				if (property1 instanceof  Ferry) {
+    					Ferry ferry = (Ferry) property1;
+    					ferry.computeRent(ferry);
+					}
+				}
+			}
     		return;
         }
         

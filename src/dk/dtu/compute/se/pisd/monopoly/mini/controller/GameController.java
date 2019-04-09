@@ -81,7 +81,7 @@ public class GameController {
 	 * to make a new game or load one. Either calls loadGame method or makePlayers method.
 	 */
 	public void makeGame () {
-		//TODO mulighed for at hente spil eller starte nyt spil
+
 		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
 				"Start new game", "Load game");
 		if (selection == "Load game"){
@@ -90,10 +90,12 @@ public class GameController {
 				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
 						"\n Please enter game ID" +
 						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
-				if (gameDAO.getGameIds().contains(gameID)) {
-					game.setGameID(gameID);
-					gameDAO.loadGame(game);
+				while (!gameDAO.getGameIds().contains(gameID)) {
+					gameID = gui.getUserInteger("You entered a gameID that doesn't exist. Please... Try again" +
+					"\n Følgende spil er gemte: \n" + gameIDs.toString());
 				}
+				game.setGameID(gameID);
+				gameDAO.loadGame(game);
 			}catch (DALException e){
 				e.printStackTrace();
 			}

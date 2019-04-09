@@ -10,7 +10,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.properties;
  * and hotels can be built. Note that this class does not have details
  * yet and needs to be implemented.
  *
- * @author Ekkart Kindler, ekki@dtu.dk
+ * @author Everyone
  *
  */
 public class RealEstate extends Property{
@@ -80,6 +80,7 @@ public class RealEstate extends Property{
         public Color getColor() {
                 return color;
         }
+
         public void setColor(Color color) {
                 this.color = color;
         }

@@ -98,8 +98,6 @@ public class View implements Observer {
 		if (!disposed) {
 			if (subject instanceof Player) {
 				updatePlayer((Player) subject);
-
-
 			}
 
 			if (subject instanceof RealEstate) {

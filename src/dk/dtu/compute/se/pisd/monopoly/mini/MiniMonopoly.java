@@ -15,9 +15,10 @@ import java.util.Scanner;
 
 /**
  * Main class for setting up and running a (Mini-)Monoploy game.
- * 
- * @author Ekkart Kindler, ekki@dtu.dk
- *
+ * Has the method to create the spaces on the gameboard, and some other things
+ * that are permanent for each game.
+ * @author original Ekkart Kindler, ekki@dtu.dk
+ * ediitet by Group C
  */
 public class MiniMonopoly {
 	
@@ -333,6 +334,7 @@ public class MiniMonopoly {
 
 	/**
 	 * This method is only used in the DAO_tester. Player creation is now handled in GameController or GAMEDAO if game is loaded from DB.
+	 * Do not use for final implementation
 	 */
 	public static void createPlayers(Game game) {
 
@@ -349,9 +351,6 @@ public class MiniMonopoly {
 		}
 
 		List<Color> pColor = game.getColors();
-
-		//TODO 1) Fix colors on board or of players. With 6 potential players, the color of the players matches some fields on the boards.
-		//TODO 2) In GameController play() ask players to chose names IN THE GUI
 
 		for (int i = 1; i <= totalPlayers; i++) {
 			Player p = new Player();
@@ -388,9 +387,8 @@ public class MiniMonopoly {
 
 	/**
 	 * The main method which creates a game, shuffles the chance
-	 * cards, creates players, and then starts the game. Note
-	 * that, eventually, the game could be loaded from a database.
-	 * 
+	 * cards. Make game either starts creating players or loads a previous game
+	 * if wanted. Then initializes GUI and plays the game
 	 * @param args not used
 	 */
 	public static void main(String[] args) {

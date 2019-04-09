@@ -75,6 +75,11 @@ public class GameController {
 	public void initializeGUI() {
 		this.view = new View(game, gui);
 	}
+
+	/**
+	 * method called in main to start creating a game. Ask through the GUI if the player wants
+	 * to make a new game or load one. Either calls loadGame method or makePlayers method.
+	 */
 	public void makeGame () {
 		//TODO mulighed for at hente spil eller starte nyt spil
 		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
@@ -95,6 +100,12 @@ public class GameController {
 		}
 		else makePlayers();
 	}
+
+	/**
+	 * The basic method for making each player in the game. Only happens if the player wants to start a fresh game.
+	 * Ask how many are playing with the min and max number of players. Then creates each player with defualt ID's and colors
+	 * Name is collected via the GUI.
+	 */
 	public void makePlayers() {
 		int minPlayers = 3;
 		int maxPlayers = 6;
@@ -134,9 +145,6 @@ public class GameController {
 				current = i;
 			}
 		}
-
-
-
 
 		boolean terminated = false;
 		while (!terminated) {

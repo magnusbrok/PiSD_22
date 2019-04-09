@@ -13,8 +13,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data acces object responsible for handling database implementation
+ * @author Magnus and Siff
+ */
 public class GameDAO implements IGameDAO {
-
+    /**
+     * Method for connecting to the database, is called in most sub methods.
+     * @return returns the active connection.
+     * @throws DALException handles errors with DAL.
+     */
     private Connection createConnection() throws DALException {
         try {
 
@@ -25,6 +33,12 @@ public class GameDAO implements IGameDAO {
         }
     }
 
+    /**
+     * method for saving the game in the database. Collect the data from the current game
+     * and then saves them in our 3 database tables.
+     * @param game the current game that needs to be saved.
+     * @throws DALException handles errors with DAL.
+     */
     @Override
     public void createGame(Game game) throws DALException {
 
@@ -81,6 +95,12 @@ public class GameDAO implements IGameDAO {
         }
     }
 
+    /**
+     * Simple method that can be called if one wants to overwrite a existing save with another.
+     * @param game the game that wants to be saved.
+     * @return returns true if method worked as intented.
+     * @throws DALException handles errors with DAL.
+     */
     @Override
     public boolean updateGame(Game game) throws DALException {
         try{
@@ -90,9 +110,15 @@ public class GameDAO implements IGameDAO {
             throw new DALException(e.getMessage());
         }
 
-        return false;
+        return true;
     }
 
+    /**
+     * method called for loading a game uses sub method makePlayer and makeProperty from resultset.
+     * @param game The game that needs to be loaded
+     * @return the loaded game
+     * @throws DALException handles errors with DAL.
+     */
     @Override
     public boolean loadGame(Game game) throws DALException{
         try (Connection c = createConnection()){
@@ -130,6 +156,11 @@ public class GameDAO implements IGameDAO {
         return true;
     }
 
+    /**
+     * Removes a game from the database bases on the gameID. Removes data from all 3 tables
+     * @param game the game that needs to be removed.
+     * @throws DALException handles errors with DAL.
+     */
     @Override
     public void deleteGame(Game game) throws DALException {
         try(Connection c = createConnection()){
@@ -150,6 +181,12 @@ public class GameDAO implements IGameDAO {
         }
     }
 
+    /**
+     * collects all the gameIDs stored in the database.
+     * Used for showing user which games are availible to load.
+     * @return returns a List of gameIds (int)
+     * @throws DALException handles errors with DAL.
+     */
     @Override
     public List<Integer> getGameIds() throws DALException {
         try(Connection c = createConnection()){
@@ -168,6 +205,11 @@ public class GameDAO implements IGameDAO {
         }
     }
 
+    /**
+     * Submethod for making each player collected via a resultset.
+     * @param resultSet the resultset collected from loadGame method
+     * @param game the Game that need changing.
+     */
     private void makePlayerFromResultSet(ResultSet resultSet, Game game){
 
         List<Color> pColor = game.getColors();
@@ -186,25 +228,15 @@ public class GameDAO implements IGameDAO {
             }
             game.addPlayer(player);
 
-/**
-            int playerID = resultSet.getInt("pl_ID");
-            Player player = game.getPlayers().get(playerID - 1);
-            player.setPlayerID(playerID);
-            player.setName(resultSet.getString("name"));
-            player.setCurrentPosition(game.getSpaces().get(resultSet.getInt("position")));
-            player.setBalance(resultSet.getInt("balance"));
-            if (resultSet.getInt("inprison") == 1) {
-                player.setInPrison(true);
-            }
-            if (resultSet.getInt("broke") == 1) {
-                player.setBroke(true);
-            }
- **/
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
-
+    /**
+     * Submethod for making each property collected via a resultset.
+     * @param resultSet the resultset collected from loadGame method
+     * @param game the Game that need changing.
+     */
     private void makePropertyFromResultSet(ResultSet resultSet, Game game){
         try{
             Property property = (Property) game.getSpaces().get(resultSet.getInt("pr_ID"));

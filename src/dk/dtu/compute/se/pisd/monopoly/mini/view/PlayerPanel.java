@@ -9,11 +9,20 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class for making Jframes with info about each player and their owned properties.
+ * @author Magnus, Tim, Siff og Ida
+ */
 public class PlayerPanel extends JFrame {
     private Player player;
     private JFrame frame;
     JPanel panel = new JPanel();
 
+    /**
+     * The setup of the permanent playerFrame. only happens once and isn't changed during the game.
+     * @param game The game that's playing
+     * @param player the player that needs a frame.
+     */
     public PlayerPanel(Game game, Player player){
         this.player = player;
         //this.game = game;
@@ -33,6 +42,11 @@ public class PlayerPanel extends JFrame {
 
     }
 
+    /**
+     * update method that handles the drawing and updating of each player frame.
+     * method adds info about the player in 1 panel and adds another panel for each property owned.
+     * Is called in the view class via updatePlayer method.
+     */
     public void update() {
         panel.removeAll();
 

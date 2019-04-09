@@ -100,11 +100,13 @@ public class View implements Observer {
 
 
 			}
-			if (subject instanceof Property) {
-				updateProperty((Property) subject);
-			}
+
 			if (subject instanceof RealEstate) {
 				updateProperty((RealEstate) subject);
+			}
+
+			if (subject instanceof Property) {
+				updateProperty((Property) subject);
 			}
 			// TODO update other subjects in the GUI
 			//      in particular properties (sold, houses, ...)
@@ -166,6 +168,7 @@ public class View implements Observer {
 
 					if (guiProperty instanceof GUI_Street) {
 						((GUI_Street) guiProperty).setHouses(realEstate.getHouses());
+
 					}
 				}
 

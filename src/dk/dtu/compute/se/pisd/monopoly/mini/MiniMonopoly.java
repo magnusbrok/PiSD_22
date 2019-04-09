@@ -291,9 +291,12 @@ public class MiniMonopoly {
 		Game game = createGame();
 		game.shuffleCardDeck();
 
+		//createPlayers(game);
+
 		GameController controller = new GameController(game);
 		// call this if you want load functions controller.makeGame();
-		createPlayers(game); // call this if you want default game
+		controller.makeGame();
+		//createPlayers(game);
 		controller.initializeGUI();
 		controller.play();
 

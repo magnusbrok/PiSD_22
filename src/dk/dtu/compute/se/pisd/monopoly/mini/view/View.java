@@ -68,7 +68,6 @@ public class View implements Observer {
 			// register the view as an observer for now
 			if (space instanceof Property ) {
 				space.attach(this);
-				updateProperty((Property) space);
 			}
 
 		}
@@ -176,13 +175,9 @@ public class View implements Observer {
 
 					if (guiProperty instanceof GUI_Street) {
 						((GUI_Street) guiProperty).setHouses(realEstate.getHouses());
-
 					}
 				}
-
-				// TODO implement house GUI... WIP
-				Player player = property.getOwner();
-				player2Playerpanel.get(player).update();
+				player2Playerpanel.get(owner).update();
 			}
 			else {
 				guiProperty.setBorder(null);

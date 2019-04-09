@@ -18,6 +18,10 @@ import java.util.List;
  * @author Magnus and Siff
  */
 public class GameDAO implements IGameDAO {
+    String dbAdress = "jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com/";
+    String dbUser = "s185037";
+    String dbPassWord = "7KZWv1fdgUsV6uSlvhLVb";
+
     /**
      * Method for connecting to the database, is called in most sub methods.
      * @return returns the active connection.
@@ -26,8 +30,8 @@ public class GameDAO implements IGameDAO {
     private Connection createConnection() throws DALException {
         try {
 
-            return DriverManager.getConnection("jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com/s185037?"
-                    + "user=s185037&password=7KZWv1fdgUsV6uSlvhLVb");
+            return DriverManager.getConnection(dbAdress + dbUser + "?"
+                    + "user=" + dbUser + "&password="+dbPassWord);
         } catch (SQLException e)    {
             throw new DALException(e.getMessage());
         }

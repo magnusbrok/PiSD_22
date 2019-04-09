@@ -5,7 +5,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
@@ -239,16 +238,8 @@ public class GameController {
 			int die2 = (int) (1 + 6.0*Math.random());
 			castDouble = (die1 == die2);
 			gui.setDice(die1, die2);
-			/**
-			if (player.isInPrison() && castDouble) {
-				player.setInPrison(false);
-				gui.showMessage("Player " + player.getName() + " leaves prison now since he cast a double!");
-			} else if (player.isInPrison()) {
-				gui.showMessage("Player " + player.getName() + " stays in prison since he did not cast a double!");
-			}
-			// TODO note that the player could also pay to get out of prison,
-			//      which is not yet implemented
-			 **/
+			player.setSumOfDies(die1+die2);
+
 			if (castDouble) {
 				doublesCount++;
 				if (doublesCount > 2) {

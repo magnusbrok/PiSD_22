@@ -87,11 +87,6 @@ public class Property extends Space {
 			controller.offerToBuy(this, player);
 		} else if (!owner.equals(player)) {
 			// TODO also check whether the property is mortgaged
-			// TODO the computation of the actual rent could be delegated
-			//      the subclasses of Property, which can take the specific
-			//      individual conditions into account. Note that the
-			//      groups of properties (which are not part of the model
-			//      yet also need to be taken into account).
 			if(this instanceof RealEstate){
 				RealEstate realEstate = (RealEstate) this;
 				realEstate.computeRent(realEstate);

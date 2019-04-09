@@ -4,6 +4,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.view;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
@@ -116,6 +117,13 @@ public class PlayerPanel extends JFrame {
                 label = new JLabel(" Ferries:   " + ferry.getOwnedFerries(player));
                 propertyPanel.add(label);
                 label = new JLabel(" Rent:   " + ferry.getRent());
+                propertyPanel.add(label);
+            }
+            if (property instanceof Brewery) {
+                Brewery brewery = (Brewery) property;
+                label = new JLabel(" Breweries:   "  + brewery.getOwnedBreweries()); // not working
+                propertyPanel.add(label);
+                label = new JLabel(" Rent:   " + brewery.getRent()); // not working proberly
                 propertyPanel.add(label);
             }
 

@@ -5,6 +5,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import dk.dtu.compute.se.pisd.monopoly.mini.view.View;
 import gui_main.GUI;
@@ -18,7 +19,7 @@ import java.util.List;
  * to all basic actions and activities for the game. All other
  * activities of the game, should be implemented by referring
  * to the basic actions and activities in this class.
- * 
+ *
  * Note that this controller is far from being finished and many
  * things could be done in a much nicer and cleaner way! But, it
  * shows the general idea of how the model, view (GUI), and the
@@ -26,16 +27,16 @@ import java.util.List;
  * of the game's activities can be separated from each other, so
  * that different parts can be added and extended independently
  * from each other.
- * 
+ *
  * For fully implementing the game, it will probably be necessary
  * to add more of these basic actions in this class.
- * 
+ *
  * The <code>doAction()</code> methods of the
  * {@link dk.dtu.compute.se.pisd.monopoly.mini.model.Space} and
  * the {@link dk.dtu.compute.se.pisd.monopoly.mini.model.Card}
  * can be implemented based on the basic actions and activities
  * of this game controller.
- * 
+ *
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
@@ -313,18 +314,18 @@ public class GameController {
 
 
 
-	
-	/**
-	 * This method implements the activity of moving the player to the new position,
-	 * including all actions associated with moving the player to the new position.
-	 * 
-	 * @param player the moved player
-	 * @param space the space to which the player moves
-	 * @throws PlayerBrokeException when the player goes broke doing the action on that space
-	 */
-	public void moveToSpace(Player player, Space space) throws PlayerBrokeException, GameEndedException {
-		int posOld = player.getCurrentPosition().getIndex();
-		player.setCurrentPosition(space);
+
+    /**
+     * This method implements the activity of moving the player to the new position,
+     * including all actions associated with moving the player to the new position.
+     *
+     * @param player the moved player
+     * @param space the space to which the player moves
+     * @throws PlayerBrokeException when the player goes broke doing the action on that space
+     */
+    public void moveToSpace(Player player, Space space) throws PlayerBrokeException, GameEndedException {
+        int posOld = player.getCurrentPosition().getIndex();
+        player.setCurrentPosition(space);
 
 		if (posOld > player.getCurrentPosition().getIndex()) {
 			// Note that this assumes that the game has more than 12 spaces here!
@@ -339,10 +340,10 @@ public class GameController {
 		// that this is delegated to the field, which implements this action
 		space.doAction(this, player);
 
-		if (player.getBalance() < 0) {
-			throw new GameEndedException(game);
-		}
-	}	
+        if (player.getBalance() < 0) {
+            throw new GameEndedException(game);
+        }
+    }
 
 	/**
 	 * The method implements the action of a player going directly to jail.

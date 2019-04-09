@@ -6,6 +6,8 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import gui_fields.*;
 import gui_fields.GUI_Car.Pattern;
@@ -66,7 +68,6 @@ public class View implements Observer {
 			// register the view as an observer for now
 			if (space instanceof Property ) {
 				space.attach(this);
-				updateProperty((Property) space);
 			}
 
 		}
@@ -105,9 +106,15 @@ public class View implements Observer {
 				updateProperty((RealEstate) subject);
 			}
 
-			if (subject instanceof Property) {
-				updateProperty((Property) subject);
+			if (subject instanceof Ferry) {
+				updateProperty((Ferry) subject);
 			}
+
+			if (subject instanceof Brewery) {
+				updateProperty((Brewery) subject);
+			}
+
+
 			// TODO update other subjects in the GUI
 			//      in particular properties (sold, houses, ...)
 			
@@ -168,12 +175,9 @@ public class View implements Observer {
 
 					if (guiProperty instanceof GUI_Street) {
 						((GUI_Street) guiProperty).setHouses(realEstate.getHouses());
-
 					}
 				}
-
-				// TODO implement house GUI... WIP
-
+				player2Playerpanel.get(owner).update();
 			}
 			else {
 				guiProperty.setBorder(null);

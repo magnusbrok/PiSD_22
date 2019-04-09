@@ -5,7 +5,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Utility;
 
 import java.awt.*;
 import java.sql.*;
@@ -64,12 +63,10 @@ public class GameDAO implements IGameDAO {
                 statement.setBoolean(5, player.isInPrison());
                 statement.setBoolean(6, player.isBroke());
                 statement.setInt(7, game.getGameID());
-
                 statement.executeUpdate();
 
-            }
-
-            for (int i = 0 ; i < game.getSpaces().size() ; i++) {
+           }
+           for (int i = 0 ; i < game.getSpaces().size() ; i++) {
 
                 if (game.getSpaces().get(i) instanceof RealEstate) {
                     RealEstate realEstate = (RealEstate) game.getSpaces().get(i);
@@ -81,19 +78,18 @@ public class GameDAO implements IGameDAO {
                     statement.setInt(4, game.getGameID());
                     statement.executeUpdate();
                     }
-                }
-                if (game.getSpaces().get(i) instanceof Utility) {
-                    Utility utility = (Utility) game.getSpaces().get(i);
-                    if (utility.getOwner() != null) {
-                        statement = c.prepareStatement("INSERT INTO Property VALUES (?, ?, ?, ?)");
-                        statement.setInt(1 , i);
-                        statement.setInt(2, utility.getOwner().getPlayerID());
-                        statement.setInt(3, 0);
-                        statement.setInt(4, game.getGameID());
-                        statement.executeUpdate();
+                } else if (game.getSpaces().get(i) instanceof Property){
+                    Property property = (Property) game.getSpaces().get(i);
+                        if (property.getOwner() != null) {
+                            statement = c.prepareStatement("INSERT INTO Property VALUES (?, ?, ?, ?)");
+                            statement.setInt(1 , i);
+                            statement.setInt(2, property.getOwner().getPlayerID());
+                            statement.setInt(3, 0);
+                            statement.setInt(4, game.getGameID());
+                            statement.executeUpdate();
+                        }
                     }
                 }
-            }
         } catch (SQLException e) {
             throw new DALException(e.getMessage());
         }
@@ -127,7 +123,7 @@ public class GameDAO implements IGameDAO {
     public boolean loadGame(Game game) throws DALException{
         try (Connection c = createConnection()){
 
-            //TODO make players now only works with 3 players corruntly works could use some trimming.
+            //TODO corruntly works could use some trimming.
             PreparedStatement statement = c.prepareStatement("SELECT * FROM Player WHERE g_ID = ?");
             statement.setInt(1, game.getGameID());
             ResultSet resultSet = statement.executeQuery();
@@ -232,6 +228,7 @@ public class GameDAO implements IGameDAO {
             }
             game.addPlayer(player);
 
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -251,14 +248,10 @@ public class GameDAO implements IGameDAO {
                 realEstate.setOwner(player);
                 player.addOwnedProperty(realEstate);
                 realEstate.setHouses(resultSet.getInt("houses"));
+            } else {
+                property.setOwner(player);
+                player.addOwnedProperty(property);
             }
-            if (property instanceof Utility) {
-                Utility utility = (Utility) property;
-                utility.setOwner(player);
-                player.addOwnedProperty(utility);
-            }
-
-
         }catch (SQLException e){
             e.printStackTrace();
         }

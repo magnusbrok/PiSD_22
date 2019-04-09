@@ -21,6 +21,8 @@ public class Player extends Subject {
 	
 	private String name;
 
+	private int sumOfDies;
+
 	private int playerID;
 
 	private Color color;
@@ -274,6 +276,14 @@ public class Player extends Subject {
 
 	public void setPlayerID(int playerID) {
 		this.playerID = playerID;
+	}
+
+	public int getSumOfDies() {
+		return sumOfDies;
+	}
+
+	public void setSumOfDies(int sumOfDies) {
+		this.sumOfDies = sumOfDies;
 	}
 
 	public int getTurnsInJail() {

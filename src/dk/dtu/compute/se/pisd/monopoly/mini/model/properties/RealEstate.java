@@ -19,11 +19,12 @@ public class RealEstate extends Property{
         private int houses;
         private int housecost;
         private int maxhouses = 4;
+        private Color color;
+
 
 
 
         public RealEstate (int BaseRent, int cost, int housecost){
-
             super.setBaseRent(BaseRent);
             super.setCost(cost);
             this.housecost = housecost;
@@ -31,8 +32,6 @@ public class RealEstate extends Property{
 
         }
 
-
-        private Color color;
 
 
         public void buildhouse (Player player, RealEstate realEstate) {

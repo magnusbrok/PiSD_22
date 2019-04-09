@@ -10,7 +10,20 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
  *
  */
 public class Utility extends Property {
-	
-	// TODO to be implemented
+
+    // ferry
+    //4 af dem, de koster 2k, baserent 500, når man ejer en mere stiger rent med 500
+
+
+
+
+
+
+
+
+
+
+    // Brewery
+    //2 af dem, de koster 200kr, rent = 100*terningeøjne. (*2 hvis begge ejes)
 
 }

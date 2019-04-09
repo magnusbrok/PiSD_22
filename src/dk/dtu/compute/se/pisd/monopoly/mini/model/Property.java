@@ -3,6 +3,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model;
 import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
 /**
@@ -12,6 +13,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
  *
  */
 public class Property extends Space {
+
 	
 	private int cost;
 	private int rent;
@@ -94,9 +96,14 @@ public class Property extends Space {
 				RealEstate realEstate = (RealEstate) this;
 				realEstate.computeRent(realEstate);
 			}
+			if(this instanceof Ferry){
+						Ferry ferry = (Ferry) this;
+						ferry.computeRent(ferry);
+				}
+
+			}
 			controller.payment(player, rent, owner);
 		}
-	}
 
 	public int getBaseRent() {
 		return baseRent;

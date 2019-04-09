@@ -4,6 +4,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.view;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
 import javax.swing.*;
@@ -52,16 +53,16 @@ public class PlayerPanel extends JFrame {
 
 
         JPanel panel = new JPanel();
-        panel.setMinimumSize(new Dimension(100 , 100));
+        panel.setMinimumSize(new Dimension(100, 100));
         panel.setPreferredSize(new Dimension(100, 100));
         panel.setMaximumSize(new Dimension(100, 100));
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         panel.setBackground(player.getColor());
 
 
         //Insetting labels into the Playerpanel
-        JLabel label = new JLabel(" Navn:   "+ player.getName());
+        JLabel label = new JLabel(" Navn:   " + player.getName());
         panel.add(label);
 
         label = new JLabel(" Balance:   " + this.player.getBalance());
@@ -71,22 +72,22 @@ public class PlayerPanel extends JFrame {
             label = new JLabel(" Status:   In Jail");
             panel.add(label);
         }
-        if (player.isBroke()){
-        label = new JLabel(" Status:   Broke");
-        panel.add(label);
+        if (player.isBroke()) {
+            label = new JLabel(" Status:   Broke");
+            panel.add(label);
         }
 
         frame.add(panel);
         //TODO Maybe compine properties of same color
         this.getContentPane().setLayout(null);
 
-        for (Property property : player.getOwnedProperties()){
+        for (Property property : player.getOwnedProperties()) {
 
             JPanel propertyPanel = new JPanel();
-            propertyPanel.setMinimumSize(new Dimension(80 , 100));
+            propertyPanel.setMinimumSize(new Dimension(80, 100));
             propertyPanel.setPreferredSize(new Dimension(100, 100));
             propertyPanel.setMaximumSize(new Dimension(110, 100));
-            propertyPanel.setLayout(new BoxLayout(propertyPanel,BoxLayout.Y_AXIS));
+            propertyPanel.setLayout(new BoxLayout(propertyPanel, BoxLayout.Y_AXIS));
             propertyPanel.setBorder(BorderFactory.createLineBorder(Color.black, 1));
 
             label = new JLabel(" " + property.getName());
@@ -95,18 +96,29 @@ public class PlayerPanel extends JFrame {
             if (property instanceof RealEstate) {
                 RealEstate realEstate = (RealEstate) property;
                 propertyPanel.setBackground(realEstate.getColor());
-                label = new JLabel(" HouseCost:   "+ realEstate.getHousecost());
+                label = new JLabel(" HouseCost:   " + realEstate.getHousecost());
                 propertyPanel.add(label);
-                label = new JLabel(" Houses:   "+ realEstate.getHouses());
+                label = new JLabel(" Houses:   " + realEstate.getHouses());
                 propertyPanel.add(label);
                 if (realEstate.getRent() != 0) {
-                label = new JLabel(" Rent:   "+ realEstate.getRent());
+                    label = new JLabel(" Rent:   " + realEstate.getRent());
                 }
                 if (realEstate.getRent() == 0) {
-                    label = new JLabel("Rent:   "+ realEstate.getBaseRent());
+                    label = new JLabel("Rent:   " + realEstate.getBaseRent());
                 }
                 propertyPanel.add(label);
             }
+
+            if (property instanceof Ferry) {
+                Ferry ferry = (Ferry) property;
+                label = new JLabel(" FerryCost:   " + ferry.getCost());
+                propertyPanel.add(label);
+                label = new JLabel(" Ferries:   " + ferry.getOwnedFerries(player));
+                propertyPanel.add(label);
+                label = new JLabel(" Rent:   " + ferry.getRent());
+                propertyPanel.add(label);
+            }
+
             frame.add(propertyPanel);
         }
         frame.revalidate();

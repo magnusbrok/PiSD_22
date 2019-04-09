@@ -21,6 +21,8 @@ public class Player extends Subject {
 	
 	private String name;
 
+	private int sumOfDies;
+
 	private int playerID;
 
 	private Color color;
@@ -28,9 +30,6 @@ public class Player extends Subject {
 	private Space currentPosition;
 
 	private int balance = 4000;
-
-
-	private int turnsInJail = 0;
 
 	private boolean inPrison = false;
 
@@ -276,11 +275,11 @@ public class Player extends Subject {
 		this.playerID = playerID;
 	}
 
-	public int getTurnsInJail() {
-		return turnsInJail;
+	public int getSumOfDies() {
+		return sumOfDies;
 	}
 
-	public void setTurnsInJail(int turnsInJail) {
-		this.turnsInJail = turnsInJail;
+	public void setSumOfDies(int sumOfDies) {
+		this.sumOfDies = sumOfDies;
 	}
 }

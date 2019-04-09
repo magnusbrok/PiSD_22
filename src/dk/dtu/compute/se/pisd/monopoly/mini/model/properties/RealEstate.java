@@ -22,6 +22,16 @@ public class RealEstate extends Property{
 
 
 
+        public RealEstate (int BaseRent, int cost, int housecost){
+
+            super.setBaseRent(BaseRent);
+            super.setCost(cost);
+            this.housecost = housecost;
+            super.setRent(super.getBaseRent());
+
+        }
+
+
         private Color color;
 
 

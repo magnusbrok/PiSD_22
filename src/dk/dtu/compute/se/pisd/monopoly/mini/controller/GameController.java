@@ -84,7 +84,7 @@ public class GameController {
 	public void makeGame () {
 
 		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
-				"Start new game", "Load game");
+				"DEFAULT GAME", "Start new game", "Load game");
 		if (selection == "Load game"){
 			try{
 				List<Integer> gameIDs = gameDAO.getGameIds();
@@ -108,7 +108,33 @@ public class GameController {
 				e.printStackTrace();
 			}
 		}
-		else makePlayers();
+		if (selection == "Start new game"){
+			makePlayers();
+		}
+		if (selection == "DEFAULT GAME"){
+// Til test af spillet hvor man ikke gidder lave spillere osv.
+			Player p = new Player();
+			p.setPlayerID(1);
+			p.setName("Player 1");
+			p.setCurrentPosition(game.getSpaces().get(0));
+			p.setColor(new Color(255, 82, 62));
+			game.addPlayer(p);
+
+			p = new Player();
+			p.setPlayerID(2);
+			p.setName("Player 2");
+			p.setCurrentPosition(game.getSpaces().get(0));
+			p.setColor(new Color(255, 211, 27));
+			game.addPlayer(p);
+
+			p = new Player();
+			p.setPlayerID(3);
+			p.setName("Player 3");
+			p.setCurrentPosition(game.getSpaces().get(0));
+			p.setColor(new Color(40, 147, 30));
+			game.addPlayer(p);
+
+		}
 	}
 
 	/**

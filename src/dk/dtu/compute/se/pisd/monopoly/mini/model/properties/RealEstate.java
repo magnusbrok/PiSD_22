@@ -46,6 +46,7 @@ public class RealEstate extends Property{
                 newRent = newRent + (2 * houses * realEstate.getBaseRent());
                 realEstate.setRent(newRent);
                 notifyChange();
+
         }
 
 

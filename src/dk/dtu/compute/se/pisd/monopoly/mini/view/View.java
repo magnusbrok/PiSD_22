@@ -147,6 +147,9 @@ public class View implements Observer {
 			if (!name.equals(guiPlayer.getName())) {
 				guiPlayer.setName(name);
 			}
+			for (Property property : player.getOwnedProperties()){
+				update(property);
+			}
 			player2Playerpanel.get(player).update();
 
 

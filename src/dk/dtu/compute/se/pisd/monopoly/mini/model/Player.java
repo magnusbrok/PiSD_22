@@ -31,7 +31,6 @@ public class Player extends Subject {
 
 	private int balance = 4000;
 
-
 	private int turnsInJail = 0;
 
 	private boolean inPrison = false;

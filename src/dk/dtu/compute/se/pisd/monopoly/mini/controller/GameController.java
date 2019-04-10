@@ -101,7 +101,7 @@ public class GameController {
 				for (Space space : game.getSpaces()){
 					if (space instanceof RealEstate) {
 						RealEstate property = (RealEstate) space;
-						view.update(property);
+						//view.update(property);
 					}
 				}
 			}catch (DALException e){

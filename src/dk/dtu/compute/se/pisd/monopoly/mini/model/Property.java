@@ -95,9 +95,8 @@ public class Property extends Space {
 						Ferry ferry = (Ferry) this;
 						ferry.computeRent(ferry);
 				}
-
-			}
 			controller.payment(player, rent, owner);
+			}
 		}
 
 	public int getBaseRent() {

@@ -3,6 +3,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini.DAL;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
@@ -147,6 +148,9 @@ public class GameDAO implements IGameDAO {
             resultSet = statement.executeQuery();
             while(resultSet.next()){
                 makePropertyFromResultSet(resultSet, game);
+            }
+            for (Space space : game.getSpaces()) {
+                space.setName(space.getName());
             }
 
 

@@ -111,11 +111,6 @@ public class View implements Observer {
 			if (subject instanceof Brewery) {
 				updateProperty((Brewery) subject);
 			}
-
-
-			// TODO update other subjects in the GUI
-			//      in particular properties (sold, houses, ...)
-			
 		}
 	}
 	
@@ -171,8 +166,11 @@ public class View implements Observer {
 				if (property instanceof RealEstate) {
 					RealEstate realEstate = ((RealEstate) property);
 
-					if (guiProperty instanceof GUI_Street) {
+					if (guiProperty instanceof GUI_Street && realEstate.getHouses() < 5) {
 						((GUI_Street) guiProperty).setHouses(realEstate.getHouses());
+					} else {
+						((GUI_Street) guiProperty).setHouses(0);
+						((GUI_Street) guiProperty).setHotel(true);
 					}
 				}
 				player2Playerpanel.get(owner).update();

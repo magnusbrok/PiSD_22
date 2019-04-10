@@ -97,6 +97,13 @@ public class GameController {
 				}
 				game.setGameID(gameID);
 				gameDAO.loadGame(game);
+
+				for (Space space : game.getSpaces()){
+					if (space instanceof RealEstate) {
+						RealEstate property = (RealEstate) space;
+						view.update(property);
+					}
+				}
 			}catch (DALException e){
 				e.printStackTrace();
 			}
@@ -276,6 +283,7 @@ public class GameController {
 	 * @param player the player currently playing
 	 */
 	public void buyQuestion(Player player) {
+		// TODO make method to properly check if a player can buy houses
 		boolean hasRealEstate = false;
 		for (Property property : player.getOwnedProperties()) {
 			if (property instanceof RealEstate)
@@ -283,20 +291,32 @@ public class GameController {
 		}
 		if (hasRealEstate) {
 			String selection = gui.getUserSelection(
-					"Do you want to build any houses?",
+					"Do you want to build any houses or hotels?",
 					"yes",
 					"no");
 			if (selection.equals("yes")) {
 				for (Property property : player.getOwnedProperties()) {
 					if (property instanceof RealEstate) {
 						RealEstate realEstate = ((RealEstate) property);
-						selection = gui.getUserSelection(
-								"Do you want to buy a house on " + property.getName(),
-								"yes",
-								"no");
-						if (selection.equals("yes")) {
-							realEstate.buildhouse(player,realEstate);
-							gui.showMessage("You purchased a house!");
+						if (realEstate.getHouses() < 4) {
+							selection = gui.getUserSelection(
+									"Do you want to buy a house on " + property.getName(),
+									"yes",
+									"no");
+							if (selection.equals("yes")) {
+								realEstate.buildhouse(player,realEstate);
+								gui.showMessage("You purchased a house!");
+							}
+						}
+						else if (realEstate.getHouses() == 4) {
+							selection = gui.getUserSelection(
+									"Do you want to buy a hotel on " + property.getName(),
+									"yes",
+									"no");
+							if (selection.equals("yes")) {
+								realEstate.buildhouse(player, realEstate);
+								gui.showMessage("You purchased a hotel!");
+							}
 						}
 					}
 				}

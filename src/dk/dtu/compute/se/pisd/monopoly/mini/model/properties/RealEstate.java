@@ -18,7 +18,7 @@ public class RealEstate extends Property{
 
         private int houses;
         private int housecost;
-        private int maxhouses = 4;
+        private int maxhouses = 5;
         private Color color;
 
 
@@ -31,8 +31,6 @@ public class RealEstate extends Property{
             super.setRent(super.getBaseRent());
 
         }
-
-
 
         public void buildhouse (Player player, RealEstate realEstate) {
                 if (player.getBalance() >= housecost && houses < maxhouses) {
@@ -49,6 +47,10 @@ public class RealEstate extends Property{
                 realEstate.setRent(newRent);
                 notifyChange();
         }
+
+
+
+        //Getters and setters
 
         public int getMaxhouses() {
                 return maxhouses;

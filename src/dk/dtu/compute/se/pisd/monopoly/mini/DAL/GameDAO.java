@@ -150,6 +150,8 @@ public class GameDAO implements IGameDAO {
             }
 
 
+
+
         } catch (SQLException e) {
             throw new DALException(e.getMessage());
         }
@@ -252,6 +254,7 @@ public class GameDAO implements IGameDAO {
                 property.setOwner(player);
                 player.addOwnedProperty(property);
             }
+
         }catch (SQLException e){
             e.printStackTrace();
         }

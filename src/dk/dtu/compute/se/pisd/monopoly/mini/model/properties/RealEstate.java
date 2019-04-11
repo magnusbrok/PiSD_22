@@ -20,6 +20,7 @@ public class RealEstate extends Property{
         private int housecost;
         private int maxhouses = 5;
         private Color color;
+        private int groupID; // ID for realEstate grouping by colors.
 
 
 
@@ -87,4 +88,13 @@ public class RealEstate extends Property{
         public void setColor(Color color) {
                 this.color = color;
         }
+
+        public int getGroupID() {
+                return groupID;
+        }
+
+        public void setGroupID(int groupID) {
+                this.groupID = groupID;
+        }
+
 }

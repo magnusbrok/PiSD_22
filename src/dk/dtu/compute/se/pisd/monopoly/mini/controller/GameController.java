@@ -355,7 +355,7 @@ public class GameController {
 	/**
 	 * Used in 'houseOffer'. Checks wheter or not a player is owner of all realEstate of a certain color
 	 * @param game the current game
-	 * @param player the player currently playing
+	 * @param player the current player
 	 */
 	public void requiredRealEstate(Game game, Player player) {
 		int countGIDOne = 0; int countGIDTwo = 0; int countGIDThree = 0; int countGIDFour = 0; int countGIDFive = 0; int countGIDSix = 0; int countGIDSeven = 0; int countGIDEight = 0;
@@ -391,7 +391,6 @@ public class GameController {
 				}
 			}
 		}
-		System.out.println(countGIDOne);
 		//TODO: Code for checking if player owns the required realEstate (all of one group/colour)
 	}
 

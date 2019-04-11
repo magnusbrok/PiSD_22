@@ -20,7 +20,7 @@ public class RealEstate extends Property{
         private int housecost;
         private int maxhouses = 5;
         private Color color;
-        private int groupID; // ID for realEstate grouping by colors.
+        private int groupID = 0; // ID for realEstate grouping by colors.
 
 
 

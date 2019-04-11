@@ -192,7 +192,7 @@ public class GameController {
 					terminated = true;
 				}
 			}
-			//TODO INSERT "buyQuestion" method here instead. (Asks everyone instead of just one player). /TMJ
+			//TODO INSERT "houseOffer" method here instead. (Asks everyone instead of just one player). /TMJ
 
 			// Check whether we have a winner
 			Player winner = null;
@@ -297,7 +297,7 @@ public class GameController {
 					gui.showMessage("Player " + player.getName() + " cast a double and makes another move.");
 				}
 			}
-			buyQuestion(player);
+			houseOffer(player);
 
 		} while (castDouble);
 	}
@@ -308,13 +308,15 @@ public class GameController {
 	 * @author Everyone
 	 * @param player the player currently playing
 	 */
-	public void buyQuestion(Player player) {
-		// TODO make method to properly check if a player can buy houses
+	public void houseOffer(Player player) {
+		// TODO Insert (once implemented) the requiredRealEstate method from below - checks if player owns all houses of a group/color before asking to build houses/hotels.
 		boolean hasRealEstate = false;
 		for (Property property : player.getOwnedProperties()) {
 			if (property instanceof RealEstate)
 				hasRealEstate = true;
 		}
+		requiredRealEstate(game, player);
+
 		if (hasRealEstate) {
 			String selection = gui.getUserSelection(
 					"Do you want to build any houses or hotels?",
@@ -349,6 +351,51 @@ public class GameController {
 			}
 		}
 	}
+
+	/**
+	 * Used in 'houseOffer'. Checks wheter or not a player is owner of all realEstate of a certain color
+	 * @param game the current game
+	 * @param player the player currently playing
+	 */
+	public void requiredRealEstate(Game game, Player player) {
+		int countGIDOne = 0; int countGIDTwo = 0; int countGIDThree = 0; int countGIDFour = 0; int countGIDFive = 0; int countGIDSix = 0; int countGIDSeven = 0; int countGIDEight = 0;
+		for (Space space: game.getSpaces()){
+			if (space instanceof RealEstate) {
+				switch (((RealEstate) space).getGroupID()) {
+					case 1:
+						countGIDOne++;
+						break;
+					case 2:
+						countGIDTwo++;
+						break;
+					case 3:
+						countGIDThree++;
+						break;
+					case 4:
+						countGIDFour++;
+						break;
+					case 5:
+						countGIDFive++;
+						break;
+					case 6:
+						countGIDSix++;
+						break;
+					case 7:
+						countGIDSeven++;
+						break;
+					case 8:
+						countGIDEight++;
+						break;
+						default:
+							System.out.println("Error in requiredRealEstate method: GroupID out of bounds");
+				}
+			}
+		}
+		System.out.println(countGIDOne);
+		//TODO: Code for checking if player owns the required realEstate (all of one group/colour)
+	}
+
+
 
 
 

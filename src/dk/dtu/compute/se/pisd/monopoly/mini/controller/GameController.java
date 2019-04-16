@@ -154,7 +154,7 @@ public class GameController {
 		for (int i = 1; i <= totalPlayers; i++) {
 			Player p = new Player();
 			p.setPlayerID(i);
-			String playerName = gui.getUserString("Hvilket navn skal player "+ i + "have?");
+			String playerName = gui.getUserString("Hvilket navn skal player "+ i + " have?");
 			p.setName(playerName);
 			p.setCurrentPosition(game.getSpaces().get(0));
 			p.setColor(pColor.get(i - 1));

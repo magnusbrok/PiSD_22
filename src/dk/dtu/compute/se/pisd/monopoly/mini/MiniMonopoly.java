@@ -314,7 +314,7 @@ public class MiniMonopoly {
         dental.setAmount(600);
         cards.add(carRepair);
         game.setCardDeck(cards);
-        
+
 		return game;
 	}
 

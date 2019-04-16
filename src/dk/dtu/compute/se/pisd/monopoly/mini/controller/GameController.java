@@ -606,7 +606,7 @@ public class GameController {
 		int highestBid = 0;
 		while (bidders.size() > 1) {
 			Player bidder = bidders.remove(0);
-			int bid = gui.getUserInteger(bidder.getName() + "What do you want to bid? Current bid: " + highestBid);
+			int bid = gui.getUserInteger(bidder.getName() + " What do you want to bid? Current bid: " + highestBid);
 			if (bid > highestBid && bid <= bidder.getBalance()) {
 				highestBid = bid;
 				bidders.add(bidder);

@@ -3,6 +3,7 @@ package dk.dtu.compute.se.pisd.monopoly.mini;
 import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.*;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardMove;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardPayMoneyToBank;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.CardReceiveMoneyFromBank;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.cards.PayTax;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
@@ -268,12 +269,9 @@ public class MiniMonopoly {
 		p.setGroupID(realEstateGroups[7]);
 		game.addSpace(p);
 
-/** Below is the adding of ChanceCards
- *
- */
 
 		List<Card> cards = new ArrayList<Card>();
-		
+
 		CardMove move = new CardMove();
 		move.setTarget(game.getSpaces().get(9));
 		move.setText("Move to Allégade!");
@@ -294,8 +292,6 @@ public class MiniMonopoly {
         stockYield.setAmount(200);
         cards.add(stockYield);
 
-/** These currently gives nullpointer exceptions needs fixing
-
         CardPayMoneyToBank dental = new CardPayMoneyToBank();
         dental.setText("You pay 100$ as you receive your dental bill");
         dental.setAmount(100);
@@ -303,29 +299,28 @@ public class MiniMonopoly {
 
 
         CardPayMoneyToBank ticket = new CardPayMoneyToBank();
-        dental.setText("You pay 200$ as you get a parking ticket");
-        dental.setAmount(200);
+        ticket.setText("You pay 200$ as you get a parking ticket");
+        ticket.setAmount(200);
         cards.add(ticket);
 
 
         CardPayMoneyToBank customs = new CardPayMoneyToBank();
-        dental.setText("You pay 100$ as you get caught in customs with too many cigarettes ");
-        dental.setAmount(100);
+        customs.setText("You pay 100$ as you get caught in customs with too many cigarettes ");
+        customs.setAmount(100);
         cards.add(customs);
 
 
         CardPayMoneyToBank carInsurance = new CardPayMoneyToBank();
-        dental.setText("You pay 500$ for your car insurance");
-        dental.setAmount(500);
+        carInsurance.setText("You pay 500$ for your car insurance");
+        carInsurance.setAmount(500);
         cards.add(carInsurance);
 
 
         CardPayMoneyToBank carRepair = new CardPayMoneyToBank();
-        dental.setText("Oh no your car breaks down. You pay 600$ for the repair of your car");
-        dental.setAmount(600);
+        carRepair.setText("Oh no your car breaks down. You pay 600$ for the repair of your car");
+        carRepair.setAmount(600);
         cards.add(carRepair);
 
-**/
         game.setCardDeck(cards);
 
 		return game;

@@ -309,48 +309,71 @@ public class GameController {
 	 * @param player the player currently playing
 	 */
 	public void houseOffer(Player player) {
-		// TODO : Currently you can buy houses for every owned realEstate, once you own all realEstates of JUST ONE color (should only be allowed to build on those specific properties)
-		boolean hasRequiredRealEstate = false;
+		// TODO : now you can only buy house if you own all properties of same group. add so that you must build simetricly
+		String selection;
 
-		requiredRealEstate(game, player);
+		for (Property property : player.getOwnedProperties()){
+			if (property instanceof RealEstate) {
+				RealEstate realEstate = (RealEstate) property;
 
-		if (hasRequiredRealEstate) {
-			String selection = gui.getUserSelection(
-					"Do you want to build any houses or hotels?",
-					"yes",
-					"no");
-			if (selection.equals("yes")) {
-				for (Property property : player.getOwnedProperties()) {
-					if (property instanceof RealEstate) {
-						RealEstate realEstate = ((RealEstate) property);
-						if (realEstate.getHouses() < 4) {
-							selection = gui.getUserSelection(
-									"Do you want to buy a house on " + property.getName(),
-									"yes",
-									"no");
-							if (selection.equals("yes")) {
-								realEstate.buildhouse(player,realEstate);
-								gui.showMessage("You purchased a house!");
-							}
+				if (canBuyHouse(realEstate)){
+
+					if (realEstate.getHouses() < 4) {
+						selection = gui.getUserSelection(
+								"Do you want to buy a house on " + property.getName(),
+								"yes",
+								"no");
+						if (selection.equals("yes")) {
+							realEstate.buildhouse(player,realEstate);
+							gui.showMessage("You purchased a house!");
 						}
-						else if (realEstate.getHouses() == 4) {
-							selection = gui.getUserSelection(
-									"Do you want to buy a hotel on " + property.getName(),
-									"yes",
-									"no");
-							if (selection.equals("yes")) {
-								realEstate.buildhouse(player, realEstate);
-								gui.showMessage("You purchased a hotel!");
-							}
+					}
+					else if (realEstate.getHouses() == 4) {
+						selection = gui.getUserSelection(
+								"Do you want to buy a hotel on " + property.getName(),
+								"yes",
+								"no");
+						if (selection.equals("yes")) {
+							realEstate.buildhouse(player, realEstate);
+							gui.showMessage("You purchased a hotel!");
 						}
 					}
 				}
+
 			}
 		}
 	}
 
 	/**
+	 * Checks how many realEstates are in a specific Group, and then checks if the player owns all the requireded properties
+	 * Method is called in houseOffer for each owned realEstae a player has at the end of his turn.
+	 * @param realEstate The realEstate in question. Used to get the owner and the group ID
+	 * @return True you the player can buy houses on the realEstate, and false if not
+	 */
+	private boolean canBuyHouse(RealEstate realEstate) {
+		int neededProperties = 0;
+		int ownedProperties = 0;
+
+		for (Space space : game.getSpaces()) {
+			if (space instanceof RealEstate){
+				RealEstate estate = (RealEstate) space;
+				if (estate.getGroupID() == realEstate.getGroupID()){
+					neededProperties++;
+
+					if (estate.getOwner() == realEstate.getOwner()){
+						ownedProperties++;
+					}
+				}
+			}
+		}
+		if (neededProperties == ownedProperties){
+			return true;
+		} else return false;
+	}
+
+	/**
 	 * Used in 'houseOffer'. Checks wheter or not a player is owner of all realEstate of a certain color
+	 * Replaced with canBuyHouse method
 	 * @param game the current game
 	 * @param player the current player
 	 */
@@ -454,9 +477,6 @@ public class GameController {
 			 */
 		}
 	}
-
-
-
 
 
 

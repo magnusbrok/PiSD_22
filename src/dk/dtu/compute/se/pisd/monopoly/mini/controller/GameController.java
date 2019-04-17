@@ -192,7 +192,7 @@ public class GameController {
 					terminated = true;
 				}
 			}
-			//TODO INSERT "buyQuestion" method here instead. (Asks everyone instead of just one player). /TMJ
+			//TODO INSERT "houseOffer" method here instead. (Asks everyone instead of just one player). /TMJ
 
 			// Check whether we have a winner
 			Player winner = null;
@@ -297,7 +297,7 @@ public class GameController {
 					gui.showMessage("Player " + player.getName() + " cast a double and makes another move.");
 				}
 			}
-			buyQuestion(player);
+			houseOffer(player);
 
 		} while (castDouble);
 	}
@@ -308,48 +308,175 @@ public class GameController {
 	 * @author Everyone
 	 * @param player the player currently playing
 	 */
-	public void buyQuestion(Player player) {
-		// TODO make method to properly check if a player can buy houses
-		boolean hasRealEstate = false;
-		for (Property property : player.getOwnedProperties()) {
-			if (property instanceof RealEstate)
-				hasRealEstate = true;
-		}
-		if (hasRealEstate) {
-			String selection = gui.getUserSelection(
-					"Do you want to build any houses or hotels?",
-					"yes",
-					"no");
-			if (selection.equals("yes")) {
-				for (Property property : player.getOwnedProperties()) {
-					if (property instanceof RealEstate) {
-						RealEstate realEstate = ((RealEstate) property);
-						if (realEstate.getHouses() < 4) {
-							selection = gui.getUserSelection(
-									"Do you want to buy a house on " + property.getName(),
-									"yes",
-									"no");
-							if (selection.equals("yes")) {
-								realEstate.buildhouse(player,realEstate);
-								gui.showMessage("You purchased a house!");
-							}
+	public void houseOffer(Player player) {
+		// TODO : now you can only buy house if you own all properties of same group. add so that you must build simetricly
+		String selection;
+
+		for (Property property : player.getOwnedProperties()){
+			if (property instanceof RealEstate) {
+				RealEstate realEstate = (RealEstate) property;
+
+				if (canBuyHouse(realEstate)){
+
+					if (realEstate.getHouses() < 4) {
+						selection = gui.getUserSelection(
+								"Do you want to buy a house on " + property.getName(),
+								"yes",
+								"no");
+						if (selection.equals("yes")) {
+							realEstate.buildhouse(player,realEstate);
+							gui.showMessage("You purchased a house!");
 						}
-						else if (realEstate.getHouses() == 4) {
-							selection = gui.getUserSelection(
-									"Do you want to buy a hotel on " + property.getName(),
-									"yes",
-									"no");
-							if (selection.equals("yes")) {
-								realEstate.buildhouse(player, realEstate);
-								gui.showMessage("You purchased a hotel!");
-							}
+					}
+					else if (realEstate.getHouses() == 4) {
+						selection = gui.getUserSelection(
+								"Do you want to buy a hotel on " + property.getName(),
+								"yes",
+								"no");
+						if (selection.equals("yes")) {
+							realEstate.buildhouse(player, realEstate);
+							gui.showMessage("You purchased a hotel!");
 						}
 					}
 				}
+
 			}
 		}
 	}
 
+	/**
+	 * Checks how many realEstates are in a specific Group, and then checks if the player owns all the requireded properties
+	 * Method is called in houseOffer for each owned realEstae a player has at the end of his turn.
+	 * @param realEstate The realEstate in question. Used to get the owner and the group ID
+	 * @return True you the player can buy houses on the realEstate, and false if not
+	 */
+	private boolean canBuyHouse(RealEstate realEstate) {
+		int neededProperties = 0;
+		int ownedProperties = 0;
+
+		for (Space space : game.getSpaces()) {
+			if (space instanceof RealEstate){
+				RealEstate estate = (RealEstate) space;
+				if (estate.getGroupID() == realEstate.getGroupID()){
+					neededProperties++;
+
+					if (estate.getOwner() == realEstate.getOwner()){
+						ownedProperties++;
+					}
+				}
+			}
+		}
+		if (neededProperties == ownedProperties){
+			return true;
+		} else return false;
+	}
+
+	/**
+	 * Used in 'houseOffer'. Checks wheter or not a player is owner of all realEstate of a certain color
+	 * Replaced with canBuyHouse method
+	 * @param game the current game
+	 * @param player the current player
+	 */
+	public void requiredRealEstate(Game game, Player player) {
+		int countGIDOne = 0; int countGIDTwo = 0; int countGIDThree = 0; int countGIDFour = 0; int countGIDFive = 0; int countGIDSix = 0; int countGIDSeven = 0; int countGIDEight = 0;
+		for (Space space: game.getSpaces()){
+			if (space instanceof RealEstate) {
+				switch (((RealEstate) space).getGroupID()) {
+					case 1:
+						countGIDOne++;
+						break;
+					case 2:
+						countGIDTwo++;
+						break;
+					case 3:
+						countGIDThree++;
+						break;
+					case 4:
+						countGIDFour++;
+						break;
+					case 5:
+						countGIDFive++;
+						break;
+					case 6:
+						countGIDSix++;
+						break;
+					case 7:
+						countGIDSeven++;
+						break;
+					case 8:
+						countGIDEight++;
+						break;
+						default:
+							System.out.println("Error in requiredRealEstate method: GroupID out of bounds");
+				}
+			}
+		}
+		//TODO: Code below is sat to 0 every round... So counter doesnt continue to increase, so players are never allowed to buy houses/hotels.
+		boolean hasRequiredRealEstate = false;
+		int countOwnsOne = 0; int countOwnsTwo = 0; int countOwnsThree = 0; int countOwnsFour = 0; int countOwnsFive = 0; int countOwnsSix = 0; int countOwnsSeven = 0; int countOwnsEight = 0;
+		for (Property property : player.getOwnedProperties()) {
+			if (property instanceof RealEstate)
+				switch (((RealEstate) property).getGroupID()) {
+					case 1:
+						countOwnsOne++;
+						break;
+					case 2:
+						countOwnsTwo++;
+						break;
+					case 3:
+						countOwnsThree++;
+						break;
+					case 4:
+						countOwnsFour++;
+						break;
+					case 5:
+						countOwnsFive++;
+						break;
+					case 6:
+						countOwnsSix++;
+						break;
+					case 7:
+						countOwnsSeven++;
+						break;
+					case 8:
+						countOwnsEight++;
+						break;
+					default:
+						System.out.println("Error: Player owns a realEstate with a GroupID out of bounds");
+				}
+			if (countOwnsOne == countGIDOne || countOwnsTwo == countGIDTwo || countOwnsThree == countGIDThree || countOwnsFour == countGIDFour ||
+					countOwnsFive == countGIDFive || countOwnsSix == countGIDSix || countOwnsSeven == countGIDSeven || countOwnsEight == countGIDEight) {
+				hasRequiredRealEstate = true;
+			}
+
+			/** Code below saved in case we need to do SPECIFIC house purchases (for each groupID)???
+			if (countOwnsOne == countGIDOne) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsTwo == countGIDTwo) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsThree == countGIDThree) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsFour == countGIDFour) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsFive == countGIDFive) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsSix == countGIDSix) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsSeven == countGIDSeven) {
+				hasRequiredRealEstate = true;
+			}
+			if (countOwnsEight == countGIDEight) {
+				hasRequiredRealEstate = true;
+			}
+			 */
+		}
+	}
 
 
 

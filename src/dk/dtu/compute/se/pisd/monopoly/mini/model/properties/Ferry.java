@@ -26,8 +26,19 @@ public class Ferry extends Property {
                     ownedFerries++;
                 }
             }
-            ferry.setRent(getBaseRent()*ownedFerries);
-            ferry.getOwner().setName(ferry.getOwner().getName());
+
+            if (ownedFerries == 1) {
+                setRent(getBaseRent());
+            }
+            if (ownedFerries == 2) {
+                setRent(getBaseRent()*2);
+            }
+            if (ownedFerries == 3) {
+                setRent(getBaseRent()*4);
+            }
+            if (ownedFerries == 4){
+                setRent(getBaseRent()*8);
+            }
         }
 
         notifyChange();

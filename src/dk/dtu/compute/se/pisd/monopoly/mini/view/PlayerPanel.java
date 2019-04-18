@@ -123,7 +123,7 @@ public class PlayerPanel extends JFrame {
                 Brewery brewery = (Brewery) property;
                 label = new JLabel(" Breweries:   "  + brewery.getOwnedBreweries()); // not working
                 propertyPanel.add(label);
-                label = new JLabel(" Rent:   " + brewery.getRent()); // not working proberly
+                label = new JLabel(" Multiplier:   " + brewery.getMultiplier() + "x"); // not working proberly
                 propertyPanel.add(label);
             }
 

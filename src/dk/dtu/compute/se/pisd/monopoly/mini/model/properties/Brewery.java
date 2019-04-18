@@ -7,6 +7,7 @@ public class Brewery extends Property {
 
     private int sumOfDies;
     private int ownedBreweries;
+    private int multiplier;
 
 
 
@@ -16,23 +17,21 @@ public class Brewery extends Property {
         super.setRent(super.getBaseRent());
         super.setCost(cost);
         super.setName(name);
+        multiplier = 100;
     }
 
-
-
-
-    public void computeRent (Brewery Brewery){
+    public void computeMultiplier (Brewery Brewery){
         if (Brewery.getOwner() != null) {
             Player player = Brewery.getOwner();
             Brewery.setOwnedBreweries(0);
-            setSumOfDies(player.getSumOfDies());
             for (Property property : player.getOwnedProperties()){
                 if (property instanceof Brewery){
                     ownedBreweries++;
                 }
             }
-            setRent(getBaseRent()*getSumOfDies()*ownedBreweries);
+            setMultiplier(ownedBreweries*multiplier);
         }
+
         notifyChange();
     }
 
@@ -51,5 +50,13 @@ public class Brewery extends Property {
 
     public int getOwnedBreweries() {
         return ownedBreweries;
+    }
+
+    public int getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(int multiplier) {
+        this.multiplier = multiplier;
     }
 }

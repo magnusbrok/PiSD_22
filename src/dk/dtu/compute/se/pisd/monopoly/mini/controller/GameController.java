@@ -89,6 +89,10 @@ public class GameController {
 		if (selection == "Load game"){
 			try{
 				List<Integer> gameIDs = gameDAO.getGameIds();
+				if (gameIDs.size() == 0) {
+					selection = gui.getUserSelection("Der er ingen gemte spil i øjeblikket", "DEFAULT GAME", "Start new game");
+				}
+				if (gameIDs.size() != 0) {
 				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
 						"\n Please enter game ID" +
 						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
@@ -98,13 +102,8 @@ public class GameController {
 				}
 				game.setGameID(gameID);
 				gameDAO.loadGame(game);
-
-				for (Space space : game.getSpaces()){
-					if (space instanceof RealEstate) {
-						RealEstate property = (RealEstate) space;
-						//view.update(property);
-					}
 				}
+
 			}catch (DALException e){
 				e.printStackTrace();
 			}
@@ -114,30 +113,34 @@ public class GameController {
 		}
 		if (selection == "DEFAULT GAME"){
 // Til test af spillet hvor man ikke gidder lave spillere osv.
-			Player p = new Player();
-			p.setPlayerID(1);
-			p.setName("Player 1");
-			p.setCurrentPosition(game.getSpaces().get(0));
-			p.setColor(new Color(255, 82, 62));
-			game.addPlayer(p);
-
-			p = new Player();
-			p.setPlayerID(2);
-			p.setName("Player 2");
-			p.setCurrentPosition(game.getSpaces().get(0));
-			p.setColor(new Color(255, 211, 27));
-			game.addPlayer(p);
-
-			p = new Player();
-			p.setPlayerID(3);
-			p.setName("Player 3");
-			p.setCurrentPosition(game.getSpaces().get(0));
-			p.setColor(new Color(40, 147, 30));
-			game.addPlayer(p);
+			makeDefaultGame();
 
 		}
 	}
 
+	public void makeDefaultGame() {
+		Player p = new Player();
+		p.setPlayerID(1);
+		p.setName("Player 1");
+		p.setCurrentPosition(game.getSpaces().get(0));
+		p.setColor(new Color(255, 82, 62));
+		game.addPlayer(p);
+
+		p = new Player();
+		p.setPlayerID(2);
+		p.setName("Player 2");
+		p.setCurrentPosition(game.getSpaces().get(0));
+		p.setColor(new Color(255, 211, 27));
+		game.addPlayer(p);
+
+		p = new Player();
+		p.setPlayerID(3);
+		p.setName("Player 3");
+		p.setCurrentPosition(game.getSpaces().get(0));
+		p.setColor(new Color(40, 147, 30));
+		game.addPlayer(p);
+
+	}
 	/**
 	 * The basic method for making each player in the game. Only happens if the player wants to start a fresh game.
 	 * Ask how many are playing with the min and max number of players. Then creates each player with defualt ID's and colors
@@ -317,7 +320,7 @@ public class GameController {
 			if (property instanceof RealEstate) {
 				RealEstate realEstate = (RealEstate) property;
 
-				if (canBuyHouse(realEstate)){
+				if (canBuyHouse(realEstate) && player.getBalance() >= realEstate.getHousecost()){
 
 					if (realEstate.getHouses() < 4) {
 						selection = gui.getUserSelection(
@@ -371,115 +374,6 @@ public class GameController {
 			return true;
 		} else return false;
 	}
-
-	/**
-	 * Used in 'houseOffer'. Checks wheter or not a player is owner of all realEstate of a certain color
-	 * Replaced with canBuyHouse method
-	 * @param game the current game
-	 * @param player the current player
-	 */
-	public void requiredRealEstate(Game game, Player player) {
-		int countGIDOne = 0; int countGIDTwo = 0; int countGIDThree = 0; int countGIDFour = 0; int countGIDFive = 0; int countGIDSix = 0; int countGIDSeven = 0; int countGIDEight = 0;
-		for (Space space: game.getSpaces()){
-			if (space instanceof RealEstate) {
-				switch (((RealEstate) space).getGroupID()) {
-					case 1:
-						countGIDOne++;
-						break;
-					case 2:
-						countGIDTwo++;
-						break;
-					case 3:
-						countGIDThree++;
-						break;
-					case 4:
-						countGIDFour++;
-						break;
-					case 5:
-						countGIDFive++;
-						break;
-					case 6:
-						countGIDSix++;
-						break;
-					case 7:
-						countGIDSeven++;
-						break;
-					case 8:
-						countGIDEight++;
-						break;
-					default:
-						System.out.println("Error in requiredRealEstate method: GroupID out of bounds");
-				}
-			}
-		}
-		//TODO: Code below is sat to 0 every round... So counter doesnt continue to increase, so players are never allowed to buy houses/hotels.
-		boolean hasRequiredRealEstate = false;
-		int countOwnsOne = 0; int countOwnsTwo = 0; int countOwnsThree = 0; int countOwnsFour = 0; int countOwnsFive = 0; int countOwnsSix = 0; int countOwnsSeven = 0; int countOwnsEight = 0;
-		for (Property property : player.getOwnedProperties()) {
-			if (property instanceof RealEstate)
-				switch (((RealEstate) property).getGroupID()) {
-					case 1:
-						countOwnsOne++;
-						break;
-					case 2:
-						countOwnsTwo++;
-						break;
-					case 3:
-						countOwnsThree++;
-						break;
-					case 4:
-						countOwnsFour++;
-						break;
-					case 5:
-						countOwnsFive++;
-						break;
-					case 6:
-						countOwnsSix++;
-						break;
-					case 7:
-						countOwnsSeven++;
-						break;
-					case 8:
-						countOwnsEight++;
-						break;
-					default:
-						System.out.println("Error: Player owns a realEstate with a GroupID out of bounds");
-				}
-			if (countOwnsOne == countGIDOne || countOwnsTwo == countGIDTwo || countOwnsThree == countGIDThree || countOwnsFour == countGIDFour ||
-					countOwnsFive == countGIDFive || countOwnsSix == countGIDSix || countOwnsSeven == countGIDSeven || countOwnsEight == countGIDEight) {
-				hasRequiredRealEstate = true;
-			}
-
-			/** Code below saved in case we need to do SPECIFIC house purchases (for each groupID)???
-			 if (countOwnsOne == countGIDOne) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsTwo == countGIDTwo) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsThree == countGIDThree) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsFour == countGIDFour) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsFive == countGIDFive) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsSix == countGIDSix) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsSeven == countGIDSeven) {
-			 hasRequiredRealEstate = true;
-			 }
-			 if (countOwnsEight == countGIDEight) {
-			 hasRequiredRealEstate = true;
-			 }
-			 */
-		}
-	}
-
-
 
 	/**
 	 * This method implements the activity of moving the player to the new position,
@@ -802,10 +696,14 @@ public class GameController {
 		player.setBalance(0);
 		player.setBroke(true);
 
-		// TODO we also need to remove the houses and the mortgage from the properties 
+		// TODO we also need to remove the mortgage from the properties
 
 		for (Property property: player.getOwnedProperties()) {
 			property.setOwner(null);
+			if (property instanceof RealEstate) {
+				RealEstate realEstate = (RealEstate) property;
+				realEstate.setHouses(0);
+			}
 		}
 		player.removeAllProperties();
 

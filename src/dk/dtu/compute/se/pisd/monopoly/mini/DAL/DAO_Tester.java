@@ -1,6 +1,7 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.DAL;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.MiniMonopoly;
+import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
@@ -17,7 +18,9 @@ public class DAO_Tester {
         GameDAO DAO = new GameDAO();
         MiniMonopoly monopoly = new MiniMonopoly();
             Game game = monopoly.createGame();
-            monopoly.createPlayers(game);
+        GameController controller = new GameController(game);
+        controller.makeDefaultGame();
+
             game.setGameID(1);
             game.getCurrentPlayer().setInPrison(true);
             game.getCurrentPlayer().setCurrentPosition(game.getSpaces().get(5));

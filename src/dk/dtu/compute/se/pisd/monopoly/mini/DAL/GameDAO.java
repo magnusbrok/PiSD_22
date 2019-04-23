@@ -18,9 +18,10 @@ import java.util.List;
  * @author Magnus and Siff
  */
 public class GameDAO implements IGameDAO {
-    String dbAdress = "jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com/";
-    String dbUser = "s185037";
-    String dbPassWord = "7KZWv1fdgUsV6uSlvhLVb";
+    private final String Port = ":";
+    private final String dbAdress = "jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com"+ Port + "/";
+    private final String dbUser = "s185037";
+    private final String dbPassWord = "7KZWv1fdgUsV6uSlvhLVb";
 
     /**
      * Method for connecting to the database, is called in most sub methods.

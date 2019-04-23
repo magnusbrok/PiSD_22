@@ -81,6 +81,7 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		Tax t = new Tax();
+
 		t.setName("Pay tax (10% on Cash)");
 		game.addSpace(t);
 
@@ -324,36 +325,6 @@ public class MiniMonopoly {
         game.setCardDeck(cards);
 
 		return game;
-	}
-
-	/**
-	 * This method is only used in the DAO_tester. Player creation is now handled in GameController or GAMEDAO if game is loaded from DB.
-	 * Do not use for final implementation
-	 */
-	public static void createPlayers(Game game) {
-
-
-		Player p = new Player();
-		p.setPlayerID(1);
-		p.setName("Player 1");
-		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(255, 82, 62));
-		game.addPlayer(p);
-
-		p = new Player();
-		p.setPlayerID(2);
- 		p.setName("Player 2");
-		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(255, 211, 27));
-		game.addPlayer(p);
-
-		p = new Player();
-		p.setPlayerID(3);
- 		p.setName("Player 3");
-		p.setCurrentPosition(game.getSpaces().get(0));
-		p.setColor(new Color(40, 147, 30));
-		game.addPlayer(p);
-
 	}
 
 	/**

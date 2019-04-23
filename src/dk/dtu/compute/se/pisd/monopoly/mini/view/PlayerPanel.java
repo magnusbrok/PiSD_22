@@ -32,13 +32,13 @@ public class PlayerPanel extends JFrame {
         frame = new JFrame((player.getName()));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(700,135);
+        frame.setSize(900,135);
         frame.setLocation(700, game.getPlayers().indexOf(player)*135);
         panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
         //panel.setBorder(BorderFactory.createCompoundBorder());
 
         frame.setContentPane(panel);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setVisible(true);
         frame.validate();
 

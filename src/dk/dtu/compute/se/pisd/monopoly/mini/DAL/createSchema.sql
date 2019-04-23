@@ -4,7 +4,7 @@ CREATE TABLE `Game` (
   `currentplayer` int(11) DEFAULT NULL,
   PRIMARY KEY (`g_ID`),
   UNIQUE KEY `g_ID` (`g_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 CREATE TABLE `Player` (
@@ -16,7 +16,7 @@ CREATE TABLE `Player` (
   `broke` tinyint(1) DEFAULT NULL,
   `g_ID` int(3) NOT NULL,
   PRIMARY KEY (`pl_ID`,`g_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Property` (
   `pr_ID` int(2) NOT NULL,
@@ -24,4 +24,4 @@ CREATE TABLE `Property` (
   `houses` int(1) DEFAULT NULL,
   `g_ID` int(3) NOT NULL,
   PRIMARY KEY (`pr_ID`,`g_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

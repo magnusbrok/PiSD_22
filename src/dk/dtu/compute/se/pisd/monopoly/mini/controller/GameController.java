@@ -189,6 +189,10 @@ public class GameController {
 			Player player = players.get(current);
 			if (!player.isBroke()) {
 				try {
+					String selection = gui.getUserSelection("Det er din tur "+ player.getName()+". Vil du gerne bytte med nogen?", "Nej","Ja");
+					if (selection == "Ja") {
+						trade(player);
+					}
 					this.makeMove(player);
 				} catch (PlayerBrokeException e) {
 					// We could react to the player having gone broke
@@ -244,6 +248,7 @@ public class GameController {
 							if (gameIDs.contains(game.getGameID())) {
 								gameDAO.updateGame(game);
 							} else gameDAO.createGame(game);
+							gui.showMessage("Du gemte dit spil og kan lukke programmet");
 						} catch (DALException e) {
 							e.printStackTrace();
 						}
@@ -259,7 +264,7 @@ public class GameController {
 	}
 
 	/**
-	 * This method implements a activity of asingle move of the given player.
+	 * This method implements a activity of a single move of the given player.
 	 * It throws a {@link dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException}
 	 * if the player goes broke in this move. Note that this is still a very
 	 * basic implementation of the move of a player; many aspects are still
@@ -307,6 +312,64 @@ public class GameController {
 		} while (castDouble);
 	}
 
+	public void trade(Player buyingPlayer) {
+		Boolean doneWithTrading = false;
+		Player targetPlayer = new Player();
+		Property targetProperty = new Property();
+		Property buyerProperty = new Property();
+
+		while (!doneWithTrading) {
+			String targetPlayerName = gui.getUserString("Hvem vil du gerne trade med?");
+
+			for (Player player : game.getPlayers()) {
+				if (player.getName().equals(targetPlayerName)) {
+					targetPlayer = player;
+				}
+			}
+
+			String  targetPropertyName = gui.getUserString("Hvilken grund vil du gerne købe af "+ targetPlayerName +"?");
+
+			for (Property property: targetPlayer.getOwnedProperties()) {
+				if (property.getName().equals(targetPropertyName)) {
+					targetProperty = property;
+				}
+			}
+
+			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + kontanter", "1 grund", "kontanter");
+			if (selection == "1 grund + kontanter") {
+
+				String buyerPropertyName = gui.getUserString("Hvilken grund vil du gerne give i bytte?");
+				for (Property property: buyingPlayer.getOwnedProperties()) {
+					if (property.getName().equals(buyerPropertyName)) {
+						buyerProperty = property;
+					}
+				}
+				int buyerOffer = gui.getUserInteger("Hvor meget vil du betale yderligere?");
+
+				buyingPlayer.removeOwnedProperty(buyerProperty);
+				buyingPlayer.addOwnedProperty(targetProperty);
+				targetProperty.setOwner(buyingPlayer);
+
+				buyerProperty.setOwner(targetPlayer);
+				targetPlayer.addOwnedProperty(buyerProperty);
+				targetPlayer.removeOwnedProperty(targetProperty);
+
+				try {
+					payment(buyingPlayer, buyerOffer, targetPlayer);
+				} catch (PlayerBrokeException e) {
+					e.printStackTrace();
+				}
+			}
+
+
+			selection = gui.getUserSelection("Er du færdig med at bytte?", "Ja", "Nej");
+			if (selection == "Ja") {
+				doneWithTrading = true;
+			}
+		}
+	}
+
+
 	/**
 	 * Used at the end of each turn to ask players if they want to buy a house for any of their realEstates
 	 * loops through all owned properties. Only asks if the player has any realEstate
@@ -314,7 +377,7 @@ public class GameController {
 	 * @param player the player currently playing
 	 */
 	public void houseOffer(Player player) {
-		// TODO : now you can only buy house if you own all properties of same group. add so that you must build simetricly
+		// TODO : add so that you must build simetricly
 		String selection;
 
 		for (Property property : player.getOwnedProperties()){
@@ -344,7 +407,6 @@ public class GameController {
 						}
 					}
 				}
-
 			}
 		}
 	}
@@ -389,11 +451,8 @@ public class GameController {
 		player.setCurrentPosition(space);
 
 		if (posOld > player.getCurrentPosition().getIndex()) {
-			// Note that this assumes that the game has more than 12 spaces here!
-			// TODO: the amount of 2000$ should not be a fixed constant here (could also
-			//       be configured in the Game class.
 			gui.showMessage("Player " + player.getName() + " receives 2000$ for passing Go!");
-			this.paymentFromBank(player, 2000);
+			this.paymentFromBank(player, 400);
 		}
 		gui.showMessage(player.getName() + " arrives at " + space.getIndex() + ": " +  space.getName() + ".");
 
@@ -426,7 +485,7 @@ public class GameController {
 	 * @Author Magnus og Ida.
 	 */
 	public void getOutOfJail (Player player) throws PlayerBrokeException{
-		int bail = 500;
+		int bail = 100;
 
 		if (player.isInPrison()) {
 			String selection = gui.getUserSelection(player.getName() + " er i fængsel vil du købe dig ud eller slå efter dobbelt" +
@@ -451,7 +510,7 @@ public class GameController {
 			}
 			if (player.getTurnsInJail() == 3) {
 				gui.showMessage("Du har ikke kunne slå dig ud efter 3 forsøg, og skal derfor betale for at komme ud");
-				paymentToBank(player, 500);
+				paymentToBank(player, bail);
 				player.setInPrison(false);
 				player.setTurnsInJail(0);
 			}
@@ -725,9 +784,6 @@ public class GameController {
 				view.dispose();
 				view = null;
 			}
-			// TODO we should also dispose of the GUI here. But this works only
-			//      for my private version of the GUI and not for the GUI currently
-			//      deployed via Maven (or other official versions);
 		}
 	}
 

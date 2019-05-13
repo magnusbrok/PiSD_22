@@ -64,7 +64,7 @@ public class MiniMonopoly {
 		go.setName("Go");
 		game.addSpace(go);
 		
-		RealEstate p = new RealEstate(50,60,1000);
+		RealEstate p = new RealEstate(5,120,100);
 		p.setColor(realEstateColorList.get(0)); // Index 0, blå-ish
 		p.setGroupID(realEstateGroups[0]);
 		p.setName("Rødovrevej");
@@ -74,7 +74,7 @@ public class MiniMonopoly {
 		chance.setName("Chance");
 		game.addSpace(chance);
 		
-		p = new RealEstate(50,60,1000);
+		p = new RealEstate(5,120,100);
 		p.setColor(realEstateColorList.get(0)); // Index 0, blå-ish
 		p.setGroupID(realEstateGroups[0]);
 		p.setName("Hvidovrevej");
@@ -82,13 +82,13 @@ public class MiniMonopoly {
 
 		Tax t = new Tax();
 
-		t.setName("Pay tax (10% on Cash)");
+		t.setName("Pay tax (10% or 200 Cash)");
 		game.addSpace(t);
 
-		Ferry s = new Ferry("Øresund", 500, 200);
+		Ferry s = new Ferry("Øresund", 50, 200);
 		game.addSpace(s);
 
-		p = new RealEstate(100,100,1000);
+		p = new RealEstate(10,200,100);
 		p.setName("Roskildevej");
 		p.setColor(realEstateColorList.get(1)); // Index 1, pink-ish
 		p.setGroupID(realEstateGroups[1]);
@@ -98,13 +98,13 @@ public class MiniMonopoly {
 		chance.setName("Chance");
 		game.addSpace(chance);
 		
-		p = new RealEstate(100,100,1000);
+		p = new RealEstate(10,200,100);
 		p.setColor(realEstateColorList.get(1)); // Index 1, pink-ish
 		p.setGroupID(realEstateGroups[1]);
 		p.setName("Valby Langgade");
 		game.addSpace(p);
 
-		p = new RealEstate(150,120,1000);
+		p = new RealEstate(15,240,100);
 		p.setName("Allégade");
 		p.setColor(realEstateColorList.get(1)); // Index 1, pink-ish
 		p.setGroupID(realEstateGroups[1]);
@@ -114,34 +114,35 @@ public class MiniMonopoly {
 		prison.setName("Prison");
 		game.addSpace(prison);
 		
-		p = new RealEstate(200,140,2000);
+		p = new RealEstate(20,280,200);
 		p.setName("Frederiksberg Allé");
 		p.setColor(realEstateColorList.get(2)); // Index 2, grøn-ish
 		p.setGroupID(realEstateGroups[2]);
 		game.addSpace(p);
 
-		Brewery b = new Brewery("Tuborg tapperi", 300, 150);
+		//TODO delete setCost and setRent? And what about baseRent?
+		Brewery b = new Brewery("Tuborg tapperi", 50, 300);
 		b.setName("Tuborg tapperi");
-		b.setCost(150);
-		b.setRent(300);
+		//b.setCost(150);
+		//b.setRent(300);
 		game.addSpace(b);
 		
-		p = new RealEstate(200,140,2000);
+		p = new RealEstate(20,280,200);
 		p.setColor(realEstateColorList.get(2)); // Index 2, grøn-ish
 		p.setGroupID(realEstateGroups[2]);
 		p.setName("Bülowsvej");
 		game.addSpace(p);
 
-		p = new RealEstate(250,140,2000);
+		p = new RealEstate(25,320,200);
 		p.setName("Gl. Kongevej");
 		p.setColor(realEstateColorList.get(2)); // Index 2, grøn-ish
 		p.setGroupID(realEstateGroups[2]);
 		game.addSpace(p);
 
-		s = new Ferry("D.F.D.S", 500, 200);
+		s = new Ferry("D.F.D.S", 50, 400);
 		game.addSpace(s);
 
-		p = new RealEstate(300,180,2000);
+		p = new RealEstate(30,360,200);
 		p.setName("Bernstorffsvej");
 		p.setColor(realEstateColorList.get(3)); // Index 3, grå-ish
 		p.setGroupID(realEstateGroups[3]);
@@ -151,13 +152,13 @@ public class MiniMonopoly {
 		chance.setName("Chance");
 		game.addSpace(chance);
 
-		p = new RealEstate(300,180,2000);
+		p = new RealEstate(30,360,200);
 		p.setName("Hellerupvej");
 		p.setColor(realEstateColorList.get(3)); // Index 3, grå-ish
 		p.setGroupID(realEstateGroups[3]);
 		game.addSpace(p);
 
-		p = new RealEstate(350,180,2000);
+		p = new RealEstate(35,400,200);
 		p.setName("Strandvejen");
 		p.setColor(realEstateColorList.get(3)); // Index 3, grå-ish
 		p.setGroupID(realEstateGroups[3]);
@@ -167,7 +168,7 @@ public class MiniMonopoly {
 		h.setName("Helle");
 		game.addSpace(h);
 
-		p = new RealEstate(350,220,3000);
+		p = new RealEstate(35,440,300);
 		p.setName("Trianglen");
 		p.setColor(realEstateColorList.get(4)); // Index 4, rød
 		p.setGroupID(realEstateGroups[4]);
@@ -178,38 +179,38 @@ public class MiniMonopoly {
 		chance.setName("Chance");
 		game.addSpace(chance);
 
-		p = new RealEstate(350,220,3000);
+		p = new RealEstate(35,440,300);
 		p.setName("Østerbrogade");
 		p.setColor(realEstateColorList.get(4)); // Index 4, rød
 		p.setGroupID(realEstateGroups[4]);
 		game.addSpace(p);
 
-		p = new RealEstate(400,220,3000);
+		p = new RealEstate(40,480,300);
 		p.setName("Grønningen");
 		p.setColor(realEstateColorList.get(4)); // Index 4, rød
 		p.setGroupID(realEstateGroups[4]);
 		game.addSpace(p);
 
-		s = new Ferry("Å. S.", 500, 200);
+		s = new Ferry("Å. S.", 50, 400);
 		game.addSpace(s);
 
-		p = new RealEstate(450,260,3000);
+		p = new RealEstate(45,520,300);
 		p.setName("Bredgade");
 		p.setColor(realEstateColorList.get(5)); // Index 5, hvid
 		p.setGroupID(realEstateGroups[5]);
 		game.addSpace(p);
 
-		p = new RealEstate(450,260,3000);
+		p = new RealEstate(45,520,300);
 		p.setName("Kgs. Nytorv");
 		p.setColor(realEstateColorList.get(5)); // Index 5, hvid
 		p.setGroupID(realEstateGroups[5]);
 		game.addSpace(p);
 
-
-		b = new Brewery("Carlsberg", 200, 150);
+		//TODO baseRent on the Breweries?
+		b = new Brewery("Carlsberg", 300, 150);
 		game.addSpace(b);
 
-		p = new RealEstate(500,280,3000);
+		p = new RealEstate(50,560,300);
 		p.setName("Østergade");
 		p.setColor(realEstateColorList.get(5)); // Index 5, hvid
 		p.setGroupID(realEstateGroups[5]);
@@ -220,14 +221,14 @@ public class MiniMonopoly {
 		g.setName("Go To Prison");
 		game.addSpace(g);
 
-		p = new RealEstate(550,300,4000);
+		p = new RealEstate(55,600,400);
 		p.setName("Amagertorv");
 		p.setColor(realEstateColorList.get(6)); // Index 6, gul
 		p.setGroupID(realEstateGroups[6]);
 		game.addSpace(p);
 
 
-		p = new RealEstate(550,300,4000);
+		p = new RealEstate(55,600,400);
 		p.setName("Vimmelstaftet");
 		p.setColor(realEstateColorList.get(6)); // Index 6, gul
 		p.setGroupID(realEstateGroups[6]);
@@ -238,21 +239,21 @@ public class MiniMonopoly {
 		chance.setName("Chance");
 		game.addSpace(chance);
 
-		p = new RealEstate(600,320,4000);
+		p = new RealEstate(60,640,400);
 		p.setName("Nygade");
 		p.setColor(realEstateColorList.get(6)); // Index 6, gul
 		p.setGroupID(realEstateGroups[6]);
 		game.addSpace(p);
 
 
-		s = new Ferry("Bornholm", 500, 200);
+		s = new Ferry("Bornholm", 50, 400);
 		game.addSpace(s);
 
 		chance = new Chance();
 		chance.setName("Chance");
 		game.addSpace(chance);
 
-		p = new RealEstate(700,350,4000);
+		p = new RealEstate(70,700,400);
 		p.setName("Frederiksberggade");
 		p.setColor(realEstateColorList.get(7)); // Index 7, lilla
 		p.setGroupID(realEstateGroups[7]);
@@ -264,11 +265,14 @@ public class MiniMonopoly {
 		game.addSpace(st);
 
 
-		p = new RealEstate(1000,400,4000);
+		p = new RealEstate(100,800,400);
 		p.setName("Rådhuspladsen");
 		p.setColor(realEstateColorList.get(7)); // Index 7, lilla
 		p.setGroupID(realEstateGroups[7]);
 		game.addSpace(p);
+
+
+
 
 
 		List<Card> cards = new ArrayList<Card>();

@@ -163,6 +163,7 @@ public class GameController {
 			p.setCurrentPosition(game.getSpaces().get(0));
 			p.setColor(pColor.get(i - 1));
 			game.addPlayer(p);
+
 		}
 	}
 

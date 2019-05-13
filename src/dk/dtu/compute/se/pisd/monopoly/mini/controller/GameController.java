@@ -84,20 +84,20 @@ public class GameController {
 	 */
 	public void makeGame () {
 
-		String selection = gui.getUserSelection("Welcome to MiniMonopoly! Would you like to start af new game or continue a previous game?",
-				"DEFAULT GAME", "Start new game", "Load game");
-		if (selection == "Load game"){
+		String selection = gui.getUserSelection("Velkommen til  MiniMonopoly! Vil du starte et nyt spil, eller fortsætte et tidligere spil?",
+				"DEFAULT GAME", "Start nyt spil", "Hent spil");
+		if (selection == "Hent spil"){
 			try{
 				List<Integer> gameIDs = gameDAO.getGameIds();
 				if (gameIDs.size() == 0) {
-					selection = gui.getUserSelection("Der er ingen gemte spil i øjeblikket", "DEFAULT GAME", "Start new game");
+					selection = gui.getUserSelection("Der er ingen gemte spil i øjeblikket", "DEFAULT GAME", "Start nyt spil");
 				}
 				if (gameIDs.size() != 0) {
 				int gameID = gui.getUserInteger("Følgende spil er gemte \n "+gameIDs.toString() +
-						"\n Please enter game ID" +
+						"\n Indtast game ID" +
 						"\n Hvis du hellere vil starte et nyt spil, så indtast et tal der ikke er fra listen");
 				while (!gameDAO.getGameIds().contains(gameID)) {
-					gameID = gui.getUserInteger("You entered a gameID that doesn't exist. Please... Try again" +
+					gameID = gui.getUserInteger("Du indtastede et gameID som ikke eksisterer. Prøv venligst igen!" +
 							"\n Følgende spil er gemte: \n" + gameIDs.toString());
 				}
 				game.setGameID(gameID);
@@ -108,7 +108,7 @@ public class GameController {
 				e.printStackTrace();
 			}
 		}
-		if (selection == "Start new game"){
+		if (selection == "Start nyt spil"){
 			makePlayers();
 		}
 		if (selection == "DEFAULT GAME"){
@@ -149,9 +149,9 @@ public class GameController {
 	public void makePlayers() {
 		int minPlayers = 3;
 		int maxPlayers = 6;
-		int totalPlayers = gui.getUserInteger("How many are playing? Please enter a number between " + minPlayers + " and " + maxPlayers);
+		int totalPlayers = gui.getUserInteger("Hvor mange spillere er I? Indtast et nummer mellem " + minPlayers + " og " + maxPlayers);
 		while (totalPlayers < minPlayers || totalPlayers > maxPlayers) {
-			totalPlayers = gui.getUserInteger("You entered a number of players outside the accepted interval. Please... Try again");
+			totalPlayers = gui.getUserInteger("Det indtastede antal spillere, er uden for det accepterede interval. Indtast et andet nummer");
 		}
 		List<Color> pColor = game.getColors();
 
@@ -215,7 +215,7 @@ public class GameController {
 			if (countActive == 1) {
 				gui.showMessage(
 						"Player " + winner.getName() +
-								" has won with " + winner.getBalance() + "$.");
+								" har vundet med " + winner.getBalance() + "$.");
 				break;
 			} else if (countActive < 1) {
 				// This can actually happen in very rare conditions and only
@@ -223,7 +223,7 @@ public class GameController {
 				// in an auction in the same round when the last but one player went
 				// bankrupt)
 				gui.showMessage(
-						"All players are broke.");
+						"Alle spillere er gået fallit.");
 				break;
 			}
 			// TODO offer all players the options to trade etc.
@@ -233,18 +233,18 @@ public class GameController {
 			game.setCurrentPlayer(players.get(current));
 			if (current == 0) {
 				String selection = gui.getUserSelection(
-						"A round is finished. Do you want to continue the game?",
-						"yes",
-						"no");
-				if (selection.equals("no")) {
-					selection = gui.getUserSelection("Do you want to save the game?", "yes", "no");
-					if (selection.equals("yes")) {
+						"En runde er afsluttet. Vil I fortsætte med at spille?",
+						"Ja",
+						"Nej");
+				if (selection.equals("Nej")) {
+					selection = gui.getUserSelection("Vil I gemme spille?", "Ja", "Nej");
+					if (selection.equals("Ja")) {
 						GameDAO gameDAO = new GameDAO();
 						try {
 							List<Integer> gameIDs = gameDAO.getGameIds();
 							game.setGameID(gui.getUserInteger("Følgende spil er allerede gemte \n" +
-									gameIDs.toString() + "\n Hvilket ID skal dit save gemmes under?" +
-									"\n Ved at vælge et id der allerede er gemt overskrives gemmet"));
+									gameIDs.toString() + "\n Hvilket ID skal dit spil gemmes under?" +
+									"\n Ved at vælge et id der allerede er gemt, overskrives det gemte spil"));
 							if (gameIDs.contains(game.getGameID())) {
 								gameDAO.updateGame(game);
 							} else gameDAO.createGame(game);
@@ -287,7 +287,7 @@ public class GameController {
 			if (castDouble) {
 				doublesCount++;
 				if (doublesCount > 2) {
-					gui.showMessage("Player " + player.getName() + " has cast the third double and goes to jail!");
+					gui.showMessage("Player " + player.getName() + " har for tredje gang i træk kastet to af samme slags, og ryger derfor i fængsel!");
 					gotoJail(player);
 					return;
 				}
@@ -304,7 +304,7 @@ public class GameController {
 				Space space = spaces.get(newPos);
 				moveToSpace(player, space);
 				if (castDouble) {
-					gui.showMessage("Player " + player.getName() + " cast a double and makes another move.");
+					gui.showMessage("Player " + player.getName() + " har kastet to af samme slags, og må derfor kaste igen.");
 				}
 			}
 			houseOffer(player);
@@ -390,22 +390,22 @@ public class GameController {
 
 					if (realEstate.getHouses() < 4) {
 						selection = gui.getUserSelection(
-								"Do you want to buy a house on " + property.getName(),
-								"yes",
-								"no");
-						if (selection.equals("yes")) {
+								"Vil du bygge et hus på " + property.getName(),
+								"Ja",
+								"Nej");
+						if (selection.equals("Ja")) {
 							realEstate.buildhouse(player,realEstate);
-							gui.showMessage("You purchased a house!");
+							gui.showMessage("Du har købt et hus!");
 						}
 					}
 					else if (realEstate.getHouses() == 4) {
 						selection = gui.getUserSelection(
-								"Do you want to buy a hotel on " + property.getName(),
-								"yes",
-								"no");
-						if (selection.equals("yes")) {
+								"Vil du bygge et hotel på " + property.getName(),
+								"Ja",
+								"Nej");
+						if (selection.equals("Ja")) {
 							realEstate.buildhouse(player, realEstate);
-							gui.showMessage("You purchased a hotel!");
+							gui.showMessage("Du har købt et hotel!");
 						}
 					}
 				}
@@ -453,10 +453,10 @@ public class GameController {
 		player.setCurrentPosition(space);
 
 		if (posOld > player.getCurrentPosition().getIndex()) {
-			gui.showMessage("Player " + player.getName() + " receives 2000$ for passing Go!");
+			gui.showMessage("Player " + player.getName() + " modtager 400$ for at passere Start!");
 			this.paymentFromBank(player, 400);
 		}
-		gui.showMessage(player.getName() + " arrives at " + space.getIndex() + ": " +  space.getName() + ".");
+		gui.showMessage(player.getName() + " lander på " + space.getIndex() + ": " +  space.getName() + ".");
 
 		// Execute the action associated with the respective space. Note
 		// that this is delegated to the field, which implements this action
@@ -528,7 +528,7 @@ public class GameController {
 	public  void takeChanceCard(Player player) throws PlayerBrokeException, GameEndedException{
 		Card card = game.drawCardFromDeck();
 		gui.displayChanceCard(card.getText());
-		gui.showMessage(player.getName() + " draws a chance card.");
+		gui.showMessage(player.getName() + " trækker et chancekort.");
 
 		try {
 			card.doAction(this, player);
@@ -580,12 +580,12 @@ public class GameController {
 
 		String choice = gui.getUserSelection(
 				"Player " + player.getName() +
-						": Do you want to buy " + property.getName() +
+						": Vil du købe " + property.getName() +
 						" for " + property.getCost() + "$?",
-				"yes",
-				"no");
+				"Ja",
+				"Nej");
 
-		if (choice.equals("yes") && player.getBalance() >= property.getCost()) {
+		if (choice.equals("Ja") && player.getBalance() >= property.getCost()) {
 			try {
 				paymentToBank(player, property.getCost());
 			} catch (PlayerBrokeException e) {

@@ -81,7 +81,7 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		Tax t = new Tax();
-		t.setName("Pay tax (10% or 400$)");
+		t.setName("Betal skat (10% eller 400$)");
 		game.addSpace(t);
 
 		Ferry s = new Ferry("Øresund", 50, 400);
@@ -110,7 +110,7 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		Space prison = new Space();
-		prison.setName("Prison");
+		prison.setName("Fængsel");
 		game.addSpace(prison);
 		
 		p = new RealEstate(20,280,200);
@@ -121,8 +121,6 @@ public class MiniMonopoly {
 
 		Brewery b = new Brewery("Tuborg tapperi", 10, 300);
 		b.setName("Tuborg tapperi");
-		//b.setCost(150);
-		//b.setRent(300);
 		game.addSpace(b);
 		
 		p = new RealEstate(20,280,200);
@@ -215,7 +213,7 @@ public class MiniMonopoly {
 
 
 		GoToJail g = new GoToJail();
-		g.setName("Gå fængsel");
+		g.setName("Gå i fængsel");
 		game.addSpace(g);
 
 		p = new RealEstate(55,600,400);
@@ -258,7 +256,7 @@ public class MiniMonopoly {
 
 
 		StateTax st = new StateTax();
-		st.setName("Pay 200$ to the bank");
+		st.setName("Betal 200$ til banken");
 		game.addSpace(st);
 
 
@@ -273,50 +271,50 @@ public class MiniMonopoly {
 
 		CardMove move = new CardMove();
 		move.setTarget(game.getSpaces().get(9));
-		move.setText("Move to Allégade!");
+		move.setText("Flyt til Allégade!");
 		cards.add(move);
 		
 		PayTax tax = new PayTax();
-		tax.setText("Pay 10% income tax!");
+		tax.setText("Betal indkomstskat! 10% eller 400$");
 		cards.add(tax);
 		
 		CardReceiveMoneyFromBank ba = new CardReceiveMoneyFromBank();
-		ba.setText("You receive 100$ from the bank.");
+		ba.setText("Du modtager 100$ fra banken.");
 		ba.setAmount(100);
 		cards.add(ba);
 
 
 		CardReceiveMoneyFromBank stockYield = new CardReceiveMoneyFromBank();
-		stockYield.setText("You receive 100$ as you get yield from your Stocks!");
+		stockYield.setText("Du modtager 100$ i aktieudbytte!");
         stockYield.setAmount(100);
         cards.add(stockYield);
 
         CardPayMoneyToBank dental = new CardPayMoneyToBank();
-        dental.setText("You pay 200$ as you receive your dental bill");
+        dental.setText("Du har modtaget din tandlægeregning. Betal 200$");
         dental.setAmount(200);
         cards.add(dental);
 
 
         CardPayMoneyToBank ticket = new CardPayMoneyToBank();
-        ticket.setText("You pay 20$ as you get a parking ticket");
+        ticket.setText("Du har fået en parkeringsbøde. Betal 20$");
         ticket.setAmount(20);
         cards.add(ticket);
 
 
         CardPayMoneyToBank customs = new CardPayMoneyToBank();
-        customs.setText("You pay 20$ as you get caught in customs with too many cigarettes ");
+        customs.setText("Du har været en tur i udlandet, og har haft for mange cigaretter med hjem. Betal 20$ i told.");
         customs.setAmount(20);
         cards.add(customs);
 
 
         CardPayMoneyToBank carInsurance = new CardPayMoneyToBank();
-        carInsurance.setText("You pay 100$ for your car insurance");
+        carInsurance.setText("Betal 100$ for din bilforsikring.");
         carInsurance.setAmount(100);
         cards.add(carInsurance);
 
 
         CardPayMoneyToBank carRepair = new CardPayMoneyToBank();
-        carRepair.setText("Oh no your car breaks down. You pay 300$ for the repair of your car");
+        carRepair.setText("Betal 300$ for reparation af din bil.");
         carRepair.setAmount(300);
         cards.add(carRepair);
 

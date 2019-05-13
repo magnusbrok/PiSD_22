@@ -485,7 +485,7 @@ public class GameController {
 	 * @Author Magnus og Ida.
 	 */
 	public void getOutOfJail (Player player) throws PlayerBrokeException{
-		int bail = 500;
+		int bail = 100;
 
 		if (player.isInPrison()) {
 			String selection = gui.getUserSelection(player.getName() + " er i fængsel vil du købe dig ud eller slå efter dobbelt" +
@@ -510,7 +510,7 @@ public class GameController {
 			}
 			if (player.getTurnsInJail() == 3) {
 				gui.showMessage("Du har ikke kunne slå dig ud efter 3 forsøg, og skal derfor betale for at komme ud");
-				paymentToBank(player, 500);
+				paymentToBank(player, bail);
 				player.setInPrison(false);
 				player.setTurnsInJail(0);
 			}

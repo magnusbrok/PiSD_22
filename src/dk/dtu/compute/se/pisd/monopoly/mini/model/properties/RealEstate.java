@@ -43,8 +43,8 @@ public class RealEstate extends Property{
         }
 
         public void computeRent(RealEstate realEstate) {
-
-                int newRent = realEstate.getBaseRent() + (2 * houses * realEstate.getBaseRent());
+                int newRent = realEstate.getBaseRent();
+                newRent = newRent + (2 * houses * realEstate.getBaseRent());
                 realEstate.setRent(newRent);
                 notifyChange();
 

@@ -327,7 +327,7 @@ public class GameController {
 				}
 			}
 
-			String  targetPropertyName = gui.getUserString("Hvilken grund vil du gerne købe af "+ targetPlayerName +"?");
+			String  targetPropertyName = gui.getUserString("Hvilken grund vil du gerne købe af "+ targetPlayer.getName() +"?");
 
 			for (Property property: targetPlayer.getOwnedProperties()) {
 				if (property.getName().equals(targetPropertyName)) {
@@ -335,8 +335,8 @@ public class GameController {
 				}
 			}
 
-			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + kontanter", "1 grund", "kontanter");
-			if (selection == "1 grund + kontanter") {
+			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + evt. kontanter", "1 grund");
+			if (selection == "1 grund + evt. kontanter") {
 
 				String buyerPropertyName = gui.getUserString("Hvilken grund vil du gerne give i bytte?");
 				for (Property property: buyingPlayer.getOwnedProperties()) {
@@ -353,6 +353,8 @@ public class GameController {
 				buyerProperty.setOwner(targetPlayer);
 				targetPlayer.addOwnedProperty(buyerProperty);
 				targetPlayer.removeOwnedProperty(targetProperty);
+
+				gui.showMessage(buyingPlayer.getName() + " Købte " + targetProperty.getName() + " af " + targetPlayer.getName() + " for " + buyerProperty.getName() + " og " + buyerOffer+ "$");
 
 				try {
 					payment(buyingPlayer, buyerOffer, targetPlayer);

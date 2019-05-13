@@ -105,7 +105,7 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		p = new RealEstate(150,120,1000);
-		p.setName("Allégade");
+		p.setName("Allegade");
 		p.setColor(realEstateColorList.get(1)); // Index 1, pink-ish
 		p.setGroupID(realEstateGroups[1]);
 		game.addSpace(p);

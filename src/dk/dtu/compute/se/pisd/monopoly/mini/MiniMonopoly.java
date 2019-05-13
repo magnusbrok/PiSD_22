@@ -81,11 +81,10 @@ public class MiniMonopoly {
 		game.addSpace(p);
 
 		Tax t = new Tax();
-
-		t.setName("Pay tax (10% or 200 Cash)");
+		t.setName("Pay tax (10% or 400$)");
 		game.addSpace(t);
 
-		Ferry s = new Ferry("Øresund", 50, 200);
+		Ferry s = new Ferry("Øresund", 50, 400);
 		game.addSpace(s);
 
 		p = new RealEstate(10,200,100);
@@ -261,7 +260,7 @@ public class MiniMonopoly {
 
 
 		StateTax st = new StateTax();
-		st.setName("Pay 100$ to the bank");
+		st.setName("Pay 200$ to the bank");
 		game.addSpace(st);
 
 
@@ -293,37 +292,37 @@ public class MiniMonopoly {
 
 
 		CardReceiveMoneyFromBank stockYield = new CardReceiveMoneyFromBank();
-		stockYield.setText("You receive 200$ as you get yield from your Stocks!");
-        stockYield.setAmount(200);
+		stockYield.setText("You receive 100$ as you get yield from your Stocks!");
+        stockYield.setAmount(100);
         cards.add(stockYield);
 
         CardPayMoneyToBank dental = new CardPayMoneyToBank();
-        dental.setText("You pay 100$ as you receive your dental bill");
-        dental.setAmount(100);
+        dental.setText("You pay 200$ as you receive your dental bill");
+        dental.setAmount(200);
         cards.add(dental);
 
 
         CardPayMoneyToBank ticket = new CardPayMoneyToBank();
-        ticket.setText("You pay 200$ as you get a parking ticket");
-        ticket.setAmount(200);
+        ticket.setText("You pay 20$ as you get a parking ticket");
+        ticket.setAmount(20);
         cards.add(ticket);
 
 
         CardPayMoneyToBank customs = new CardPayMoneyToBank();
-        customs.setText("You pay 100$ as you get caught in customs with too many cigarettes ");
-        customs.setAmount(100);
+        customs.setText("You pay 20$ as you get caught in customs with too many cigarettes ");
+        customs.setAmount(20);
         cards.add(customs);
 
 
         CardPayMoneyToBank carInsurance = new CardPayMoneyToBank();
-        carInsurance.setText("You pay 500$ for your car insurance");
-        carInsurance.setAmount(500);
+        carInsurance.setText("You pay 100$ for your car insurance");
+        carInsurance.setAmount(100);
         cards.add(carInsurance);
 
 
         CardPayMoneyToBank carRepair = new CardPayMoneyToBank();
-        carRepair.setText("Oh no your car breaks down. You pay 600$ for the repair of your car");
-        carRepair.setAmount(600);
+        carRepair.setText("Oh no your car breaks down. You pay 300$ for the repair of your car");
+        carRepair.setAmount(300);
         cards.add(carRepair);
 
         game.setCardDeck(cards);

@@ -312,11 +312,19 @@ public class GameController {
 		} while (castDouble);
 	}
 
+	/**
+	 * Method to start a trade between 2 players. The method handles a the purchause of a property from another player.
+	 * The purchause can be payed with cash, property exchange, or both at the same time.
+	 * @param buyingPlayer the player starting the trade.
+	 * @author Magnus
+	 */
 	public void trade(Player buyingPlayer) {
+
 		Boolean doneWithTrading = false;
 		Player targetPlayer = new Player();
 		Property targetProperty = new Property();
 		Property buyerProperty = new Property();
+		int buyerOffer = 0;
 
 		while (!doneWithTrading) {
 			String targetPlayerName = gui.getUserString("Hvem vil du gerne trade med?");
@@ -335,7 +343,8 @@ public class GameController {
 				}
 			}
 
-			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + evt. kontanter", "1 grund");
+			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + evt. kontanter", "Kun kontanter");
+
 			if (selection == "1 grund + evt. kontanter") {
 
 				String buyerPropertyName = gui.getUserString("Hvilken grund vil du gerne give i bytte?");
@@ -344,7 +353,11 @@ public class GameController {
 						buyerProperty = property;
 					}
 				}
-				int buyerOffer = gui.getUserInteger("Hvor meget vil du betale yderligere?");
+				buyerOffer = gui.getUserInteger("Hvor meget vil du betale yderligere?");
+
+				if (targetProperty instanceof RealEstate) {
+					((RealEstate) targetProperty).sellAllHouses();
+				}
 
 				buyingPlayer.removeOwnedProperty(buyerProperty);
 				buyingPlayer.addOwnedProperty(targetProperty);
@@ -356,14 +369,29 @@ public class GameController {
 
 				gui.showMessage(buyingPlayer.getName() + " Købte " + targetProperty.getName() + " af " + targetPlayer.getName() + " for " + buyerProperty.getName() + " og " + buyerOffer+ "$");
 
-				try {
-					payment(buyingPlayer, buyerOffer, targetPlayer);
-				} catch (PlayerBrokeException e) {
-					e.printStackTrace();
-				}
+
 			}
 
+			if (selection == "Kun kontanter") {
 
+				buyerOffer = gui.getUserInteger("Hvor meget vil du betale for " + targetProperty.getName() +"?");
+
+				if (targetProperty instanceof RealEstate) {
+					((RealEstate) targetProperty).sellAllHouses();
+				}
+
+				buyingPlayer.addOwnedProperty(targetProperty);
+				targetProperty.setOwner(buyingPlayer);
+				targetPlayer.removeOwnedProperty(targetProperty);
+
+				gui.showMessage(buyingPlayer.getName() + " Købte " + targetProperty.getName() + " af " + targetPlayer.getName() + " for " +  buyerOffer+ "$");
+			}
+
+			try {
+				payment(buyingPlayer, buyerOffer, targetPlayer);
+			} catch (PlayerBrokeException e) {
+				e.printStackTrace();
+			}
 			selection = gui.getUserSelection("Er du færdig med at bytte?", "Ja", "Nej");
 			if (selection == "Ja") {
 				doneWithTrading = true;
@@ -654,7 +682,7 @@ public class GameController {
 	 * @param player the player receiving the money
 	 * @param amount the amount
 	 */
-	public void paymentFromBank(Player player, int amount) {
+	public void  paymentFromBank(Player player, int amount) {
 		player.receiveMoney(amount);
 	}
 

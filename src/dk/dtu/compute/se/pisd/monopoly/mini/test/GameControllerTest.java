@@ -1,51 +1,50 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
+import org.junit.jupiter.api.Test;
 
 class GameControllerTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void makeMove() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void houseOffer() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void moveToSpace() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void takeChanceCard() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void returnChanceCardToDeck() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void obtainCash() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void payment() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void paymentFromBank() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void paymentToBank() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void playerBrokeTo() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void playerBrokeToBank() {
     }
 }

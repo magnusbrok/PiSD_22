@@ -674,7 +674,7 @@ public class GameController {
 				throw new PlayerBrokeException(payer);
 			}
 		}
-		gui.showMessage("Player " + payer.getName() + " pays " +  amount + "$ to player " + receiver.getName() + ".");
+		gui.showMessage(payer.getName() + " betalte " +  amount + "$ til " + receiver.getName() + ".");
 		payer.payMoney(amount);
 		receiver.receiveMoney(amount);
 	}
@@ -686,7 +686,7 @@ public class GameController {
 	 * @param player the player receiving the money
 	 * @param amount the amount
 	 */
-	public void  paymentFromBank(Player player, int amount) {
+	public void   paymentFromBank(Player player, int amount) {
 		player.receiveMoney(amount);
 	}
 

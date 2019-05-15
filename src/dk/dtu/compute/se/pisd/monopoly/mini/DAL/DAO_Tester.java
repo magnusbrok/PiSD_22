@@ -21,7 +21,7 @@ public class DAO_Tester {
         GameController controller = new GameController(game);
         controller.makeDefaultGame();
 
-            game.setGameID(1);
+            game.setGameID(10);
             game.getCurrentPlayer().setInPrison(true);
             game.getCurrentPlayer().setCurrentPosition(game.getSpaces().get(5));
 

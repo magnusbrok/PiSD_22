@@ -171,15 +171,8 @@ public class GameDAO implements IGameDAO {
     @Override
     public void deleteGame(Game game) throws DALException {
         try(Connection c = createConnection()){
+
             PreparedStatement statement = c.prepareStatement("DELETE FROM Game WHERE g_ID = ?");
-            statement.setInt(1,game.getGameID());
-            statement.executeUpdate();
-
-            statement = c.prepareStatement("DELETE FROM Player WHERE g_ID = ?");
-            statement.setInt(1,game.getGameID());
-            statement.executeUpdate();
-
-            statement = c.prepareStatement("DELETE FROM Property WHERE g_ID = ?");
             statement.setInt(1,game.getGameID());
             statement.executeUpdate();
 
@@ -227,12 +220,8 @@ public class GameDAO implements IGameDAO {
             player.setCurrentPosition(game.getSpaces().get(resultSet.getInt("position")));
             player.setBalance(resultSet.getInt("balance"));
             player.setColor(pColor.get(player.getPlayerID()-1));
-            if (resultSet.getInt("inprison") == 1) {
-                player.setInPrison(true);
-            }
-            if (resultSet.getInt("broke") == 1) {
-                player.setBroke(true);
-            }
+            player.setInPrison(resultSet.getBoolean("inprison"));
+            player.setBroke(resultSet.getBoolean("broke"));
             game.addPlayer(player);
 
 

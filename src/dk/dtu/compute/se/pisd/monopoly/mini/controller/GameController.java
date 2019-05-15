@@ -344,6 +344,7 @@ public class GameController {
 			}
 
 			String selection = gui.getUserSelection("Hvad vil du betale med?", "1 grund + evt. kontanter", "Kun kontanter");
+
 			if (selection == "1 grund + evt. kontanter") {
 
 				String buyerPropertyName = gui.getUserString("Hvilken grund vil du gerne give i bytte?");
@@ -353,6 +354,10 @@ public class GameController {
 					}
 				}
 				buyerOffer = gui.getUserInteger("Hvor meget vil du betale yderligere?");
+
+				if (targetProperty instanceof RealEstate) {
+					((RealEstate) targetProperty).sellAllHouses();
+				}
 
 				buyingPlayer.removeOwnedProperty(buyerProperty);
 				buyingPlayer.addOwnedProperty(targetProperty);
@@ -368,7 +373,13 @@ public class GameController {
 			}
 
 			if (selection == "Kun kontanter") {
-				buyerOffer = gui.getUserInteger("Hvor meget vil du betale yderligere?");
+
+				buyerOffer = gui.getUserInteger("Hvor meget vil du betale for " + targetProperty.getName() +"?");
+
+				if (targetProperty instanceof RealEstate) {
+					((RealEstate) targetProperty).sellAllHouses();
+				}
+
 				buyingPlayer.addOwnedProperty(targetProperty);
 				targetProperty.setOwner(buyingPlayer);
 				targetPlayer.removeOwnedProperty(targetProperty);

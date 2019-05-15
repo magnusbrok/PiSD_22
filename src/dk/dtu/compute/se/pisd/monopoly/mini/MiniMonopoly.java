@@ -338,6 +338,17 @@ public class MiniMonopoly {
 		GameController controller = new GameController(game);
 		controller.makeGame(); //USE default game if you only want 3 players
 		controller.initializeGUI();
+
+		Player testP = game.getPlayers().get(2);
+		RealEstate test1 = (RealEstate)game.getSpaces().get(1);
+		RealEstate test2 = (RealEstate)game.getSpaces().get(3);
+		testP.addOwnedProperty(test1);
+		testP.addOwnedProperty(test2);
+		test1.setOwner(testP);
+		test2.setOwner(testP);
+		test1.setHouses(5);
+		test2.setHouses(5);
+
 		controller.play();
 
 		}

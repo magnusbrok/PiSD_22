@@ -42,8 +42,17 @@ public class RealEstate extends Property{
                 }
         }
 
-        public void sellHouse(Player player) {
+        public void sellHouse() {
 
+                this.setHouses(this.getHouses()-1);
+                this.getOwner().receiveMoney(this.getHousecost()/2);
+
+        }
+
+        public void sellAllHouses() {
+                int soldHouses = getHouses();
+                setHouses(0);
+                getOwner().receiveMoney((this.getHousecost()/2)*soldHouses);
         }
 
         public void computeRent(RealEstate realEstate) {

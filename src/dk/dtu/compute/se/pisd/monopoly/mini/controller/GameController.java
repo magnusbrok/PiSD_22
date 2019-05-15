@@ -588,7 +588,11 @@ public class GameController {
 	 * @param amount the amount the player should have available after the act
 	 */
 	public void obtainCash(Player player, int amount) {
-		// TODO implement
+		while (player.getBalance() < amount) {
+			for (Property property : player.getOwnedProperties()) {
+				if (property instanceof RealEstate) ((RealEstate) property).sellHouse();
+			}
+		}
 	}
 
 	/**

@@ -42,6 +42,10 @@ public class RealEstate extends Property{
                 }
         }
 
+        public void sellHouse(Player player) {
+
+        }
+
         public void computeRent(RealEstate realEstate) {
 
                 int newRent = realEstate.getBaseRent() + (2 * houses * realEstate.getBaseRent());

@@ -719,6 +719,7 @@ public class GameController {
 	 * This method implements the activity of auctioning a property.
 	 *
 	 * @param property the property which is for auction
+	 * @Author Magnus og Siff
 	 */
 	public void auction(Property property) {
 		// TODO gør det så at det er den næste spiller i rækken der byder først. exp player 2 afviser at købe en grund

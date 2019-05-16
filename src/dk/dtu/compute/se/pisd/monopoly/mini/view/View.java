@@ -92,7 +92,10 @@ public class View implements Observer {
 			updatePlayer(player);
 		}
 	}
-	
+
+	/**
+	 * @author Magnus og Siff
+	 */
 	@Override
 	public void update(Subject subject) {
 		if (!disposed) {
@@ -157,6 +160,9 @@ public class View implements Observer {
 		}
 	}
 
+	/**
+	 * @author Magnus og Siff
+	 */
 	private void updateProperty (Property property) {
 		GUI_Field guiField = this.space2GuiField.get(property);
 		if (guiField instanceof GUI_Ownable) {

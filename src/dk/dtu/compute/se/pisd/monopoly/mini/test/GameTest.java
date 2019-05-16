@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 import static dk.dtu.compute.se.pisd.monopoly.mini.MiniMonopoly.createGame;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test of the game method related to chanceCard.
+ * @author Siff
+ */
 class GameTest {
 
     @Test
@@ -19,12 +23,5 @@ class GameTest {
 
         game.returnCardToDeck(drawn);
         assertTrue(drawn.equals(game.getCardDeck().get(deckSize-1)));
-    }
-
-    @Test
-    void shuffleCardDeck() {
-        /*  Det giver ikke mening af teste metoden, da den benytter sig af Collections.shiffle(), som forvented
-            allerede at være ordenligt testet, af dens "fortatter"...
-         */
     }
 }

@@ -28,6 +28,7 @@ import java.util.Map;
  * the state of the game (model) changes.
  * 
  * @author Ekkart Kindler, ekki@dtu.dk
+ * @author edited by Magnus and Siff.
  *
  */
 public class View implements Observer {
@@ -40,9 +41,9 @@ public class View implements Observer {
 	private Map<Space,GUI_Field> space2GuiField = new HashMap<Space,GUI_Field>();
 	private Map<Player,PlayerPanel> player2Playerpanel = new HashMap<>();
 
-	
 	private boolean disposed = false;
-	
+
+
 	/**
 	 * Constructor for the view of a game based on a game and an already
 	 * running Matador GUI.
@@ -58,14 +59,8 @@ public class View implements Observer {
 		int i = 0;
 		for (Space space: game.getSpaces()) {
 
-			// TODO, here we assume that the games fields fit to the GUI's fields;
-			// the GUI fields should actually be created according to the game's
-			// fields
 			space2GuiField.put(space, guiFields[i++]);
-			
-			// TODO we should also register with the properties as observer; but
-			// the current version does not update anything for the spaces, so we do not
-			// register the view as an observer for now
+
 			if (space instanceof Property ) {
 				space.attach(this);
 			}
@@ -80,11 +75,6 @@ public class View implements Observer {
 			gui.addPlayer(guiPlayer);
 
 			player2Playerpanel.put(player, new PlayerPanel(game, player));
-
-
-
-			// player2position.put(player, 0);
-			
 			// register this view with the player as an observer, in order to update the
 			// player's state in the GUI
 			player.attach(this);
@@ -94,6 +84,7 @@ public class View implements Observer {
 	}
 
 	/**
+	 * Main method for updating can handle the 4 different objects that needs to be observed.
 	 * @author Magnus og Siff
 	 */
 	@Override
@@ -119,11 +110,9 @@ public class View implements Observer {
 	
 	/**
 	 * This method updates a player's state in the GUI. Right now, this
-	 * concerns the players position and balance only. But, this should
-	 * also include other information (being i prison, available cards,
-	 * ...)
-	 * 
+	 * concerns the players position balance, prison/broke status
 	 * @param player the player who's state is to be updated
+	 * @author Magnus
 	 */
 	private void updatePlayer(Player player) {
 		GUI_Player guiPlayer = this.player2GuiPlayer.get(player);
@@ -161,6 +150,8 @@ public class View implements Observer {
 	}
 
 	/**
+	 * Method for updating a property when it changes. Is called with the normal update() method.
+	 * Also updates the individual player panels.
 	 * @author Magnus og Siff
 	 */
 	private void updateProperty (Property property) {
@@ -192,7 +183,10 @@ public class View implements Observer {
 		}
 
 	}
-	
+
+	/**
+	 * disposes of a attaches observer.
+	 */
 	public void dispose() {
 		if (!disposed) {
 			disposed = true;

@@ -15,24 +15,32 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.properties;
  */
 public class RealEstate extends Property{
 
-
         private int houses;
         private int housecost;
         private int maxhouses = 5;
         private Color color;
         private int groupID = 0; // ID for realEstate grouping by colors.
 
-
-
-
+        /**
+         *
+         * @param BaseRent
+         * @param cost
+         * @param housecost
+         * @author Tim and
+         */
         public RealEstate (int BaseRent, int cost, int housecost){
             super.setBaseRent(BaseRent);
             super.setCost(cost);
             this.housecost = housecost;
             super.setRent(super.getBaseRent());
-
         }
 
+        /**
+         *
+         * @param player
+         * @param realEstate
+         * @author Tim and
+         */
         public void buildhouse (Player player, RealEstate realEstate) {
                 if (player.getBalance() >= housecost && houses < maxhouses) {
                         houses++;
@@ -55,6 +63,11 @@ public class RealEstate extends Property{
                 getOwner().receiveMoney((getHousecost()/2)*soldHouses);
         }
 
+        /**
+         *
+         * @param realEstate
+         * @author Tim and
+         */
         public void computeRent(RealEstate realEstate) {
 
                 int newRent = realEstate.getBaseRent() + (2 * houses * realEstate.getBaseRent());

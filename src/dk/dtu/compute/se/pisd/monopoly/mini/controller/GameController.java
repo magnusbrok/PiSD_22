@@ -38,8 +38,8 @@ import java.util.List;
  * can be implemented based on the basic actions and activities
  * of this game controller.
  *
- * @author Ekkart Kindler, ekki@dtu.dk
- *
+ * @author original Ekkart Kindler, ekki@dtu.dk
+ * ediitet by Group C
  */
 public class GameController {
 
@@ -81,6 +81,7 @@ public class GameController {
 	/**
 	 * method called in main to start creating a game. Ask through the GUI if the player wants
 	 * to make a new game or load one. Either calls loadGame method or makePlayers method.
+     * @author Magnus and Tim
 	 */
 	public void makeGame () {
 
@@ -118,7 +119,9 @@ public class GameController {
 		}
 	}
 
-
+    /**
+     * @author Tim and Magnus
+     */
 	public void makeDefaultGame() {
 		Player p = new Player();
 		p.setPlayerID(1);
@@ -146,6 +149,7 @@ public class GameController {
 	 * The basic method for making each player in the game. Only happens if the player wants to start a fresh game.
 	 * Ask how many are playing with the min and max number of players. Then creates each player with defualt ID's and colors
 	 * Name is collected via the GUI.
+     * @author Tim and Magnus
 	 */
 	public void makePlayers() {
 		int minPlayers = 3;
@@ -447,6 +451,7 @@ public class GameController {
 	 * Method is called in houseOffer for each owned realEstae a player has at the end of his turn.
 	 * @param realEstate The realEstate in question. Used to get the owner and the group ID
 	 * @return True you the player can buy houses on the realEstate, and false if not
+     * @author Magnus and Tim
 	 */
 	private boolean canBuyHouse(RealEstate realEstate) {
 		int neededProperties = 0;
@@ -513,7 +518,7 @@ public class GameController {
 	 * Mthod used for getting a player out of jail either by payment or by die roll
 	 * @param player the player currently in prison
 	 * @throws PlayerBrokeException if the player gets forced to buy out of prison and goes broke
-	 * @Author Magnus og Ida.
+	 * @Author Magnus and Ida.
 	 */
 	public void getOutOfJail (Player player) throws PlayerBrokeException{
 		int bail = 100;

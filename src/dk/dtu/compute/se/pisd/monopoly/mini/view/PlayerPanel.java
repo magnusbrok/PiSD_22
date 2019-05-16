@@ -13,7 +13,7 @@ import java.awt.*;
 
 /**
  * Class for making Jframes with info about each player and their owned properties.
- * @author Magnus, Tim, Siff og Ida
+ * @author Magnus, Tim, Siff and Ida
  */
 public class PlayerPanel extends JFrame {
     private Player player;
@@ -24,6 +24,7 @@ public class PlayerPanel extends JFrame {
      * The setup of the permanent playerFrame. only happens once and isn't changed during the game.
      * @param game The game that's playing
      * @param player the player that needs a frame.
+     * @author Magnus, Tim, Siff and Ida
      */
     public PlayerPanel(Game game, Player player){
         this.player = player;

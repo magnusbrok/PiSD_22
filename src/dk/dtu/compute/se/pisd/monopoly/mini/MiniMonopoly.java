@@ -30,7 +30,7 @@ public class MiniMonopoly {
 	 *
 	 * @return the initial game board and (not shuffled) deck of chance cards
 	 *
-	 * @author Ida, Mads, Tim, Gustav og Magnus
+	 * @author Ida, Mads, Tim, Gustav and Magnus
 	 */
 	public static Game createGame() {
 		// Create the initial Game set up (note that, in this simple

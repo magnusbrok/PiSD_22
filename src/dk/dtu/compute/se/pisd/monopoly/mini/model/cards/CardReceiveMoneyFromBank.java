@@ -39,8 +39,6 @@ public class CardReceiveMoneyFromBank extends Card {
 		try {
 			controller.paymentFromBank(player, amount);
 		} finally {
-			// Make sure that the card is returned to the deck even when
-			// an Exception should occur!
 			super.doAction(controller, player);
 		}
 	}

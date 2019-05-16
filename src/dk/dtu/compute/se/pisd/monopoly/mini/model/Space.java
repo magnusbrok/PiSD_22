@@ -18,14 +18,25 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeExceptio
  *
  */
 public class Space extends Subject  {
-	
+
 	private String name;
-	
+
 	private int index;
-	
+
+	/**
+	 * The action taken when a player arrives on that space.
+	 * Is overridden in child classes to do something specific based on the type.
+	 * @param controller the controller in charge of the game
+	 * @param player the involved player
+	 * @throws PlayerBrokeException when the action results in the player going bankrupt
+	 */
+	public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
+		// per default there is no action for a space
+	}
+
 	/**
 	 * Returns the space's name.
-	 * 
+	 *
 	 * @return the space's name.
 	 */
 	public String getName() {
@@ -34,7 +45,7 @@ public class Space extends Subject  {
 
 	/**
 	 * Sets the space's name.
-	 * 
+	 *
 	 * @param name the name
 	 */
 	public void setName(String name) {
@@ -44,31 +55,20 @@ public class Space extends Subject  {
 
 	/**
 	 * Returns the index of this space in the game.
-	 * 
+	 *
 	 * @return the spaces positing in the game
 	 */
 	public int getIndex() {
 		return index;
 	}
-	
+
 	/**
 	 * Sets the index of the space in the game.
-	 * 
+	 *
 	 * @param index the index
 	 */
 	public void setIndex(int index) {
 		this.index = index;
 		notifyChange();
-	}
-	
-	/**
-	 * The action taken when a player arrives on that fields.
-	 * 
-	 * @param controller the controller in charge of the game
-	 * @param player the involved player
-	 * @throws PlayerBrokeException when the action results in the player going bankrupt
-	 */
-	public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
-		// per default there is no action for a space
 	}
 }

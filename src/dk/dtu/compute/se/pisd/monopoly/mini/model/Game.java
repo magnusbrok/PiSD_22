@@ -14,21 +14,17 @@ import java.util.List;
  * design pattern.
  * 
  * @author Ekkart Kindler, ekki@dtu.dk
+ * @author Edited by Magnus and Tim.
  *
  */
 public class Game extends Subject {
 	
 	private List<Space> spaces = new ArrayList<Space>();
-	
 	private List<Card> cardDeck = new ArrayList<Card>();
-	
 	private List<Player> players = new ArrayList<Player>();
-
-
 	private List<Color> colors = new ArrayList<>();
 
 	private Player current;
-
 	private int gameID = 1;
 
 	/**
@@ -78,7 +74,6 @@ public class Game extends Subject {
 	 * @return the topmost card of the deck
 	 */
 	public Card drawCardFromDeck() {
-		// TODO should be more defensive
 		Card card = cardDeck.remove(0);
 		notifyChange();
 		return card;
@@ -113,8 +108,6 @@ public class Game extends Subject {
 	 */
 	public void shuffleCardDeck() {
 		Collections.shuffle(cardDeck);
-		// This notification is probably not needed, but for
-		// completeness sake, we have it here
 		notifyChange();
 	}
 

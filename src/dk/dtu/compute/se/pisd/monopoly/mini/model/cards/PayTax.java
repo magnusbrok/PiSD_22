@@ -17,13 +17,10 @@ public class PayTax extends Card {
 
 	@Override
 	public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
-		// TODO note that tax concerns all assets an not just cash
-		//      this is just a simple  way of implementing tax
 		try {
 			controller.paymentToBank(player, player.getBalance() / 10);
 		} finally {
-			// Make sure that the card is returned to the deck even when
-			// an Exception should occur!
+
 			super.doAction(controller, player);
 		}
 	}

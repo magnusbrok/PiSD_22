@@ -42,9 +42,7 @@ public abstract class Card {
 	 * @throws PlayerBrokeException when the player goes bankrupt by the action
 	 */
 	public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
-		// Most cards should return the card to the deck, when the card action
-		// is executed. Subclasses and call the super method to achieve this.
-		controller.returnChanceCardToDeck(this);
-	};	
 
+		controller.returnChanceCardToDeck(this);
+	}
 }

@@ -1,17 +1,16 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.model;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.controller.GameController;
-import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
 /**
- * A property which is a space that can be owned by a player.
- *
- * @author Ekkart Kindler, ekki@dtu.dk
- *
+ * Property represent all the spaces that can be owned by a player. Property could be abstract
+ * since most properties a extended into either RealEstate, Ferry or Brewery.
+ * Has the basic information needed for its child classes.
+ * @author Magnus and Gustav.
  */
 public class Property extends Space {
 
@@ -22,6 +21,36 @@ public class Property extends Space {
 
     private Player owner = null;
 
+    /**
+     * Most important method for spaces doAction handles what happens to a player
+     * when they land on the space.
+     * @param controller the controller in charge of the game
+     * @param player the involved player
+     * @throws PlayerBrokeException If a player goes broke when landing on the property.
+     * @author Magnus and Gustav.
+     */
+    @Override
+    public void doAction(GameController controller, Player player) throws PlayerBrokeException{
+        if (owner == null) {
+            controller.offerToBuy(this, player);
+        } else if (!owner.equals(player)) {
+            // TODO also check whether the property is mortgaged
+            if(this instanceof RealEstate){
+                RealEstate realEstate = (RealEstate) this;
+                realEstate.computeRent(realEstate);
+            }
+
+            if(this instanceof Ferry){
+                Ferry ferry = (Ferry) this;
+                setRent(ferry.getRent());
+            }
+            if (this instanceof Brewery){
+                Brewery brewery = (Brewery) this;
+                brewery.setRent(brewery.getMultiplier()*player.getSumOfDies());
+            }
+            controller.payment(player, rent, owner);
+        }
+    }
 
     /**
      * Returns the cost of this property.
@@ -80,29 +109,6 @@ public class Property extends Space {
     public void setOwner(Player player) {
         this.owner = player;
         notifyChange();
-    }
-
-    @Override
-    public void doAction(GameController controller, Player player) throws PlayerBrokeException, GameEndedException {
-        if (owner == null) {
-            controller.offerToBuy(this, player);
-        } else if (!owner.equals(player)) {
-            // TODO also check whether the property is mortgaged
-            if(this instanceof RealEstate){
-                RealEstate realEstate = (RealEstate) this;
-                realEstate.computeRent(realEstate);
-            }
-
-            if(this instanceof Ferry){
-                Ferry ferry = (Ferry) this;
-                setRent(ferry.getRent());
-            }
-            if (this instanceof Brewery){
-                Brewery brewery = (Brewery) this;
-                brewery.setRent(brewery.getMultiplier()*player.getSumOfDies());
-            }
-            controller.payment(player, rent, owner);
-        }
     }
 
     public int getBaseRent() {

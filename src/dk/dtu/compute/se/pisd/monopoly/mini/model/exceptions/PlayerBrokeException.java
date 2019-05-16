@@ -7,7 +7,6 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
  * during the current move.
  * 
  * @author Ekkart Kindler, ekki@dtu.dk
- *
  */
 @SuppressWarnings("serial")
 public class PlayerBrokeException extends Exception {

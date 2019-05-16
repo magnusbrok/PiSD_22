@@ -13,6 +13,7 @@ import java.awt.*;
 
 /**
  * Class for making Jframes with info about each player and their owned properties.
+ * Currently each player gets their own panel, with information regarding themselves.
  * @author Magnus, Tim, Siff og Ida
  */
 public class PlayerPanel extends JFrame {
@@ -21,13 +22,13 @@ public class PlayerPanel extends JFrame {
     JPanel panel = new JPanel();
 
     /**
-     * The setup of the permanent playerFrame. only happens once and isn't changed during the game.
+     * The constructor for the permanent playerFrame. only happens once and isn't changed during the game.
      * @param game The game that's playing
      * @param player the player that needs a frame.
+     * @author Magnus and Tim.
      */
     public PlayerPanel(Game game, Player player){
         this.player = player;
-        //this.game = game;
 
         frame = new JFrame((player.getName()));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,7 +36,6 @@ public class PlayerPanel extends JFrame {
         frame.setSize(900,135);
         frame.setLocation(700, game.getPlayers().indexOf(player)*135);
         panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
-        //panel.setBorder(BorderFactory.createCompoundBorder());
 
         frame.setContentPane(panel);
         frame.setResizable(true);
@@ -46,12 +46,15 @@ public class PlayerPanel extends JFrame {
 
     /**
      * update method that handles the drawing and updating of each player frame.
-     * method adds info about the player in 1 panel and adds another panel for each property owned.
+     * method adds info about the player in 1 panel and adds another panel for each property owned with
+     * info regarding that property.
+     * Works by first clearing the panel and then redrawing it again.
      * Is called in the view class via updatePlayer method.
+     * @author Magnus
      */
     public void update() {
-        panel.removeAll();
 
+        panel.removeAll();
 
         JPanel panel = new JPanel();
         panel.setMinimumSize(new Dimension(100, 100));
@@ -79,9 +82,10 @@ public class PlayerPanel extends JFrame {
         }
 
         frame.add(panel);
-        //TODO Maybe compine properties of same color
-        this.getContentPane().setLayout(null);
 
+        this.getContentPane().setLayout(null);
+        // Here we create each propertyPanel.
+        // Reacting differently depending on what kind of property it is.
         for (Property property : player.getOwnedProperties()) {
 
             JPanel propertyPanel = new JPanel();
@@ -121,9 +125,9 @@ public class PlayerPanel extends JFrame {
             }
             if (property instanceof Brewery) {
                 Brewery brewery = (Brewery) property;
-                label = new JLabel(" Breweries:   "  + brewery.getOwnedBreweries()); // not working
+                label = new JLabel(" Breweries:   "  + brewery.getOwnedBreweries());
                 propertyPanel.add(label);
-                label = new JLabel(" Multiplier:   " + brewery.getMultiplier() + "x"); // not working proberly
+                label = new JLabel(" Multiplier:   " + brewery.getMultiplier() + "x");
                 propertyPanel.add(label);
             }
 

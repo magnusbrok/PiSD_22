@@ -2,7 +2,9 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions;
 
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Game;
 
-
+/**
+ * Exception handling the end of a game.
+ */
 public class GameEndedException extends Exception {
     private Game game;
 

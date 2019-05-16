@@ -3,11 +3,21 @@ package dk.dtu.compute.se.pisd.monopoly.mini.model.properties;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 
+/**
+ * Special type of property. Rent is fixed but increases each time a player owns an additional ferry.
+ * @author Gustav.
+ */
 public class Ferry extends Property {
     private int ownedFerries;
 
 
-
+    /**
+     * Constructor for the Ferry.
+     * @param name The name of the Ferry.
+     * @param baseRent The starting rent.
+     * @param cost The cost of purchasing the Ferry.
+     * @author Gustav.
+     */
     public Ferry(String name, int baseRent, int cost){
 
         super.setBaseRent(baseRent);
@@ -17,6 +27,11 @@ public class Ferry extends Property {
 
     }
 
+    /**
+     * Method to calculate and increase the rent each time a player owns a additonal ferry.
+     * @param ferry the ferry who's rent need calculating.
+     * @author Gustav.
+     */
     public void computeRent (Ferry ferry){
         if (ferry.getOwner() != null) {
             Player player = ferry.getOwner();
@@ -26,7 +41,6 @@ public class Ferry extends Property {
                     ownedFerries++;
                 }
             }
-
             if (ownedFerries == 1) {
                 setRent(getBaseRent());
             }
@@ -40,11 +54,10 @@ public class Ferry extends Property {
                 setRent(getBaseRent()*8);
             }
         }
-
         notifyChange();
-
     }
 
+    // Getters and setters
 
     public void setOwnedFerries(int ownedFerries) {
         this.ownedFerries = ownedFerries;

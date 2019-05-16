@@ -152,7 +152,7 @@ public class View implements Observer {
 	/**
 	 * Method for updating a property when it changes. Is called with the normal update() method.
 	 * Also updates the individual player panels.
-	 * @author Magnus og Siff
+	 * @author Magnus, Siff and Gustav
 	 */
 	private void updateProperty (Property property) {
 		GUI_Field guiField = this.space2GuiField.get(property);

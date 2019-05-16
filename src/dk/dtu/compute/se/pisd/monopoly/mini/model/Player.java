@@ -1,7 +1,6 @@
 package dk.dtu.compute.se.pisd.monopoly.mini.model;
 
 import dk.dtu.compute.se.pisd.designpatterns.Subject;
-
 import java.awt.*;
 import java.util.List;
 import java.util.*;
@@ -14,7 +13,7 @@ import java.util.*;
  * {@link dk.dtu.compute.se.pisd.designpatterns.Subject} of the observer
  * design pattern.
  * 
- * @author Ekkart Kindler, ekki@dtu.dk
+ * @author Everyone.
  *
  */
 public class Player extends Subject {
@@ -40,6 +39,26 @@ public class Player extends Subject {
 	private Set<Property> ownedProperties = new HashSet<Property>();
 
 	private List<Card> ownedCards = new ArrayList<Card>();
+
+	/**
+	 * Adds the given amount to the balance of the player.
+	 *
+	 * @param amount the received amount
+	 */
+	public void receiveMoney(int amount) {
+		balance = balance + amount;
+		notifyChange();
+	}
+
+	/**
+	 * Removes the given amount from the balance of the player.
+	 *
+	 * @param amount the payed amount
+	 */
+	public void payMoney(int amount) {
+		balance = balance - amount;
+		notifyChange();
+	}
 
 	/**
 	 * Returns the name of the player.
@@ -114,26 +133,6 @@ public class Player extends Subject {
 	 */
 	public void setBalance(int balance) {
 		this.balance = balance;
-		notifyChange();
-	}
-
-	/**
-	 * Adds the given amount to the balance of the player.
-	 *
-	 * @param amount the received amount
-	 */
-	public void receiveMoney(int amount) {
-		balance = balance + amount;
-		notifyChange();
-	}
-
-	/**
-	 * Removes the given amount from the balance of the player.
-	 *
-	 * @param amount the payed amount
-	 */
-	public void payMoney(int amount) {
-		balance = balance - amount;
 		notifyChange();
 	}
 

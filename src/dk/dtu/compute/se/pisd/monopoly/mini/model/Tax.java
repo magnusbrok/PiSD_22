@@ -6,7 +6,7 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeExceptio
 
 /**
  * Represents a space, where the player has to pay tax.
- * 
+ * Currently only charges 10% of a players current balance.
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */

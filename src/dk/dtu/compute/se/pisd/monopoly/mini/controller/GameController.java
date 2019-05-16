@@ -577,10 +577,17 @@ public class GameController {
 	 * @author Magnus
 	 */
 	public void obtainCash(Player player, int amount) {
-		while (player.getBalance() < amount) {
+		int timesSoldHouses  = 0;
+
+		while (player.getBalance() <= amount && timesSoldHouses <= 5) {
 			for (Property property : player.getOwnedProperties()) {
-				if (property instanceof RealEstate) ((RealEstate) property).sellHouse();
+				if (property instanceof RealEstate) {
+					if (((RealEstate) property).getHouses() > 1) {
+						((RealEstate) property).sellHouse();
+					}
+				}
 			}
+			timesSoldHouses++;
 		}
 	}
 

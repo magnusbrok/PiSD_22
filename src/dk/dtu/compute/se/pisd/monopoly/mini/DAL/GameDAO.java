@@ -165,7 +165,7 @@ public class GameDAO implements IGameDAO {
 
     /**
      * Removes a game from the database bases on the gameID. Removes data from all 3 tables
-     * @param game the game that needs to be removed.
+     * @param game the game that needs  /(to be removed.
      * @throws DALException handles errors with DAL.
      */
     @Override

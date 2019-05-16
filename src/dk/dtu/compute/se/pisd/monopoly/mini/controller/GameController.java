@@ -118,10 +118,7 @@ public class GameController {
 		}
 	}
 
-	/**
-	 *
-	 * @authors Ida (only the colors)
-	 */
+
 	public void makeDefaultGame() {
 		Player p = new Player();
 		p.setPlayerID(1);

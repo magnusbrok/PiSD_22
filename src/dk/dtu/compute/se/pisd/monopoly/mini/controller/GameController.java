@@ -118,6 +118,10 @@ public class GameController {
 		}
 	}
 
+	/**
+	 *
+	 * @authors Ida (only the colors)
+	 */
 	public void makeDefaultGame() {
 		Player p = new Player();
 		p.setPlayerID(1);
@@ -710,7 +714,7 @@ public class GameController {
 			}
 
 		}
-		gui.showMessage("Player " + player.getName() + " pays " +  amount + "$ to the bank.");
+		gui.showMessage("Player " + player.getName() + " betaler " +  amount + "$ til banken.");
 		player.payMoney(amount);
 	}
 
@@ -731,7 +735,7 @@ public class GameController {
 		int highestBid = 0;
 		while (bidders.size() > 1) {
 			Player bidder = bidders.remove(0);
-			int bid = gui.getUserInteger(bidder.getName() + " What do you want to bid? Current bid: " + highestBid);
+			int bid = gui.getUserInteger(bidder.getName() + " Hvad vil du byde? Det højeste byd er: " + highestBid);
 			if (bid > highestBid && bid <= bidder.getBalance()) {
 				highestBid = bid;
 				bidders.add(bidder);
@@ -746,7 +750,7 @@ public class GameController {
 		property.setOwner(bidders.get(0));
 
 
-		gui.showMessage(property.getName()+" was bought on auction by "+bidders.get(0).getName() +" for "+ highestBid);
+		gui.showMessage(property.getName()+" var købt på auktion af "+bidders.get(0).getName() +" for "+ highestBid);
 	}
 
 	/**
@@ -776,8 +780,8 @@ public class GameController {
 			game.returnCardToDeck(brokePlayer.getOwnedCards().get(0));
 		}
 
-		gui.showMessage("Player " + brokePlayer.getName() + "went broke and transfered all"
-				+ "assets to " + benificiary.getName());
+		gui.showMessage("Player " + brokePlayer.getName() + "gik fallit og overførte alle"
+				+ "aktiver til " + benificiary.getName());
 	}
 
 	/**
@@ -801,7 +805,7 @@ public class GameController {
 		}
 		player.removeAllProperties();
 
-		gui.showMessage("Player " + player.getName() + " went broke");
+		gui.showMessage("Player " + player.getName() + " gik fallit");
 
 		while (!player.getOwnedCards().isEmpty()) {
 			game.returnCardToDeck(player.getOwnedCards().get(0));

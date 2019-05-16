@@ -28,7 +28,9 @@ public class MiniMonopoly {
 	 * that the players are not created here, and the chance cards
 	 * are not shuffled here.
 	 *
-	 * @return the initial game board and (not shuffled) deck of chance cards 
+	 * @return the initial game board and (not shuffled) deck of chance cards
+	 *
+	 * @author Ida, Mads, Tim, Gustav og Magnus
 	 */
 	public static Game createGame() {
 		// Create the initial Game set up (note that, in this simple

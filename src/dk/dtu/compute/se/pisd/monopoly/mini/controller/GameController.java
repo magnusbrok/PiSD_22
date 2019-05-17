@@ -436,7 +436,7 @@ public class GameController {
 	 * Method is called in houseOffer for each owned realEstae a player has at the end of his turn.
 	 * @param realEstate The realEstate in question. Used to get the owner and the group ID
 	 * @return True if the player can buy houses on the realEstate, and false if not
-	 * @author Magnus
+	 * @author Magnus and Tim
 	 */
 	private boolean canBuyHouse(RealEstate realEstate) {
 		int neededProperties = 0;

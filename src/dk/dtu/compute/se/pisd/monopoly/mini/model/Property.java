@@ -10,8 +10,8 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 /**
  * A property which is a space that can be owned by a player.
  *
- * @author original Ekkart Kindler, ekki@dtu.dk
- * ediitet by Group C
+ * @author Ekkart Kindler, ekki@dtu.dk
+ *
  */
 public class Property extends Space {
 

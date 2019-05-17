@@ -28,7 +28,7 @@ import java.util.List;
  * of this game controller.
  *
  * @author Original Ekkart Kindler, ekki@dtu.dk
- * @author edited by
+ * @author edited by Everyone.
  */
 public class GameController {
 

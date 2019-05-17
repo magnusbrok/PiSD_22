@@ -16,10 +16,11 @@ import java.util.List;
 
 /**
  * Main class for setting up and running a (Mini-)Monoploy game.
- * Has the method to create the spaces on the gameboard, and some other things
- * that are permanent for each game.
+ * Has the method to create the things that are permanent for each game.
+ * These are things lake all the spaces, cards and the different colors for players
+ * and RealEstates.
  * @author original Ekkart Kindler, ekki@dtu.dk
- * ediitet by Group C
+ * @author Editet by Everyone
  */
 public class MiniMonopoly {
 	
@@ -27,17 +28,11 @@ public class MiniMonopoly {
 	 * Creates the initial static situation of a Monopoly game. Note
 	 * that the players are not created here, and the chance cards
 	 * are not shuffled here.
-	 *
 	 * @return the initial game board and (not shuffled) deck of chance cards
-	 *
 	 * @author Ida, Mads, Tim, Gustav og Magnus
 	 */
 	public static Game createGame() {
-		// Create the initial Game set up (note that, in this simple
-		// setup, we use only 11 spaces). Note also that this setup
-		// could actually be loaded from a file or database instead
-		// of creating it programmatically. This will be discussed
-		// later in this course.
+
 		Game game = new Game();
 
 		List<Color> pColor = new ArrayList<>();	// Color list for players
@@ -327,8 +322,8 @@ public class MiniMonopoly {
 
 	/**
 	 * The main method which creates a game, shuffles the chance
-	 * cards. Make game either starts creating players or loads a previous game
-	 * if wanted. Then initializes GUI and plays the game
+	 * cards. makeGame either starts creating players or loads a previous game
+	 * if wanted. Then initializes GUI and plays the game. Play method continues until a winner is found.
 	 * @param args not used
 	 */
 	public static void main(String[] args) {
@@ -336,20 +331,8 @@ public class MiniMonopoly {
 		game.shuffleCardDeck();
 
 		GameController controller = new GameController(game);
-		controller.makeGame(); //USE default game if you only want 3 players
+		controller.makeGame();
 		controller.initializeGUI();
-
-		Player testP = game.getPlayers().get(2);
-		RealEstate test1 = (RealEstate)game.getSpaces().get(1);
-		RealEstate test2 = (RealEstate)game.getSpaces().get(3);
-		testP.addOwnedProperty(test1);
-		testP.addOwnedProperty(test2);
-		test1.setOwner(testP);
-		test2.setOwner(testP);
-		test1.setHouses(5);
-		test2.setHouses(5);
-
 		controller.play();
-
 		}
 	}

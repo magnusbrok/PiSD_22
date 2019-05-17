@@ -10,6 +10,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test of the methods related to players
+ * @author Siff
+ */
 class PlayerTest {
 
     @Test

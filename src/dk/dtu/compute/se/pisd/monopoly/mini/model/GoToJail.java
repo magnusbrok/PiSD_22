@@ -5,9 +5,9 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.GameEndedException;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.PlayerBrokeException;
 
 /**
+ * Class for the GoToJail space in the Game
  * @author Ida - s185041
  */
-
 public class GoToJail extends Space {
 
     @Override

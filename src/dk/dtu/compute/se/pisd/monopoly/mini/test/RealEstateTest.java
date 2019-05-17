@@ -5,9 +5,13 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test of methods relating to RealEstate class.
+ * @author Magnus
+ */
 public class RealEstateTest {
-    RealEstate testRealEstate = new RealEstate(100,1000, 150);
-    Player testPlayer = new Player();
+    private RealEstate testRealEstate = new RealEstate(100,1000, 150);
+    private Player testPlayer = new Player();
 
     @Test
     void computeRent() {

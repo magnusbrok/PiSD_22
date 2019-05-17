@@ -21,25 +21,14 @@ import java.util.List;
  * activities of the game, should be implemented by referring
  * to the basic actions and activities in this class.
  *
- * Note that this controller is far from being finished and many
- * things could be done in a much nicer and cleaner way! But, it
- * shows the general idea of how the model, view (GUI), and the
- * controller could work with each other, and how different parts
- * of the game's activities can be separated from each other, so
- * that different parts can be added and extended independently
- * from each other.
- *
- * For fully implementing the game, it will probably be necessary
- * to add more of these basic actions in this class.
- *
  * The <code>doAction()</code> methods of the
  * {@link dk.dtu.compute.se.pisd.monopoly.mini.model.Space} and
  * the {@link dk.dtu.compute.se.pisd.monopoly.mini.model.Card}
  * can be implemented based on the basic actions and activities
  * of this game controller.
  *
- * @author Ekkart Kindler, ekki@dtu.dk
- *
+ * @author Original Ekkart Kindler, ekki@dtu.dk
+ * @author edited by
  */
 public class GameController {
 
@@ -57,7 +46,6 @@ public class GameController {
 
 	/**
 	 * Constructor for a controller of a game.
-	 *
 	 * @param game the game
 	 */
 	public GameController(Game game) {
@@ -71,16 +59,15 @@ public class GameController {
 	 * This method will initialize the GUI. It should be called after
 	 * the players of the game are created. As of now, the initialization
 	 * assumes that the spaces of the game fit to the fields of the GUI;
-	 * this could eventually be changed, by creating the GUI fields
-	 * based on the underlying game's spaces (fields).
 	 */
 	public void initializeGUI() {
 		this.view = new View(game, gui);
 	}
 
 	/**
-	 * method called in main to start creating a game. Ask through the GUI if the player wants
-	 * to make a new game or load one. Either calls loadGame method or makePlayers method.
+	 * First method to interact with the user. Either loads a game from the database or directs to other sub methods
+	 * depending on if the players want a default game with 3 unnamed players, or make a a new game with custom playernames.
+	 * @author Magnus
 	 */
 	public void makeGame () {
 
@@ -112,13 +99,17 @@ public class GameController {
 			makePlayers();
 		}
 		if (selection == "DEFAULT GAME"){
-// Til test af spillet hvor man ikke gidder lave spillere osv.
+
 			makeDefaultGame();
 
 		}
 	}
 
-
+	/**
+	 * Method to create the default game.
+	 * Mostly used for testing purposes or to start a quick game.
+	 * @author Magnus and Tim
+	 */
 	public void makeDefaultGame() {
 		Player p = new Player();
 		p.setPlayerID(1);
@@ -145,7 +136,8 @@ public class GameController {
 	/**
 	 * The basic method for making each player in the game. Only happens if the player wants to start a fresh game.
 	 * Ask how many are playing with the min and max number of players. Then creates each player with defualt ID's and colors
-	 * Name is collected via the GUI.
+	 * Names are collected via the GUI.
+	 * @author Magnus and Tim
 	 */
 	public void makePlayers() {
 		int minPlayers = 3;
@@ -171,7 +163,8 @@ public class GameController {
 	/**
 	 * The main method to start the game. The game is started with the
 	 * current player of the game; this makes it possible to resume a
-	 * game at any point.
+	 * game at any point. The method handles the entire flow of the game, and is the last method to be called in our main.
+	 * @author Magnus
 	 */
 	public void play() {
 		List<Player> players = game.getPlayers();
@@ -202,7 +195,6 @@ public class GameController {
 					terminated = true;
 				}
 			}
-			//TODO INSERT "houseOffer" method here instead. (Asks everyone instead of just one player). /TMJ
 
 			// Check whether we have a winner
 			Player winner = null;
@@ -227,8 +219,6 @@ public class GameController {
 						"Alle spillere er gået fallit.");
 				break;
 			}
-			// TODO offer all players the options to trade etc.
-
 
 			current = (current + 1) % players.size();
 			game.setCurrentPlayer(players.get(current));
@@ -257,10 +247,8 @@ public class GameController {
 					}
 					else terminated = true;
 				}
-
 			}
 		}
-
 		dispose();
 	}
 
@@ -273,6 +261,7 @@ public class GameController {
 	 *
 	 * @param player the player making the move
 	 * @throws PlayerBrokeException if the player goes broke during the move
+	 * @author Magnus and Ida.
 	 */
 	public void makeMove(Player player) throws PlayerBrokeException, GameEndedException {
 
@@ -314,8 +303,8 @@ public class GameController {
 	}
 
 	/**
-	 * Method to start a trade between 2 players. The method handles a the purchause of a property from another player.
-	 * The purchause can be payed with cash, property exchange, or both at the same time.
+	 * Method to start a trade between 2 players. The method handles a the purchase of a property from another player.
+	 * The purchase can be payed with cash, property exchange, or both at the same time.
 	 * @param buyingPlayer the player starting the trade.
 	 * @author Magnus
 	 */
@@ -404,11 +393,11 @@ public class GameController {
 	/**
 	 * Used at the end of each turn to ask players if they want to buy a house for any of their realEstates
 	 * loops through all owned properties. Only asks if the player has any realEstate
-	 * @author Everyone
 	 * @param player the player currently playing
+	 * @author Everyone
 	 */
 	public void houseOffer(Player player) {
-		// TODO : add so that you must build simetricly
+
 		String selection;
 
 		for (Property property : player.getOwnedProperties()){
@@ -443,10 +432,11 @@ public class GameController {
 	}
 
 	/**
-	 * Checks how many realEstates are in a specific Group, and then checks if the player owns all the requireded properties
+	 * Checks how many realEstates are in a specific Group, and then checks if the player owns all the required properties
 	 * Method is called in houseOffer for each owned realEstae a player has at the end of his turn.
 	 * @param realEstate The realEstate in question. Used to get the owner and the group ID
-	 * @return True you the player can buy houses on the realEstate, and false if not
+	 * @return True if the player can buy houses on the realEstate, and false if not
+	 * @author Magnus
 	 */
 	private boolean canBuyHouse(RealEstate realEstate) {
 		int neededProperties = 0;
@@ -476,6 +466,7 @@ public class GameController {
 	 * @param player the moved player
 	 * @param space the space to which the player moves
 	 * @throws PlayerBrokeException when the player goes broke doing the action on that space
+	 * @author edited Magnus and Ida
 	 */
 	public void moveToSpace(Player player, Space space) throws PlayerBrokeException, GameEndedException {
 		int posOld = player.getCurrentPosition().getIndex();
@@ -498,13 +489,11 @@ public class GameController {
 
 	/**
 	 * The method implements the action of a player going directly to jail.
-	 *
 	 * @param player the player going to jail
 	 */
 	public void gotoJail(Player player)  {
 		// Field #10 is in the default game board of Monopoly the field
 		// representing the prison.
-		// TODO the 10 should not be hard coded
 		player.setCurrentPosition(game.getSpaces().get(10));
 		player.setInPrison(true);
 	}
@@ -513,7 +502,7 @@ public class GameController {
 	 * Mthod used for getting a player out of jail either by payment or by die roll
 	 * @param player the player currently in prison
 	 * @throws PlayerBrokeException if the player gets forced to buy out of prison and goes broke
-	 * @Author Magnus og Ida.
+	 * @author Magnus og Ida.
 	 */
 	public void getOutOfJail (Player player) throws PlayerBrokeException{
 		int bail = 100;
@@ -567,9 +556,8 @@ public class GameController {
 	}
 
 	/**
-	 * This method implements the action returning a drawn card or a card keep with
+	 * This method implements the action of returning a drawn card or a card keept by
 	 * the player for some time back to the bottom of the card deck.
-	 *
 	 * @param card returned card
 	 */
 	public void returnChanceCardToDeck(Card card) {
@@ -578,8 +566,7 @@ public class GameController {
 
 	/**
 	 * This method implements the activity where a player can obtain
-	 * cash by selling houses back to the bank, by mortgaging own properties,
-	 * or by selling properties to other players. This method is called, whenever
+	 * cash by selling houses back to the bank. This method is called, whenever
 	 * the player does not have enough cash available for an action. If
 	 * the player does not manage to free at least the given amount of money,
 	 * the player will be broke; this is to help the player make the right
@@ -587,12 +574,20 @@ public class GameController {
 	 *
 	 * @param player the player
 	 * @param amount the amount the player should have available after the act
+	 * @author Magnus
 	 */
 	public void obtainCash(Player player, int amount) {
-		while (player.getBalance() < amount) {
+		int timesSoldHouses  = 0;
+
+		while (player.getBalance() <= amount && timesSoldHouses <= 5) {
 			for (Property property : player.getOwnedProperties()) {
-				if (property instanceof RealEstate) ((RealEstate) property).sellHouse();
+				if (property instanceof RealEstate) {
+					if (((RealEstate) property).getHouses() > 1) {
+						((RealEstate) property).sellHouse();
+					}
+				}
 			}
+			timesSoldHouses++;
 		}
 	}
 
@@ -604,12 +599,10 @@ public class GameController {
 	 *
 	 * @param property the property to be sold
 	 * @param player the player the property is offered to
-	 * @throws PlayerBrokeException when the player chooses to buy but could not afford it
+	 * @throws PlayerBrokeException when the player chooses to buy but could not afford it.
+	 * @author Everyone.
 	 */
-	public void offerToBuy(Property property, Player player) throws PlayerBrokeException, GameEndedException {
-		// TODO We might also allow the player to obtainCash before
-		// the actual offer, to see whether he can free enough cash
-		// for the sale.
+	public void offerToBuy(Property property, Player player) throws PlayerBrokeException {
 
 		String choice = gui.getUserSelection(
 				"Player " + player.getName() +
@@ -650,7 +643,6 @@ public class GameController {
 			}
 			return;
 		}
-
 		// In case the player does not buy the property,
 		// an auction is started
 		auction(property);
@@ -716,13 +708,14 @@ public class GameController {
 	}
 
 	/**
-	 * This method implements the activity of auctioning a property.
-	 *
+	 * This method implements the activity of auctioning a property. Works by making a list of all the players, and
+	 * removing the first player of the list. If the player makes and acceptable bid he is added to the back of the list.
+	 * method keeps looting until only 1 player is left, and he the gets the property.
 	 * @param property the property which is for auction
+	 * @Author Magnus og Siff
 	 */
 	public void auction(Property property) {
-		// TODO gør det så at det er den næste spiller i rækken der byder først. exp player 2 afviser at købe en grund
-		// så bliver det spiller 3 der byder først så player 1 osv.
+
 		List<Player> bidders = new ArrayList<Player>();
 		for (Player player : game.getPlayers()){
 			if (!player.isBroke()) {
@@ -763,10 +756,6 @@ public class GameController {
 		brokePlayer.setBalance(0);
 		brokePlayer.setBroke(true);
 
-		// TODO We assume here, that the broke player has already sold all his houses! But, if
-		// not, we could make sure at this point that all houses are removed from
-		// properties (properties with houses on are not supposed to be transferred, neither
-		// in a trade between players, nor when  player goes broke to another player)
 		for (Property property: brokePlayer.getOwnedProperties()) {
 			property.setOwner(benificiary);
 			benificiary.addOwnedProperty(property);
@@ -790,8 +779,6 @@ public class GameController {
 
 		player.setBalance(0);
 		player.setBroke(true);
-
-		// TODO we also need to remove the mortgage from the properties
 
 		for (Property property: player.getOwnedProperties()) {
 			property.setOwner(null);

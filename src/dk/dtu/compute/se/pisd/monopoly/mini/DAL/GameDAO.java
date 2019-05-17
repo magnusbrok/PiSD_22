@@ -18,6 +18,7 @@ import java.util.List;
  * @author Magnus and Siff
  */
 public class GameDAO implements IGameDAO {
+
     private final String Port = ":";
     private final String dbAdress = "jdbc:mysql://ec2-52-30-211-3.eu-west-1.compute.amazonaws.com"+ Port + "/";
     private final String dbUser = "s185037";
@@ -27,6 +28,7 @@ public class GameDAO implements IGameDAO {
      * Method for connecting to the database, is called in most sub methods.
      * @return returns the active connection.
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     private Connection createConnection() throws DALException {
         try {
@@ -43,6 +45,7 @@ public class GameDAO implements IGameDAO {
      * and then saves them in our 3 database tables.
      * @param game the current game that needs to be saved.
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     @Override
     public void createGame(Game game) throws DALException {
@@ -102,6 +105,7 @@ public class GameDAO implements IGameDAO {
      * @param game the game that wants to be saved.
      * @return returns true if method worked as intented.
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     @Override
     public boolean updateGame(Game game) throws DALException {
@@ -116,10 +120,11 @@ public class GameDAO implements IGameDAO {
     }
 
     /**
-     * method called for loading a game uses sub method makePlayer and makeProperty from resultset.
+     * method called for loading a game uses sub method makePlayer and makeProperty via resultset.
      * @param game The game that needs to be loaded
      * @return the loaded game
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     @Override
     public boolean loadGame(Game game) throws DALException{
@@ -165,8 +170,9 @@ public class GameDAO implements IGameDAO {
 
     /**
      * Removes a game from the database bases on the gameID. Removes data from all 3 tables
-     * @param game the game that needs to be removed.
+     * @param game the game that needs  /(to be removed.
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     @Override
     public void deleteGame(Game game) throws DALException {
@@ -186,6 +192,7 @@ public class GameDAO implements IGameDAO {
      * Used for showing user which games are availible to load.
      * @return returns a List of gameIds (int)
      * @throws DALException handles errors with DAL.
+     * @author Magnus and Siff
      */
     @Override
     public List<Integer> getGameIds() throws DALException {
@@ -209,6 +216,7 @@ public class GameDAO implements IGameDAO {
      * Submethod for making each player collected via a resultset.
      * @param resultSet the resultset collected from loadGame method
      * @param game the Game that need changing.
+     * @author Magnus and Siff
      */
     private void makePlayerFromResultSet(ResultSet resultSet, Game game){
 
@@ -233,6 +241,7 @@ public class GameDAO implements IGameDAO {
      * Submethod for making each property collected via a resultset.
      * @param resultSet the resultset collected from loadGame method
      * @param game the Game that need changing.
+     * @author Magnus and Siff
      */
     private void makePropertyFromResultSet(ResultSet resultSet, Game game){
         try{

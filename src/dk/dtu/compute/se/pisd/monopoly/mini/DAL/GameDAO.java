@@ -5,6 +5,8 @@ import dk.dtu.compute.se.pisd.monopoly.mini.model.Player;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Property;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.Space;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.exceptions.DALException;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Brewery;
+import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.Ferry;
 import dk.dtu.compute.se.pisd.monopoly.mini.model.properties.RealEstate;
 
 import java.awt.*;
@@ -248,14 +250,19 @@ public class GameDAO implements IGameDAO {
             Property property = (Property) game.getSpaces().get(resultSet.getInt("pr_ID"));
             Player player = game.getPlayers().get(resultSet.getInt("pl_ID")-1);
 
+            property.setOwner(player);
+            player.addOwnedProperty(property);
             if (property instanceof RealEstate) {
                 RealEstate realEstate = (RealEstate) property;
-                realEstate.setOwner(player);
-                player.addOwnedProperty(realEstate);
                 realEstate.setHouses(resultSet.getInt("houses"));
-            } else {
-                property.setOwner(player);
-                player.addOwnedProperty(property);
+            }
+            if (property instanceof Ferry) {
+                Ferry ferry = (Ferry) property;
+                ferry.computeRent(ferry);
+            }
+            if (property instanceof Brewery) {
+                Brewery brewery = (Brewery) property;
+                brewery.computeMultiplier(brewery);
             }
 
         }catch (SQLException e){

@@ -111,6 +111,7 @@ public class RealEstate extends Property{
 
         public void setHouses(int houses) {
                 this.houses = houses;
+                computeRent(this);
                 notifyChange();
         }
 

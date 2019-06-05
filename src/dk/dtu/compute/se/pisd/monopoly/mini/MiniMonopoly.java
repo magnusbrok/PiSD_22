@@ -320,6 +320,59 @@ public class MiniMonopoly {
 		return game;
 	}
 
+	private void makeDemoGame() {
+/**
+		Player p1 = game.getCurrentPlayer();
+		Player p2 = game.getPlayers().get(1);
+		Player p3 = game.getPlayers().get(2);
+		Player p4 = game.getPlayers().get(3);
+		Player p5 = game.getPlayers().get(4);
+		Player p6 = game.getPlayers().get(5);
+
+		p1.addOwnedProperty((Property)game.getSpaces().get(1));
+		((Property)game.getSpaces().get(1)).setOwner(p1);
+		p1.addOwnedProperty((Property)game.getSpaces().get(3));
+		((Property)game.getSpaces().get(3)).setOwner(p1);
+
+		p2.addOwnedProperty(((Property)game.getSpaces().get(6)));
+		((Property)game.getSpaces().get(6)).setOwner(p2);
+		p2.addOwnedProperty((Property)game.getSpaces().get(8));
+		((Property)game.getSpaces().get(8)).setOwner(p2);
+		p2.addOwnedProperty((Property)game.getSpaces().get(9));
+		((Property)game.getSpaces().get(9)).setOwner(p2);
+
+		p3.addOwnedProperty((Property)game.getSpaces().get(5));
+		((Property)game.getSpaces().get(5)).setOwner(p3);
+		p3.addOwnedProperty((Property)game.getSpaces().get(15));
+		((Property)game.getSpaces().get(15)).setOwner(p3);
+		p3.addOwnedProperty((Property)game.getSpaces().get(25));
+		((Property)game.getSpaces().get(25)).setOwner(p3);
+		p3.addOwnedProperty((Property)game.getSpaces().get(35));
+		((Property)game.getSpaces().get(35)).setOwner(p3);
+		for (Property p: p3.getOwnedProperties()){
+			if (p instanceof Ferry) {
+				((Ferry) p).computeRent((Ferry)p);
+			}
+		}
+		p4.addOwnedProperty(((Property)game.getSpaces().get(11)));
+		((Property)game.getSpaces().get(11)).setOwner(p4);
+		p4.addOwnedProperty(((Property)game.getSpaces().get(13)));
+		((Property)game.getSpaces().get(13)).setOwner(p4);
+		p4.addOwnedProperty(((Property)game.getSpaces().get(14)));
+		((Property)game.getSpaces().get(14)).setOwner(p4);
+
+		p5.setInPrison(true);
+		p5.setCurrentPosition(game.getSpaces().get(10));
+
+		p6.addOwnedProperty((Property)game.getSpaces().get(39));
+		((Property)game.getSpaces().get(39)).setOwner(p6);
+		p6.addOwnedProperty((Property)game.getSpaces().get(37));
+		((Property)game.getSpaces().get(37)).setOwner(p6);
+
+
+**/
+	}
+
 	/**
 	 * The main method which creates a game, shuffles the chance
 	 * cards. makeGame either starts creating players or loads a previous game
